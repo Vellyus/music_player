@@ -46,11 +46,11 @@ const now = new Date;
 const thisYear = now.getFullYear();
 const startingTime = new Date(`January 1, ${thisYear} 00:00:00`);
 
-const month = 11;
-const date = 1;
+// const month = 11;
+// const date = 1;
 
-// const month = now.getMonth();
-// const date = now.getDate();
+const month = now.getMonth();
+const date = now.getDate();
 
 
 const stratingTimeMS = startingTime.getTime();
