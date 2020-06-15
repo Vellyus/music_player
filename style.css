@@ -91,13 +91,31 @@ button {
   }
 
   iframe {
-    width: 359.984px;
-    height: 201.984px;
+    width: 431.9808px;
+    height: 242.3808px;
     }
 }
 
 @media(min-width: 57.7125em) {
+  main {
+    max-width: 55%;
+    margin: auto;
+  }
+
+  iframe {
+    width: 539.976px;
+    height: 302.976px;
+  }
 }
 
 @media(min-width: 84.6em) {
+  main {
+    max-width: 40%;
+    margin: auto;
   }
+
+  iframe {
+    width: 719.968px;
+    height: 403.968px;
+    }
+}
