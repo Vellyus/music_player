@@ -71,5 +71,8 @@ iframe.src = urlToEmbed(listInUse[numberOfSong].link);
 for (let i = 0; i < specialSongs.length; i++) {
   if (month === specialSongs[i].month && date === specialSongs[i].date){
     iframe.src = urlToEmbed(specialSongs[i].link);
+    let message = document.querySelector(".message");
+    message.innerText = specialSongs[i].message;
+    message.style.visibility = "visible";
   }
 }
