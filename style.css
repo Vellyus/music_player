@@ -14,18 +14,20 @@ h1 {
   margin-top: 0.5em;
 }
 
-main {
-  margin-left: 1em;
-  margin-right: 1em;
-}
-
 iframe {
   padding-top: 3.5em;
   margin: auto;
   display: inline-block;
+  width: 323.9856px;
+  height: 181.7856px;
+}
+
+/*
+original dimensions:
   width: 359.984px;
   height: 201.984px;
-}
+
+*/
 
 .message {
   margin-top: 3em;
@@ -47,7 +49,7 @@ button {
 }
 
 .songInQue {
-  max-width: 100%;
+  max-width: 95%;
   height: 5em;
   background: white;
   color: black;
@@ -86,9 +88,8 @@ button {
 
 
 @media(min-width: 42.3em) {
-  main {
+  .songInQue {
     max-width: 70%;
-    margin: auto;
   }
 
   iframe {
@@ -98,9 +99,8 @@ button {
 }
 
 @media(min-width: 57.7125em) {
-  main {
+  .songInQue {
     max-width: 55%;
-    margin: auto;
   }
 
   iframe {
@@ -110,9 +110,8 @@ button {
 }
 
 @media(min-width: 84.6em) {
-  main {
+  .songInQue {
     max-width: 40%;
-    margin: auto;
   }
 
   iframe {
