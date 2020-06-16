@@ -68,11 +68,18 @@ const iframe = document.querySelector("iframe");
 
 iframe.src = urlToEmbed(listInUse[numberOfSong].link);
 
+document.querySelector(".title").innerText = listInUse[numberOfSong].title;
+document.querySelector(".artist").innerText = listInUse[numberOfSong].artist;
+
 for (let i = 0; i < specialSongs.length; i++) {
-  if (month === specialSongs[i].month && date === specialSongs[i].date){
+  if (month === specialSongs[i].month && date === specialSongs[i].date) {
     iframe.src = urlToEmbed(specialSongs[i].link);
     let message = document.querySelector(".message");
     message.innerText = specialSongs[i].message;
     message.style.visibility = "visible";
+
+    document.querySelector(".title").innerText = specialSongs[i].title;
+    document.querySelector(".artist").innerText = specialSongs[i].artist;
   }
 }
+
