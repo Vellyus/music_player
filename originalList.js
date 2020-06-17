@@ -5174,8 +5174,15 @@ const originalList =
       artist: "Sonic Syndicate",
       title: "Only Inhuman",
       link: "https://www.youtube.com/watch?v=mTAC1HdoTIE",
-    }
+    },
 
+    {
+      number: 737,
+      artist: "Danzig",
+      title: "Mother",
+      link: "https://www.youtube.com/watch?v=jesc3yvZSws",
+    }
+    
   ]
 
 const specialSongs = [
