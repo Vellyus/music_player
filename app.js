@@ -7,9 +7,13 @@ DONE create playlist
 DONE play the song of the day (Randomization - notes on my phone!)
 DONE create a new randomized list each year (like the start-now -> same solution)
 DONE add messages for special dates
-- get the special date messages on screen
-- make the UI pretty and responsive
+DONE get the special date messages on screen
+DONE make the UI responsive
+- The PlayList:
+       - when addToPlaylist button is pressed create a list element with the song info
+       - when the song in the iframe ends play the first element in the list
 - create patreon for full list
+- make the UI pretty
 - upload everything to the GitHub repo
 
 link to GitHub Pages: https://vellyus.github.io/music_player/
@@ -83,3 +87,101 @@ for (let i = 0; i < specialSongs.length; i++) {
   }
 }
 
+
+// Get video info from url
+
+function checkStatus(response) {
+  if (response.ok) {
+    return Promise.resolve(response);
+  } else {
+    return Promise.reject(new Error(response.statusText));
+  }
+}
+
+function fetchData(url) {
+  return fetch(url)
+    .then(checkStatus)
+    .then(res => res.json())
+    .catch(error => console.log('Looks like there was a problem!', error))
+}
+
+function urlToID(input) {
+  let re = /https:\/\/www.youtube.com\/watch\?v=/g;
+  return input.replace(re, "");
+}
+
+function convertDuration(input) {
+
+  function minusPT(input) {
+    let re = /PT/g;
+    return input.replace(re, "");
+  }
+
+  let duration = minusPT(input);
+  const reMin = /M\d+S/g;
+  const reSec = /\d+M|S/g;
+  const minutes = parseInt(duration.replace(reMin, ""));
+  const seconds = parseInt(duration.replace(reSec, ""));
+  duration = minutes * 60 + seconds;
+
+  return duration;
+}
+
+async function getTitle(url) {
+  let id = urlToID(url);
+  let api_key = "AIzaSyDKzm-HyJV8s1Z8XloM67M5EkzmTtUBl_E";
+  let api_url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=" + id + "&key=" + api_key;
+
+  const data = await fetchData(api_url);
+  video.title = data.items[0].snippet.title;
+}
+
+async function getDuration(url) {
+  let id = urlToID(url);
+  let api_key = "AIzaSyDKzm-HyJV8s1Z8XloM67M5EkzmTtUBl_E";
+  let api_url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=" + id + "&key=" + api_key;
+
+  const data = await fetchData(api_url);
+  video.duration = convertDuration(data.items[0].contentDetails.duration);
+}
+
+class Video {
+  constructor(url) {
+    this.url = url;
+    this.id = urlToID(this.url)
+    this.title = getTitle(this.url);
+    this.duration = getDuration(this.url);
+  }
+}
+
+let video = new Video("https://www.youtube.com/watch?v=jesc3yvZSws");
+console.log(video);
+
+// Do this to detect when the player finishes
+
+// https://stackoverflow.com/questions/7853904/how-to-detect-when-a-youtube-video-finishes-playing
+
+var player;
+function onYouTubePlayerAPIReady() {
+    player = new YT.Player('player', {
+      // width: '640',
+      // height: '390',
+      videoId: '0Bmhjf0rKe8',
+      events: {
+        onReady: onPlayerReady,
+        onStateChange: onPlayerStateChange
+      }
+    });
+}
+
+// autoplay video
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
+
+// when video ends
+function onPlayerStateChange(event) {        
+    if(event.data === 0) {          
+        alert('done');
+    }
+}
