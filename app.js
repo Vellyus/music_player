@@ -155,7 +155,7 @@ async function getDuration(url) {
   let api_url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=" + id + "&key=" + api_key;
 
   const data = await fetchData(api_url);
-  video.duration = convertDuration(data.items[0].contentDetails.duration);
+  // video.duration = convertDuration(data.items[0].contentDetails.duration);
   duration = convertDuration(data.items[0].contentDetails.duration);
 }
 
