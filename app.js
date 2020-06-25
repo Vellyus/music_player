@@ -248,8 +248,9 @@ function stopVideo() {
 
 function playNextSong() {
   if (player.getCurrentTime() === player.getDuration()) {
-    if (playList.length === 0) {
+    if (player.getCurrentTime() === player.getDuration() && playList.length === 0) {
       player.loadVideoById(urlToID(todaysSong));
+      player.stopVideo();
     }
     player.loadVideoById(playList[0]);
     playList = playList.slice(1);
