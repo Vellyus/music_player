@@ -11,8 +11,10 @@ DONE get the special date messages on screen
 DONE make the UI responsive
 - Playlist:
     DONE if you enter a link and lick the button add it to the playlist
-    - if a song is over play the first element from the list
-    - if there are no more songs to play go back to today's song
+    DONE if a song is over play the first element from the list
+    DONE if there are no more songs to play go back to today's song
+    - Clear the interval when the playlist is empty (animal sounds)
+    - wait of both promises with promise.All when adding a song to the playlist, throw an error message if it fails
 - create patreon for full list
 - make the UI pretty
 - upload everything to the GitHub repo
@@ -21,7 +23,7 @@ link to GitHub Pages: https://vellyus.github.io/music_player/
 
 PROJECT NAME: moonlit-conduit-280617
 APP NAME: moonlit-conduit
-API KEY: AIzaSyDKzm-HyJV8s1Z8XloM67M5EkzmTtUBl_E
+API KEY: AIzaSyDZlS3XRm3Uw5Wa8YFPgTT3cMQqkTPo5Zw
 API CLIENT ID: 688278274189-rvosqpj4gfatp0c3sie6g333o4s75kv2.apps.googleusercontent.com
 API CLIENT SECRET: vv1LuueEwRRU8jkBKUijJsPB
 */
@@ -49,6 +51,7 @@ console.log(newList);
 // }, -> shift+enter }, shift+enter
 
 */
+
 
 
 
@@ -138,7 +141,7 @@ function convertDuration(input) {
 
 async function getTitle(url) {
   let id = urlToID(url);
-  let api_key = "AIzaSyDKzm-HyJV8s1Z8XloM67M5EkzmTtUBl_E";
+  let api_key = "AIzaSyDZlS3XRm3Uw5Wa8YFPgTT3cMQqkTPo5Zw";
   let api_url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=" + id + "&key=" + api_key;
 
   const data = await fetchData(api_url);
@@ -168,6 +171,10 @@ class Video {
 let video = new Video("https://www.youtube.com/watch?v=nYdw-CAP9U8");
 
 async function addToPlaylist() {
+
+  await getDuration(video.url);
+  await getTitle(video.url);
+
   const input = document.querySelector('input');
   video = new Video(input.value);
   
@@ -178,15 +185,13 @@ async function addToPlaylist() {
   const newSongData = document.createElement('div');
   newSongInQue.appendChild(newSongData);
   newSongData.className = "songData";
-
+  
 
   let songTitle = document.createElement("p");
-  await getTitle(video.url);
   songTitle.innerText = title;
   newSongData.appendChild(songTitle);
 
   let songDuration = document.createElement("p");
-  await getDuration(video.url);
   songDuration.innerText = duration;
   newSongData.appendChild(songDuration);
 
