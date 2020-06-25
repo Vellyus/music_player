@@ -9,15 +9,21 @@ DONE create a new randomized list each year (like the start-now -> same solution
 DONE add messages for special dates
 DONE get the special date messages on screen
 DONE make the UI responsive
-- The PlayList:
-       - when addToPlaylist button is pressed create a list element with the song info
-       - when the song in the iframe ends play the first element in the list
+- Playlist:
+    DONE if you enter a link and lick the button add it to the playlist
+    - if a song is over play the first element from the list
+    - if there are no more songs to play go back to today's song
 - create patreon for full list
 - make the UI pretty
 - upload everything to the GitHub repo
 
 link to GitHub Pages: https://vellyus.github.io/music_player/
 
+PROJECT NAME: moonlit-conduit-280617
+APP NAME: moonlit-conduit
+API KEY: AIzaSyDKzm-HyJV8s1Z8XloM67M5EkzmTtUBl_E
+API CLIENT ID: 688278274189-rvosqpj4gfatp0c3sie6g333o4s75kv2.apps.googleusercontent.com
+API CLIENT SECRET: vv1LuueEwRRU8jkBKUijJsPB
 */
 
 /* DO THIS AT EVERY NEW YEAR !!!
@@ -45,6 +51,7 @@ console.log(newList);
 */
 
 
+
 const now = new Date;
 const thisYear = now.getFullYear();
 const startingTime = new Date(`January 1, ${thisYear} 00:00:00`);
@@ -68,9 +75,8 @@ function urlToEmbed(input) {
   return input.replace(re, "embed/");
 }
 
-const iframe = document.querySelector("iframe");
-
-iframe.src = urlToEmbed(listInUse[numberOfSong].link);
+const iframe = document.querySelector("#player");
+const todaysSong = listInUse[numberOfSong].link;
 
 document.querySelector(".title").innerText = listInUse[numberOfSong].title;
 document.querySelector(".artist").innerText = listInUse[numberOfSong].artist;
@@ -89,6 +95,9 @@ for (let i = 0; i < specialSongs.length; i++) {
 
 
 // Get video info from url
+
+let title;
+let duration;
 
 function checkStatus(response) {
   if (response.ok) {
@@ -133,7 +142,8 @@ async function getTitle(url) {
   let api_url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=" + id + "&key=" + api_key;
 
   const data = await fetchData(api_url);
-  video.title = data.items[0].snippet.title;
+  // video.title = data.items[0].snippet.title;
+  title = data.items[0].snippet.title;
 }
 
 async function getDuration(url) {
@@ -143,23 +153,58 @@ async function getDuration(url) {
 
   const data = await fetchData(api_url);
   video.duration = convertDuration(data.items[0].contentDetails.duration);
+  duration = convertDuration(data.items[0].contentDetails.duration);
 }
 
 class Video {
   constructor(url) {
     this.url = url;
     this.id = urlToID(this.url)
-    this.title = getTitle(this.url);
-    this.duration = getDuration(this.url);
+    // this.title = getTitle(this.url);
+    // this.duration = getDuration(this.url);
   }
 }
 
-let video = new Video("https://www.youtube.com/watch?v=jesc3yvZSws");
-console.log(video);
+let video = new Video("https://www.youtube.com/watch?v=nYdw-CAP9U8");
 
-// Do this to detect when the player finishes
+async function addToPlaylist() {
+  const input = document.querySelector('input');
+  video = new Video(input.value);
+  
+  const newSongInQue = document.createElement('div');
+  document.querySelector('main').appendChild(newSongInQue);
+  newSongInQue.className = "songInQue";
 
-// https://stackoverflow.com/questions/7853904/how-to-detect-when-a-youtube-video-finishes-playing
+  const newSongData = document.createElement('div');
+  newSongInQue.appendChild(newSongData);
+  newSongData.className = "songData";
+
+
+  let songTitle = document.createElement("p");
+  await getTitle(video.url);
+  songTitle.innerText = title;
+  newSongData.appendChild(songTitle);
+
+  let songDuration = document.createElement("p");
+  await getDuration(video.url);
+  songDuration.innerText = duration;
+  newSongData.appendChild(songDuration);
+
+  playList.push(urlToID(input.value));
+  input.value = "";
+
+}
+
+const addButton = document.querySelector('.addButton');
+addButton.addEventListener('click', addToPlaylist);
+
+
+
+
+let playList = [];
+
+
+// PLAYER
 
 var tag = document.createElement('script');
 
@@ -174,7 +219,7 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
     width: '640',
-    videoId: 'M7lc1UVf-VE',
+    videoId: urlToID(todaysSong),
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
@@ -192,11 +237,34 @@ function onPlayerReady(event) {
 //    the player should play for six seconds and then stop.
 var done = false;
 function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING && !done) {
-    setTimeout(stopVideo, 6000);
-    done = true;
-  }
+  // if (event.data == !YT.PlayerState.PLAYING && !done) {
+  //   setTimeout(stopVideo, 6000);
+  //   done = true;
+  // }
 }
 function stopVideo() {
   player.stopVideo();
 }
+
+function playNextSong() {
+  if (player.getCurrentTime() === player.getDuration()) {
+    player.loadVideoById(playList[0]);
+    playList = playList.slice(1);
+  } 
+}
+
+
+setInterval(playNextSong, 2000);
+
+
+
+if (player.getCurrentTime() == player.getDuration()) {
+  player.loadVideoById("KAgHj2y_TDk");
+}
+
+// Player Operations:
+// https://developers.google.com/youtube/iframe_api_reference#Operations
+
+
+
+// https://stackoverflow.com/questions/7853904/how-to-detect-when-a-youtube-video-finishes-playing
