@@ -151,7 +151,7 @@ async function getTitle(url) {
 
 async function getDuration(url) {
   let id = urlToID(url);
-  let api_key = "AIzaSyDKzm-HyJV8s1Z8XloM67M5EkzmTtUBl_E";
+  let api_key = "AIzaSyDZlS3XRm3Uw5Wa8YFPgTT3cMQqkTPo5Zw";
   let api_url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=" + id + "&key=" + api_key;
 
   const data = await fetchData(api_url);
