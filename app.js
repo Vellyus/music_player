@@ -139,16 +139,19 @@ function convertDuration(input) {
   return duration;
 }
 
-async function getTitle(url) {
+async function getInfo(url) {
   let id = urlToID(url);
   let api_key = "AIzaSyDZlS3XRm3Uw5Wa8YFPgTT3cMQqkTPo5Zw";
   let api_url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=" + id + "&key=" + api_key;
 
   const data = await fetchData(api_url);
+  console.log(data);
   // video.title = data.items[0].snippet.title;
   title = data.items[0].snippet.title;
-}
+  duration = convertDuration(data.items[0].contentDetails.duration);
 
+}
+/*
 async function getDuration(url) {
   let id = urlToID(url);
   let api_key = "AIzaSyDZlS3XRm3Uw5Wa8YFPgTT3cMQqkTPo5Zw";
@@ -158,7 +161,7 @@ async function getDuration(url) {
   // video.duration = convertDuration(data.items[0].contentDetails.duration);
   duration = convertDuration(data.items[0].contentDetails.duration);
 }
-
+*/
 class Video {
   constructor(url) {
     this.url = url;
@@ -172,8 +175,8 @@ let video = new Video("https://www.youtube.com/watch?v=nYdw-CAP9U8");
 
 async function addToPlaylist() {
 
-  await getDuration(video.url);
-  await getTitle(video.url);
+  // await getDuration(video.url);
+  await getInfo(video.url);
 
   const input = document.querySelector('input');
   video = new Video(input.value);
