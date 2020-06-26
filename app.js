@@ -9,28 +9,27 @@ DONE create a new randomized list each year (like the start-now -> same solution
 DONE add messages for special dates
 DONE get the special date messages on screen
 DONE make the UI responsive
-- Playlist:
+ Playlist:
     DONE if you enter a link and lick the button add it to the playlist
     DONE if a song is over play the first element from the list
     DONE if there are no more songs to play go back to today's song
     DONE  delete the list elements that are finished playing
     DONE Clear the interval when the playlist is empty (animal sounds)
     DONE wait of both promises with promise.All when adding a song to the playlist, throw an error message if it fails
-    - check for valid links???
     DONE cut down everything after the id (lists)
     https://www.youtube.com/watch?v=6A-IoOEPbUs&list=RD6A-IoOEPbUs&start_radio=1
-- add buttons for navigation or try drag & drop
+  - add buttons for navigation or try drag & drop
 - create patreon for full list
 - make the UI pretty
 - upload everything to the GitHub repo
 
 
-FOR GETTING AROUND THE 403 ERROR
+DONE FOR GETTING AROUND THE 403 ERROR
 
-  - Make a second video player and hide it + stop the playing
-  - Get the data from that second player:
-      - Title: player.getVideoData().title
-      - Duration player.getDuration()
+  DONE Make a second video player and hide it + stop the playing
+  DONE Get the data from that second player:
+      DONE Title: player.getVideoData().title
+      DONE Duration player.getDuration()
 
 
 
@@ -78,7 +77,7 @@ console.log(newList);
 
 const now = new Date;
 const thisYear = now.getFullYear();
-const startingTime = new Date(`January 1, ${thisYear} 00:00:00`);
+const startingTime = new Date(`January 1, ${thisYear} 01:00:00`);
 
 // const month = 11;
 // const date = 1;
