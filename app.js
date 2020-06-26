@@ -345,6 +345,7 @@ document.querySelector('#invisiblePlayer').style.display = "none";
 
 
 
+
 function playNextSong() {
   if (player.getCurrentTime() === player.getDuration()) {
     if (player.getCurrentTime() === player.getDuration() && playList.length === 0) {
@@ -359,7 +360,7 @@ function playNextSong() {
 }
 
 
-myTimer = setInterval(playNextSong, 2000);
+myTimer = setInterval(playNextSong, 1000);
 
 
 // Player Operations:
