@@ -54,7 +54,6 @@ console.log(newList);
 
 
 
-
 const now = new Date;
 const thisYear = now.getFullYear();
 const startingTime = new Date(`January 1, ${thisYear} 00:00:00`);
@@ -171,15 +170,13 @@ class Video {
   }
 }
 
-let video = new Video("https://www.youtube.com/watch?v=nYdw-CAP9U8");
-
 async function addToPlaylist() {
-
-  // await getDuration(video.url);
-  await getInfo(video.url);
 
   const input = document.querySelector('input');
   video = new Video(input.value);
+
+  // await getDuration(video.url);
+  await getInfo(video.url);
   
   const newSongInQue = document.createElement('div');
   document.querySelector('main').appendChild(newSongInQue);
