@@ -337,6 +337,7 @@ function stopVideo() {
 
 
 document.querySelector('#invisiblePlayer').style.display = "none";
+invisiblePlayer.mute();
 
 
 
