@@ -311,7 +311,7 @@ function onYouTubeIframeAPIReady() {
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
-    }
+    },
   });
 
 }
@@ -319,6 +319,8 @@ function onYouTubeIframeAPIReady() {
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
   event.target.playVideo();
+  invisiblePlayer.mute();
+
 }
 
 // 5. The API calls this function when the player's state changes.
@@ -337,7 +339,6 @@ function stopVideo() {
 
 
 document.querySelector('#invisiblePlayer').style.display = "none";
-invisiblePlayer.mute();
 
 
 
