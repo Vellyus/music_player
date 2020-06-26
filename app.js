@@ -13,15 +13,27 @@ DONE make the UI responsive
     DONE if you enter a link and lick the button add it to the playlist
     DONE if a song is over play the first element from the list
     DONE if there are no more songs to play go back to today's song
-    -  delete the list elements that are finished playing
+    DONE  delete the list elements that are finished playing
     DONE Clear the interval when the playlist is empty (animal sounds)
     DONE wait of both promises with promise.All when adding a song to the playlist, throw an error message if it fails
     - check for valid links???
     DONE cut down everything after the id (lists)
     https://www.youtube.com/watch?v=6A-IoOEPbUs&list=RD6A-IoOEPbUs&start_radio=1
+- add buttons for navigation or try drag & drop
 - create patreon for full list
 - make the UI pretty
 - upload everything to the GitHub repo
+
+
+FOR GETTING AROUND THE 403 ERROR
+
+  - Make a second video player and hide it + stop the playing
+  - Get the data from that second player:
+      - Title: player.getVideoData().title
+      - Duration player.getDuration()
+
+
+
 
 link to GitHub Pages: https://vellyus.github.io/music_player/
 
@@ -58,6 +70,9 @@ console.log(newList);
 // }, -> shift+enter }, shift+enter
 
 */
+
+
+
 
 
 
@@ -107,6 +122,7 @@ for (let i = 0; i < specialSongs.length; i++) {
 
 let title;
 let duration;
+let video = {};
 
 function checkStatus(response) {
   if (response.ok) {
@@ -177,21 +193,62 @@ class Video {
   constructor(url) {
     this.url = url;
     this.id = urlToID2(urlToID(this.url));
-    // this.title = getTitle(this.url);
-    // this.duration = getDuration(this.url);
+    this.title = invisiblePlayer.getVideoData().title;
+    this.duration = invisiblePlayer.getDuration();
   }
+
 }
 
-async function addToPlaylist() {
+// async function addToPlaylist() {
 
 
-  try {
+//   try {
+//     const input = document.querySelector('input');
+//     video = new Video(input.value);
+
+//     // await getDuration(video.url);
+//     await getInfo(video.url);
+    
+//     const newSongInQue = document.createElement('div');
+//     document.querySelector('main').appendChild(newSongInQue);
+//     newSongInQue.className = "songInQue";
+
+//     const newSongData = document.createElement('div');
+//     newSongInQue.appendChild(newSongData);
+//     newSongData.className = "songData";
+    
+
+//     let songTitle = document.createElement("p");
+//     songTitle.innerText = title;
+//     newSongData.appendChild(songTitle);
+
+//     let songDuration = document.createElement("p");
+//     songDuration.innerText = `Duration: ${duration}s`;
+//     newSongData.appendChild(songDuration);
+
+//     playList.push(urlToID2(urlToID(input.value)));
+//     input.value = "";
+//   } catch (e) {
+//     alert("Coulnd't get the data from the server. Please try again later... :/");
+
+//   }
+
+// }
+
+function addToPlaylist() {
+
+
     const input = document.querySelector('input');
+
+    invisiblePlayer.loadVideoById(urlToID2(urlToID(input.value)));
+    invisiblePlayer.mute();
+
+    setTimeout(meh, 1000);
+
+
+    function meh() {
     video = new Video(input.value);
 
-    // await getDuration(video.url);
-    await getInfo(video.url);
-    
     const newSongInQue = document.createElement('div');
     document.querySelector('main').appendChild(newSongInQue);
     newSongInQue.className = "songInQue";
@@ -202,21 +259,19 @@ async function addToPlaylist() {
     
 
     let songTitle = document.createElement("p");
-    songTitle.innerText = title;
+    songTitle.innerText = video.title;
     newSongData.appendChild(songTitle);
 
     let songDuration = document.createElement("p");
-    songDuration.innerText = `Duration: ${duration}s`;
+    songDuration.innerText = `Duration: ${video.duration}s`;
     newSongData.appendChild(songDuration);
 
     playList.push(urlToID2(urlToID(input.value)));
     input.value = "";
-  } catch (e) {
-    alert("Coulnd't get the data from the server. Please try again later... :/");
-
-  }
-
+    }
 }
+
+
 
 const addButton = document.querySelector('.addButton');
 addButton.addEventListener('click', addToPlaylist);
@@ -227,7 +282,7 @@ addButton.addEventListener('click', addToPlaylist);
 let playList = [];
 
 
-// PLAYER
+// INVISIBLE PLAYER
 
 var tag = document.createElement('script');
 
@@ -238,6 +293,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
 var player;
+var invisiblePlayer;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
@@ -248,6 +304,16 @@ function onYouTubeIframeAPIReady() {
       'onStateChange': onPlayerStateChange
     }
   });
+  invisiblePlayer = new YT.Player('invisiblePlayer', {
+    height: '390',
+    width: '640',
+    videoId: urlToID2(urlToID(todaysSong)),
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+
 }
 
 // 4. The API will call this function when the video player is ready.
@@ -270,6 +336,8 @@ function stopVideo() {
 }
 
 
+document.querySelector('#invisiblePlayer').style.display = "none";
+
 
 
 
@@ -291,11 +359,6 @@ function playNextSong() {
 
 myTimer = setInterval(playNextSong, 2000);
 
-
-
-if (player.getCurrentTime() == player.getDuration()) {
-  player.loadVideoById("KAgHj2y_TDk");
-}
 
 // Player Operations:
 // https://developers.google.com/youtube/iframe_api_reference#Operations
