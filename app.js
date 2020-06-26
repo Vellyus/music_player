@@ -13,13 +13,20 @@ DONE make the UI responsive
     DONE if you enter a link and lick the button add it to the playlist
     DONE if a song is over play the first element from the list
     DONE if there are no more songs to play go back to today's song
-    - Clear the interval when the playlist is empty (animal sounds)
-    - wait of both promises with promise.All when adding a song to the playlist, throw an error message if it fails
+    -  delete the list elements that are finished playing
+    DONE Clear the interval when the playlist is empty (animal sounds)
+    DONE wait of both promises with promise.All when adding a song to the playlist, throw an error message if it fails
+    - check for valid links???
+    DONE cut down everything after the id (lists)
+    https://www.youtube.com/watch?v=6A-IoOEPbUs&list=RD6A-IoOEPbUs&start_radio=1
 - create patreon for full list
 - make the UI pretty
 - upload everything to the GitHub repo
 
 link to GitHub Pages: https://vellyus.github.io/music_player/
+
+Wallpaper? :
+https://www.pexels.com/hu-hu/foto/4k-hatterkep-elektromos-gitar-fa-fokusz-1266821/
 
 PROJECT NAME: moonlit-conduit-280617
 APP NAME: moonlit-conduit
@@ -121,6 +128,11 @@ function urlToID(input) {
   return input.replace(re, "");
 }
 
+function urlToID2(input) {
+  let re = /&.+/g;
+  return input.replace(re, "");
+}
+
 function convertDuration(input) {
 
   function minusPT(input) {
@@ -139,7 +151,7 @@ function convertDuration(input) {
 }
 
 async function getInfo(url) {
-  let id = urlToID(url);
+  let id = urlToID2(urlToID(url));
   let api_key = "AIzaSyDZlS3XRm3Uw5Wa8YFPgTT3cMQqkTPo5Zw";
   let api_url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=" + id + "&key=" + api_key;
 
@@ -164,7 +176,7 @@ async function getDuration(url) {
 class Video {
   constructor(url) {
     this.url = url;
-    this.id = urlToID(this.url)
+    this.id = urlToID2(urlToID(this.url));
     // this.title = getTitle(this.url);
     // this.duration = getDuration(this.url);
   }
@@ -172,31 +184,37 @@ class Video {
 
 async function addToPlaylist() {
 
-  const input = document.querySelector('input');
-  video = new Video(input.value);
 
-  // await getDuration(video.url);
-  await getInfo(video.url);
-  
-  const newSongInQue = document.createElement('div');
-  document.querySelector('main').appendChild(newSongInQue);
-  newSongInQue.className = "songInQue";
+  try {
+    const input = document.querySelector('input');
+    video = new Video(input.value);
 
-  const newSongData = document.createElement('div');
-  newSongInQue.appendChild(newSongData);
-  newSongData.className = "songData";
-  
+    // await getDuration(video.url);
+    await getInfo(video.url);
+    
+    const newSongInQue = document.createElement('div');
+    document.querySelector('main').appendChild(newSongInQue);
+    newSongInQue.className = "songInQue";
 
-  let songTitle = document.createElement("p");
-  songTitle.innerText = title;
-  newSongData.appendChild(songTitle);
+    const newSongData = document.createElement('div');
+    newSongInQue.appendChild(newSongData);
+    newSongData.className = "songData";
+    
 
-  let songDuration = document.createElement("p");
-  songDuration.innerText = duration;
-  newSongData.appendChild(songDuration);
+    let songTitle = document.createElement("p");
+    songTitle.innerText = title;
+    newSongData.appendChild(songTitle);
 
-  playList.push(urlToID(input.value));
-  input.value = "";
+    let songDuration = document.createElement("p");
+    songDuration.innerText = `Duration: ${duration}s`;
+    newSongData.appendChild(songDuration);
+
+    playList.push(urlToID2(urlToID(input.value)));
+    input.value = "";
+  } catch (e) {
+    alert("Coulnd't get the data from the server. Please try again later... :/");
+
+  }
 
 }
 
@@ -224,7 +242,7 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
     width: '640',
-    videoId: urlToID(todaysSong),
+    videoId: urlToID2(urlToID(todaysSong)),
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
@@ -251,19 +269,27 @@ function stopVideo() {
   player.stopVideo();
 }
 
+
+
+
+
+
+
 function playNextSong() {
   if (player.getCurrentTime() === player.getDuration()) {
     if (player.getCurrentTime() === player.getDuration() && playList.length === 0) {
-      player.loadVideoById(urlToID(todaysSong));
+      player.loadVideoById(urlToID2(urlToID(todaysSong)));
       player.stopVideo();
+      clearInterval(myTimer);
     }
     player.loadVideoById(playList[0]);
     playList = playList.slice(1);
+    document.querySelector('.songInQue').remove();
   } 
 }
 
 
-setInterval(playNextSong, 2000);
+myTimer = setInterval(playNextSong, 2000);
 
 
 
