@@ -138,13 +138,14 @@ function fetchData(url) {
     .catch(error => console.log('Looks like there was a problem!', error))
 }
 
+
 function urlToID(input) {
-  let re = /https:\/\/www.youtube.com\/watch\?v=/g;
+  let re = /https:\/\/www.youtube.com\/watch\?v=|https:\/\/youtu.be\//g;
   return input.replace(re, "");
 }
 
 function urlToID2(input) {
-  let re = /&.+/g;
+  let re = /&.+|\?.+/g;
   return input.replace(re, "");
 }
 
