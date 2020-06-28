@@ -239,37 +239,75 @@ class Video {
 function addToPlaylist() {
 
 
+    // const input = document.querySelector('input');
+
+    // invisiblePlayer.loadVideoById(urlToID2(urlToID(input.value)));
+    // invisiblePlayer.mute();
+
+    // setTimeout(meh, 5000);
+
+
+    // function meh() {
+    // video = new Video(input.value);
+
+    // const newSongInQue = document.createElement('div');
+    // document.querySelector('main').appendChild(newSongInQue);
+    // newSongInQue.className = "songInQue";
+
+    // const newSongData = document.createElement('div');
+    // newSongInQue.appendChild(newSongData);
+    // newSongData.className = "songData";
+    
+
+    // let songTitle = document.createElement("p");
+    // songTitle.innerText = video.title;
+    // newSongData.appendChild(songTitle);
+
+    // let songDuration = document.createElement("p");
+    // songDuration.innerText = `Duration: ${video.duration}s`;
+    // newSongData.appendChild(songDuration);
+
+    // playList.push(urlToID2(urlToID(input.value)));
+    // input.value = "";
+    // }
+
     const input = document.querySelector('input');
 
     invisiblePlayer.loadVideoById(urlToID2(urlToID(input.value)));
     invisiblePlayer.mute();
 
-    setTimeout(meh, 5000);
+    video = new Video(input.value);
+
+    myTimer2 = setInterval(meh, 1000);
 
 
     function meh() {
-    video = new Video(input.value);
 
-    const newSongInQue = document.createElement('div');
-    document.querySelector('main').appendChild(newSongInQue);
-    newSongInQue.className = "songInQue";
-
-    const newSongData = document.createElement('div');
-    newSongInQue.appendChild(newSongData);
-    newSongData.className = "songData";
-    
-
-    let songTitle = document.createElement("p");
-    songTitle.innerText = video.title;
-    newSongData.appendChild(songTitle);
-
-    let songDuration = document.createElement("p");
-    songDuration.innerText = `Duration: ${video.duration}s`;
-    newSongData.appendChild(songDuration);
-
-    playList.push(urlToID2(urlToID(input.value)));
-    input.value = "";
+    if (invisiblePlayer.getCurrentTime() < 0) {
+      const newSongInQue = document.createElement('div');
+      document.querySelector('main').appendChild(newSongInQue);
+      newSongInQue.className = "songInQue";
+  
+      const newSongData = document.createElement('div');
+      newSongInQue.appendChild(newSongData);
+      newSongData.className = "songData";
+      
+  
+      let songTitle = document.createElement("p");
+      songTitle.innerText = video.title;
+      newSongData.appendChild(songTitle);
+  
+      let songDuration = document.createElement("p");
+      songDuration.innerText = `Duration: ${video.duration}s`;
+      newSongData.appendChild(songDuration);
+  
+      playList.push(urlToID2(urlToID(input.value)));
+      input.value = "";
+      }
+  
     }
+    clearInterval(myTimer2);    
+
 }
 
 
