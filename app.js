@@ -389,7 +389,7 @@ document.querySelector('#invisiblePlayer').style.display = "none";
 
 function playNextSong() {
     if (player.getCurrentTime() === player.getDuration()) {
-      if (player.getCurrentTime() === player.getDuration() && playList.length === 0) {
+      if ((player.getCurrentTime() === player.getDuration()) && playList.length === 0) {
         player.loadVideoById(urlToID2(urlToID(todaysSong)));
         player.stopVideo();
         clearInterval(myTimer);
