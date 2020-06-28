@@ -244,7 +244,7 @@ function addToPlaylist() {
     invisiblePlayer.loadVideoById(urlToID2(urlToID(input.value)));
     invisiblePlayer.mute();
 
-    setTimeout(meh, 2000);
+    setTimeout(meh, 5000);
 
 
     function meh() {
