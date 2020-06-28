@@ -401,7 +401,7 @@ function playNextSong() {
 }
 
 
-let myTimer = setInterval(playNextSong, 2000);
+let myTimer = setInterval(playNextSong, 5000);
 
 
 // Player Operations:
