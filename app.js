@@ -389,11 +389,11 @@ document.querySelector('#invisiblePlayer').style.display = "none";
 
 function playNextSong() {
     if (player.getCurrentTime() === player.getDuration()) {
-      if ((player.getCurrentTime() === player.getDuration()) && playList.length === 0) {
-        player.loadVideoById(urlToID2(urlToID(todaysSong)));
-        player.stopVideo();
-        clearInterval(myTimer);
-      }
+      // if ((player.getCurrentTime() === player.getDuration()) && playList.length === 0) {
+      //   player.loadVideoById(urlToID2(urlToID(todaysSong)));
+      //   player.stopVideo();
+      //   clearInterval(myTimer);
+      // }
       player.loadVideoById(playList[0]);
       playList = playList.slice(1);
       document.querySelector('.songInQue').remove();
@@ -401,7 +401,7 @@ function playNextSong() {
 }
 
 
-let myTimer = setInterval(playNextSong, 1000);
+let myTimer = setInterval(playNextSong, 2000);
 
 
 // Player Operations:
