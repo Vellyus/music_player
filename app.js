@@ -398,12 +398,12 @@ function playNextSong() {
       player.loadVideoById(playList[0]);
       playList = playList.slice(1);
       document.querySelector('.songInQue').remove();
-      myTimer = setInterval(playNextSong, 5000);
+      myTimer = setInterval(playNextSong, 10000);
     }
 }
 
 
-let myTimer = setInterval(playNextSong, 5000);
+let myTimer = setInterval(playNextSong, 10000);
 
 
 // Player Operations:
