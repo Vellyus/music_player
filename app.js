@@ -394,14 +394,16 @@ function playNextSong() {
       //   player.stopVideo();
       //   clearInterval(myTimer);
       // }
+      clearInterval(myTimer);
       player.loadVideoById(playList[0]);
       playList = playList.slice(1);
       document.querySelector('.songInQue').remove();
+      let myTimer = setInterval(playNextSong, 2000);
     }
 }
 
 
-let myTimer = setInterval(playNextSong, 5000);
+let myTimer = setInterval(playNextSong, 2000);
 
 
 // Player Operations:
