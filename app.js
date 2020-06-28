@@ -388,15 +388,17 @@ document.querySelector('#invisiblePlayer').style.display = "none";
 
 
 function playNextSong() {
-  if (player.getCurrentTime() === player.getDuration()) {
-    // if (Math.ceil(player.getCurrentTime()) === Math.ceil(player.getDuration()) && playList.length === 0) {
-    //   player.loadVideoById(urlToID2(urlToID(todaysSong)));
-    //   player.stopVideo();
-    //   clearInterval(myTimer);
-    // }
-    player.loadVideoById(playList[0]);
-    playList = playList.slice(1);
-    document.querySelector('.songInQue').remove();
+  if (player.getCurrentTime != 0) {
+    if (player.getCurrentTime() === player.getDuration()) {
+      // if (Math.ceil(player.getCurrentTime()) === Math.ceil(player.getDuration()) && playList.length === 0) {
+      //   player.loadVideoById(urlToID2(urlToID(todaysSong)));
+      //   player.stopVideo();
+      //   clearInterval(myTimer);
+      // }
+      player.loadVideoById(playList[0]);
+      playList = playList.slice(1);
+      document.querySelector('.songInQue').remove();
+    }
   }
 }
 
