@@ -388,7 +388,6 @@ document.querySelector('#invisiblePlayer').style.display = "none";
 
 
 function playNextSong() {
-  if (player.getCurrentTime > 0) {
     if (Math.ceil(player.getCurrentTime()) === Math.ceil(player.getDuration())) {
       if (Math.ceil(player.getCurrentTime()) === Math.ceil(player.getDuration()) && playList.length === 0) {
         player.loadVideoById(urlToID2(urlToID(todaysSong)));
@@ -399,7 +398,6 @@ function playNextSong() {
       playList = playList.slice(1);
       document.querySelector('.songInQue').remove();
     }
-  }
 }
 
 
