@@ -273,6 +273,12 @@ class Video {
 //     }
 // }
 
+function muteInvisiblePlayer() {
+  invisiblePlayer.mute();
+  setTimeout(clearInterval, 10000, myTimer3);
+}
+
+
 
 function addToPlaylist() {
 
@@ -280,7 +286,7 @@ function addToPlaylist() {
   const input = document.querySelector('input');
 
   invisiblePlayer.loadVideoById(urlToID2(urlToID(input.value)));
-  invisiblePlayer.mute();
+  myTimer3 = setInterval(muteInvisiblePlayer, 200);
 
   let myTimer2 = setInterval(meh, 1000);
 
@@ -403,11 +409,6 @@ function playNextSong() {
     }
 }
 
-function muteInvisiblePlayer() {
-  invisiblePlayer.mute();
-  console.log("meh2");
-  setTimeout(clearInterval, 10000, myTimer3);
-}
 
 let myTimer3 = setInterval(muteInvisiblePlayer, 200);
 
