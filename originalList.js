@@ -5251,4 +5251,17 @@ const specialSongs = [
 
 ]
 
+function compare(a, b) {
+  const bandA = a.number;
+  const bandB = b.number;
 
+  let comparison = 0;
+  if (bandA > bandB) {
+    comparison = 1;
+  } else if (bandA < bandB) {
+    comparison = -1;
+  }
+  return comparison;
+}
+
+console.log(listInUse.sort(compare));

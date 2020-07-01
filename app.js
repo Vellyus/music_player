@@ -18,10 +18,11 @@ DONE make the UI responsive
     DONE wait of both promises with promise.All when adding a song to the playlist, throw an error message if it fails
     DONE cut down everything after the id (lists)
     https://www.youtube.com/watch?v=6A-IoOEPbUs&list=RD6A-IoOEPbUs&start_radio=1
-    - make the links to work on mobile too
+    DONE make the links to work on mobile too
     - add buttons for navigation or try drag & drop
-- create patreon for full list
+    https://shopify.github.io/draggable/examples/simple-list.html
 - make the UI pretty
+- create patreon for full list
 - upload everything to the GitHub repo
 
 
@@ -402,6 +403,13 @@ function playNextSong() {
     }
 }
 
+function muteInvisiblePlayer() {
+  invisiblePlayer.mute();
+  console.log("meh2");
+  setTimeout(clearInterval, 10000, myTimer3);
+}
+
+let myTimer3 = setInterval(muteInvisiblePlayer, 200);
 
 let myTimer = setInterval(playNextSong, 10000);
 
