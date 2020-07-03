@@ -142,19 +142,19 @@ function fetchData(url) {
 
 
 function urlToID(input) {
-  let re = /https:\/\/www.youtube.com\/watch\?v=|https:\/\/youtu.be\//g;
+  let re = /https:\/\/www.youtube.com\/watch\?v=|https:\/\/youtu.be\/|https:\/\/m.youtube.com\/watch\?v=/g;
   return input.replace(re, "");
 }
 
 function urlToID2(input) {
-  let re = /&.+|\?.+/g;
+  let re = /&.+|\?list.+/g;
   return input.replace(re, "");
 }
 
 /* CONVERT DURATION
 DONE Take off everything after the dot (the dot too)
-- /60 til the solution is an integer, than original - solution * 60 + left sec
-- Just like at the hex converter
+DONE /60 til the solution is an integer, than original - solution * 60 + left sec
+- Do hours too, add it only if the video is longer than an hour
 */
 function convertDuration(input) {
   let duration = parseInt(input);
@@ -175,8 +175,6 @@ function convertDuration(input) {
 
   return `${minutes}:${seconds}`;
 }
-
-
 
 
 /*
