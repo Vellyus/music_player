@@ -168,8 +168,8 @@ function convertDuration(input) {
       break;
     }
 
-    hours = i+1;
-    duration = duration - 3600 * (i+1);
+    hours = i;
+    duration = duration - 3600 * i;
 
   }
 
