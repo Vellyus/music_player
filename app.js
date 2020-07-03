@@ -155,6 +155,7 @@ function urlToID2(input) {
 DONE Take off everything after the dot (the dot too)
 DONE /60 til the solution is an integer, than original - solution * 60 + left sec
 - Do hours too, add it only if the video is longer than an hour
+- 0-Pad each section
 */
 function convertDuration(input) {
   let duration = parseInt(input);
@@ -170,6 +171,15 @@ function convertDuration(input) {
     seconds = duration - 60 * i;
     console.log(i);
   }
+
+  if (minutes < 10) {
+    minutes = "0"+ minutes.toString();
+  }
+
+  if (seconds < 10) {
+    seconds = "0"+ seconds.toString();
+  }
+
   minutes = minutes.toString();
   seconds = seconds.toString();
 
