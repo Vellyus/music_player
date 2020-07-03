@@ -174,10 +174,10 @@ function convertDuration(input) {
 
   for (let i = 1; i; i++) {
     if ((duration / (60 * i)) < 1) {
-      break;
+      minutes = i-1;
+      seconds = duration - 60 * (i-1);
+        break;
     }
-    minutes = i;
-    seconds = duration - 60 * i;
   }
 
   if (hours < 10) {
