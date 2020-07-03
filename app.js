@@ -159,31 +159,46 @@ DONE /60 til the solution is an integer, than original - solution * 60 + left se
 */
 function convertDuration(input) {
   let duration = parseInt(input);
+  let hours = 0;
   let minutes = 0;
   let seconds = 0;
+
+  for (let i = 1; i; i++) {
+    if ((duration / (3600 * i)) < 1) {
+      break;
+    }
+
+    hours = i+1;
+    duration = duration - 3600 * (i+1);
+
+  }
 
   for (let i = 1; i; i++) {
     if ((duration / (60 * i)) < 1) {
       break;
     }
-
+console.log(duration);
     minutes = i;
     seconds = duration - 60 * i;
     console.log(i);
   }
 
+  if (hours < 10) {
+    hours = "0" + hours.toString();
+  }
+
   if (minutes < 10) {
-    minutes = "0"+ minutes.toString();
+    minutes = "0" + minutes.toString();
   }
 
   if (seconds < 10) {
-    seconds = "0"+ seconds.toString();
+    seconds = "0" + seconds.toString();
   }
 
   minutes = minutes.toString();
   seconds = seconds.toString();
 
-  return `${minutes}:${seconds}`;
+  return `${hours}:${minutes}:${seconds}`;
 }
 
 
