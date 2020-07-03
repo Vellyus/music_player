@@ -79,7 +79,7 @@ console.log(newList);
 
 const now = new Date;
 const thisYear = now.getFullYear();
-const startingTime = new Date(`January 1, ${thisYear} 01:00:00`);
+const startingTime = new Date(`January 1, ${thisYear} 00:00:00 GMT+200`);
 
 // const month = 11;
 // const date = 1;
@@ -88,10 +88,10 @@ const month = now.getMonth();
 const date = now.getDate();
 
 
-const stratingTimeMS = startingTime.getTime();
+const startingTimeMs = startingTime.getTime();
 const nowMs = now.getTime();
 
-const numberOfSong = Math.floor((nowMs - stratingTimeMS) / 1000 / 60 / 60 / 24);
+const numberOfSong = Math.floor((nowMs - startingTimeMs) / 1000 / 60 / 60 / 24);
 console.log(numberOfSong);
 
 
@@ -151,6 +151,35 @@ function urlToID2(input) {
   return input.replace(re, "");
 }
 
+/* CONVERT DURATION
+DONE Take off everything after the dot (the dot too)
+- /60 til the solution is an integer, than original - solution * 60 + left sec
+- Just like at the hex converter
+*/
+function convertDuration(input) {
+  let duration = parseInt(input);
+  let minutes = 0;
+  let seconds = 0;
+
+  for (let i = 1; i; i++) {
+    if ((duration / (60 * i)) < 1) {
+      break;
+    }
+
+    minutes = i;
+    seconds = duration - 60 * i;
+    console.log(i);
+  }
+  minutes = minutes.toString();
+  seconds = seconds.toString();
+
+  return `${minutes}:${seconds}`;
+}
+
+
+
+
+/*
 function convertDuration(input) {
 
   function minusPT(input) {
@@ -180,7 +209,7 @@ async function getInfo(url) {
   duration = convertDuration(data.items[0].contentDetails.duration);
 
 }
-/*
+
 async function getDuration(url) {
   let id = urlToID(url);
   let api_key = "AIzaSyDZlS3XRm3Uw5Wa8YFPgTT3cMQqkTPo5Zw";
@@ -309,10 +338,10 @@ function addToPlaylist() {
       newSongData.appendChild(songTitle);
 
       let songDuration = document.createElement("p");
-      songDuration.innerText = `Duration: ${video.duration}s`;
+      songDuration.innerText = `Duration: ${convertDuration(video.duration)}`;
       newSongData.appendChild(songDuration);
 
-      playList.push(urlToID2(urlToID(input.value)));
+      playList.push(video);  //(urlToID2(urlToID(input.value)));
       input.value = "";
       clearInterval(myTimer2);
     }
@@ -395,18 +424,24 @@ document.querySelector('#invisiblePlayer').style.display = "none";
 
 
 function playNextSong() {
-    if (player.getCurrentTime() === player.getDuration()) {
-      // if ((player.getCurrentTime() === player.getDuration()) && playList.length === 0) {
-      //   player.loadVideoById(urlToID2(urlToID(todaysSong)));
-      //   player.stopVideo();
-      //   clearInterval(myTimer);
-      // }
-      clearInterval(myTimer);
-      player.loadVideoById(playList[0]);
-      playList = playList.slice(1);
-      document.querySelector('.songInQue').remove();
-      myTimer = setInterval(playNextSong, 10000);
-    }
+  if (player.getCurrentTime() === player.getDuration()) {
+    // if ((player.getCurrentTime() === player.getDuration()) && playList.length === 0) {
+    //   player.loadVideoById(urlToID2(urlToID(todaysSong)));
+    //   player.stopVideo();
+    //   clearInterval(myTimer);
+    // }
+    clearInterval(myTimer);
+
+    document.querySelector("h2").innerText = "Currently Playing";
+    document.querySelector(".title").innerText = playList[0].title;
+    document.querySelector(".by").style.display = "none";
+    document.querySelector(".artist").style.display = "none";
+
+    player.loadVideoById(playList[0].id);
+    playList = playList.slice(1);
+    document.querySelector('.songInQue').remove();
+    myTimer = setInterval(playNextSong, 10000);
+  }
 }
 
 
