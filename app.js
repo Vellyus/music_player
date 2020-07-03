@@ -165,11 +165,10 @@ function convertDuration(input) {
 
   for (let i = 1; i; i++) {
     if ((duration / (3600 * i)) < 1) {
+      hours = i-1;
+      duration = duration - (3600 * (i-1));
       break;
     }
-
-    hours = i;
-    duration = duration - 3600 * i;
 
   }
 
@@ -177,10 +176,8 @@ function convertDuration(input) {
     if ((duration / (60 * i)) < 1) {
       break;
     }
-console.log(duration);
     minutes = i;
     seconds = duration - 60 * i;
-    console.log(i);
   }
 
   if (hours < 10) {
