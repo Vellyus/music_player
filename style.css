@@ -63,7 +63,7 @@ button {
 }
 
 .songInQue {
-  max-width: 95%;
+  max-width: 92%;
   height: 5em;
   background: white;
   color: black;
@@ -71,13 +71,11 @@ button {
   margin-bottom: 1em;
   text-align: left;
   display: flex;
-  border-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 2px;
   border-top-right-radius: 2px;
   border-top-left-radius: 20px;
   -webkit-transform: skew(-10deg);
-
 }
 
 .songInQue:nth-child(odd) {
@@ -90,18 +88,20 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-left: 1em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .navButtons {
   position: absolute;
   bottom: 0;
-  right: 2em;
+  right: 0.5em;
 }
 
 .navButtons img {
   margin: 0.5em;
   width: 1.3em;
+  cursor: pointer;
 }
 
 .navButtons img:nth-child(3n) {
