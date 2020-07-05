@@ -108,6 +108,13 @@ button {
   width: 2em;
   vertical-align: bottom;
 }
+
+.inProgress {
+  color: red;
+  font-style: italic;
+  font-size: 1.3em;
+}
+
 /*
 .buttons {
   display: flex;
