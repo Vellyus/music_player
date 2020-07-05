@@ -19,8 +19,18 @@ DONE make the UI responsive
     DONE cut down everything after the id (lists)
     https://www.youtube.com/watch?v=6A-IoOEPbUs&list=RD6A-IoOEPbUs&start_radio=1
     DONE make the links to work on mobile too
-    - add buttons for navigation or try drag & drop
+    DONE add buttons for navigation or try drag & drop
     https://shopify.github.io/draggable/examples/simple-list.html
+    - Make the navigation also change the songList
+      DONE Remove
+      - Up
+      - Down
+
+    BETTER SOLUTION? :
+      Iterate through the DOM elements and build a new playList with the serialNr-s
+
+
+      
 - make the UI pretty
 - create patreon for full list
 - upload everything to the GitHub repo
@@ -73,6 +83,20 @@ console.log(newList);
 */
 
 
+function updatePlayList() {
+  let listUl = document.querySelectorAll(".songInQue");
+  let newPlayList = [];
+
+  for (let i = 0; i < listUl.length; i++) {
+    for (let j = 0; j < playList.length; j++) {
+      if (parseInt(listUl[i].id) === playList[j].serialNr) {
+        newPlayList.push(playList[j]);
+      }
+    }
+  }
+  playList = newPlayList;
+}
+
 
 
 
@@ -124,6 +148,7 @@ for (let i = 0; i < specialSongs.length; i++) {
 let title;
 let duration;
 let video = {};
+let serialNr = 0;
 
 function checkStatus(response) {
   if (response.ok) {
@@ -160,8 +185,8 @@ function convertDuration(input) {
 
   for (let i = 1; i; i++) {
     if ((duration / (3600 * i)) < 1) {
-      hours = i-1;
-      duration = duration - (3600 * (i-1));
+      hours = i - 1;
+      duration = duration - (3600 * (i - 1));
       break;
     }
 
@@ -169,9 +194,9 @@ function convertDuration(input) {
 
   for (let i = 1; i; i++) {
     if ((duration / (60 * i)) < 1) {
-      minutes = i-1;
-      seconds = duration - 60 * (i-1);
-        break;
+      minutes = i - 1;
+      seconds = duration - 60 * (i - 1);
+      break;
     }
   }
 
@@ -241,6 +266,7 @@ class Video {
     this.id = urlToID2(urlToID(this.url));
     this.title = invisiblePlayer.getVideoData().title;
     this.duration = invisiblePlayer.getDuration();
+    this.serialNr = serialNr;
   }
 
 }
@@ -339,8 +365,9 @@ function addToPlaylist() {
     if (invisiblePlayer.getCurrentTime() > 0) {
       video = new Video(input.value);
 
-      const newSongInQue = document.createElement('div');
-      document.querySelector('main').appendChild(newSongInQue);
+      const newSongInQue = document.createElement('li');
+      newSongInQue.setAttribute("id", serialNr);
+      document.querySelector('.songsInQue').appendChild(newSongInQue);
       newSongInQue.className = "songInQue";
 
       const newSongData = document.createElement('div');
@@ -356,7 +383,54 @@ function addToPlaylist() {
       songDuration.innerText = `Duration: ${convertDuration(video.duration)}`;
       newSongData.appendChild(songDuration);
 
+
+
+
+
+      let navButtons = document.createElement("div");
+      newSongInQue.appendChild(navButtons);
+      navButtons.setAttribute("class", "navButtons");
+
+
+      let newImgUp = document.createElement("img");
+      newImgUp.src = "assets/triangle-fill.svg";
+      newImgUp.setAttribute("class", "up");
+      // newImgUp.addEventListener("click", () => {
+      //   let temp = event.target.parentElement.parentElement.previousElementSibling.innerHTML;
+      //   event.target.parentElement.parentElement.previousElementSibling.innerHTML = event.target.parentElement.parentElement.innerHTML;
+      //   event.target.parentElement.parentElement.innerHTML = temp;
+      // })
+      navButtons.appendChild(newImgUp);
+
+      let newImgDown = document.createElement("img");
+      newImgDown.src = "assets/triangle-fill.svg";
+      newImgDown.setAttribute("class", "down");
+      newImgDown.style.transform = "rotate(180deg)";
+      // newImgDown.addEventListener("click", () => {
+      //   let temp = event.target.parentElement.parentElement.nextElementSibling;
+      //   event.target.parentElement.parentElement.nextElementSibling = event.target.parentElement.parentElement;
+      //   event.target.parentElement.parentElement = temp;
+      // })
+      navButtons.appendChild(newImgDown);
+
+
+
+      let newImgX = document.createElement("img");
+      newImgX.src = "assets/x.svg";
+      newImgX.setAttribute("class", "remove");
+      // newImgX.addEventListener("click", () => {
+      //   event.target.parentElement.parentElement.remove();
+      // })
+      navButtons.appendChild(newImgX);
+
+
+
+
+      addEventListeners();
+      updateButtons();
+
       playList.push(video);  //(urlToID2(urlToID(input.value)));
+      serialNr++;
       input.value = "";
       clearInterval(myTimer2);
     }
@@ -364,6 +438,57 @@ function addToPlaylist() {
 }
 
 
+function updateButtons() {
+  let listUl = document.querySelector(".songsInQue");
+
+  let firstListItem = listUl.firstElementChild;
+  let lastListItem = listUl.lastElementChild;
+  let liButtons = document.querySelectorAll('.navButtons img');
+  let firstUpButton = firstListItem.getElementsByClassName('up');
+  let lastDownButton = lastListItem.getElementsByClassName('down');
+
+  for (let i = 0; i < liButtons.length; i++) {
+    liButtons[i].style.visibility = 'visible';
+  }
+  firstUpButton[0].style.visibility = 'hidden';
+  lastDownButton[0].style.visibility = 'hidden';
+}
+
+function addEventListeners() {
+  let listUl = document.querySelector(".songsInQue").lastChild;
+
+  listUl.addEventListener('click', (event) => {
+    if (event.target.tagName == 'IMG') {
+      if (event.target.className == 'remove') {
+        let li = event.target.parentNode.parentNode;
+        let ul = li.parentNode;
+        ul.removeChild(li);
+        updatePlayList();
+        updateButtons();
+      }
+    }
+    if (event.target.className == 'up') {
+      let li = event.target.parentNode.parentNode;
+      let prevLi = li.previousElementSibling;
+      let ul = li.parentNode;
+      if (prevLi) {
+        ul.insertBefore(li, prevLi);
+        updatePlayList();
+        updateButtons();
+      }
+    }
+    if (event.target.className == 'down') {
+      let li = event.target.parentNode.parentNode;
+      let nextLi = li.nextElementSibling;
+      let ul = li.parentNode;
+      if (nextLi) {
+        ul.insertBefore(nextLi, li);
+        updatePlayList();
+        updateButtons();
+      }
+    }
+  }
+)};
 
 const addButton = document.querySelector('.addButton');
 addButton.addEventListener('click', addToPlaylist);

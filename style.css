@@ -71,6 +71,17 @@ button {
   margin-bottom: 1em;
   text-align: left;
   display: flex;
+  border-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 20px;
+  -webkit-transform: skew(-10deg);
+
+}
+
+.songInQue:nth-child(odd) {
+  background: red;
 }
 
 .songData {
@@ -79,10 +90,26 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-left: 1em;
 }
 
+.navButtons {
+  position: absolute;
+  bottom: 0;
+  right: 2em;
+}
+
+.navButtons img {
+  margin: 0.5em;
+  width: 1.3em;
+}
+
+.navButtons img:nth-child(3n) {
+  width: 2em;
+  vertical-align: bottom;
+}
+/*
 .buttons {
-  /* background: red; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -93,7 +120,7 @@ button {
   margin-bottom: .3em;
   margin-right: .5em;
 }
-
+*/
 .songInQue p {
   /* margin-top: .6em;
   margin-bottom: .6em; */
