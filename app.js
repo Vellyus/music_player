@@ -21,15 +21,8 @@ DONE make the UI responsive
     DONE make the links to work on mobile too
     DONE add buttons for navigation or try drag & drop
     https://shopify.github.io/draggable/examples/simple-list.html
-    - Make the navigation also change the songList
-      DONE Remove
-      - Up
-      - Down
-
-    BETTER SOLUTION? :
-      Iterate through the DOM elements and build a new playList with the serialNr-s
-
-
+    DONE Make the navigation also change the songList
+    DONE BUGFIX: player doenst play the next song if you added something after the last song was over
       
 - make the UI pretty
 - create patreon for full list
@@ -488,7 +481,8 @@ function addEventListeners() {
       }
     }
   }
-)};
+  )
+};
 
 const addButton = document.querySelector('.addButton');
 addButton.addEventListener('click', addToPlaylist);
@@ -565,25 +559,34 @@ document.querySelector('#invisiblePlayer').style.display = "none";
 
 function playNextSong() {
   if (player.getCurrentTime() === player.getDuration()) {
-    // if ((player.getCurrentTime() === player.getDuration()) && playList.length === 0) {
-    //   player.loadVideoById(urlToID2(urlToID(todaysSong)));
-    //   player.stopVideo();
-    //   clearInterval(myTimer);
-    // }
-    clearInterval(myTimer);
+    if (playList.length === 0) {
+      player.loadVideoById(urlToID2(urlToID(todaysSong)));
+      player.stopVideo();
+      document.querySelector("h2").innerText = "Today's song";
+      document.querySelector(".title").innerText = listInUse[numberOfSong].title;
+      document.querySelector(".artist").innerText = listInUse[numberOfSong].artist;
+      document.querySelector(".by").style.visibility = "visible";
+      document.querySelector(".artist").style.visibility = "visible";
 
-    document.querySelector("h2").innerText = "Currently Playing";
-    document.querySelector(".title").innerText = playList[0].title;
-    document.querySelector(".by").style.display = "none";
-    document.querySelector(".artist").style.display = "none";
+      // clearInterval(myTimer);
+    } else {
+      clearInterval(myTimer);
+      try {
+        document.querySelector("h2").innerText = "Currently Playing";
+        document.querySelector(".title").innerText = playList[0].title;
+        document.querySelector(".by").style.visibility = "hidden";
+        document.querySelector(".artist").style.visibility = "hidden";
 
-    player.loadVideoById(playList[0].id);
-    playList = playList.slice(1);
-    document.querySelector('.songInQue').remove();
-    myTimer = setInterval(playNextSong, 10000);
+        player.loadVideoById(playList[0].id);
+        playList = playList.slice(1);
+        document.querySelector('.songInQue').remove();
+        myTimer = setInterval(playNextSong, 10000);
+      } catch {
+        myTimer = setInterval(playNextSong, 10000);
+      }
+    }
   }
 }
-
 
 let myTimer3 = setInterval(muteInvisiblePlayer, 200);
 
