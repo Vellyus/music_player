@@ -24,6 +24,8 @@ DONE make the UI responsive
     DONE Make the navigation also change the songList
     DONE BUGFIX: player doenst play the next song if you added something after the last song was over
     - BUGFIX: if you dont enter a valid link (for example an empty input) the next song gets added twice
+    - Fix Duration display (it should be just like youtube)
+      0:31 / 3:58 / 3:22:08
       
 - make the UI pretty
 - create patreon for full list
