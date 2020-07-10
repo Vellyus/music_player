@@ -23,6 +23,7 @@ DONE make the UI responsive
     https://shopify.github.io/draggable/examples/simple-list.html
     DONE Make the navigation also change the songList
     DONE BUGFIX: player doenst play the next song if you added something after the last song was over
+    - BUGFIX: if you dont enter a valid link (for example an empty input) the next song gets added twice
       
 - make the UI pretty
 - create patreon for full list
