@@ -573,8 +573,8 @@ function playNextSong() {
       document.querySelector("h2").innerText = "Today's song";
       document.querySelector(".title").innerText = listInUse[numberOfSong].title;
       document.querySelector(".artist").innerText = listInUse[numberOfSong].artist;
-      document.querySelector(".by").style.visibility = "visible";
-      document.querySelector(".artist").style.visibility = "visible";
+      document.querySelector(".by").style.display = "block";
+      document.querySelector(".artist").style.display = "block";
 
       // clearInterval(myTimer);
     } else {
@@ -582,8 +582,8 @@ function playNextSong() {
       try {
         document.querySelector("h2").innerText = "Currently Playing";
         document.querySelector(".title").innerText = playList[0].title;
-        document.querySelector(".by").style.visibility = "hidden";
-        document.querySelector(".artist").style.visibility = "hidden";
+        document.querySelector(".by").style.display = "none";
+        document.querySelector(".artist").style.display = "none";
 
         player.loadVideoById(playList[0].id);
         playList = playList.slice(1);
