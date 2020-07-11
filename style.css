@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fondamento&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -6,17 +12,23 @@
 
 body {
   text-align: center;
-  background: #111;
+  /* background: white; */
+  background: #222;
   color: white;
 }
 
 h1 {
-  margin-top: 0.5em;
+  margin-top: 1em;
+  font-family: cursive;
+  font-family: 'Gloria Hallelujah', cursive;
+  text-transform: uppercase;
 }
 
 h2 {
-  margin-top: 2em;
-  margin-bottom: .5em;
+  margin-top: 1.3em;
+  margin-bottom: 1em;
+  font-family: 'Gloria Hallelujah', cursive;
+  /* text-transform: uppercase; */
 }
 
 .title,
@@ -24,21 +36,50 @@ h2 {
   font-size: 1.1em;
   opacity: 0.95;
   color: #e0e7e9;
+  margin: 0.6em;
+  font-family: 'Fondamento', cursive;
 }
 
 .by {
   font-size: 0.8em;
   opacity: 0.95;
   color: #e0e7e9;
+  font-family: 'Fondamento', cursive;
 }
 
 iframe {
   padding-top: 1em;
   margin: auto;
   display: inline-block;
+  /* width: 95%; */
+  /* height: 350px; */
   width: 323.9856px;
   height: 181.7856px;
 }
+
+#player {
+  box-sizing: content-box;
+  margin-bottom: 2em;
+  /* padding: 2em; */
+  /* border-radius: 2em; */
+  /* box-shadow: 
+  -2px -2px 14px 0 rgba(255, 255, 255, 0.2),
+  2px 2px 14px 0 rgba(0,0,0, 1); */
+  /* margin-top: 2.5em; */
+}
+
+.container {
+  margin: auto;
+  width: 340px;
+  box-sizing: content-box;
+  padding-top: 0.1em;
+  border-radius: 2em;
+  box-shadow: 
+  5px 5px 11px 2px rgba(0, 0, 0, 1),
+  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
+  margin-top: 2.5em;
+}
+
 
 /*
 original dimensions:
@@ -54,10 +95,26 @@ original dimensions:
 
 input {
   width: 20em;
-  height: 1.5em;
-  margin-top: 4em;
+  padding: .3em;
+  margin-top: 1.3em;
   text-align: center;
+  background-color: #e0e7e9;
+  color: #222;
+  border: none;
+  border-radius: 3em;
+  box-shadow: 
+  5px 5px 11px 2px rgba(0, 0, 0, 1),
+  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
 }
+
+input:focus {
+  /* box-shadow: inset #000 0 0 1px; */
+  box-shadow: 
+  5px 5px 11px 2px rgba(255, 255, 255, 0.2),
+  -3px -3px 11px 0 rgba(0, 0, 0, 1);
+  outline: none;
+}
+
 
 button {
   display: block;
@@ -67,12 +124,65 @@ button {
   padding: 0.5em;
 }
 
+/* .addButton {
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 0px 20px 6px rgba(0,0,0, 1);
+} */
+
+.addButton:hover {
+  cursor: pointer;
+}
+
+/* .addButton:focus {
+  box-shadow: inset #000 0 0 6px;
+  outline: none;
+} */
+
+.addButton {
+  margin-top: 2em;
+  background-color: #222;
+  color: #e0e7e9;
+  border: none;
+  border-radius: 3em;
+  padding: 1em;
+  box-shadow: 
+  5px 5px 11px 2px rgba(0, 0, 0, 1),
+  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
+  transition: all 0.3s ease-in-out;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.addButton:hover{
+  letter-spacing: 1px;
+  box-shadow: 
+  -9px -9px 29px 9px rgba(90, 90, 90, 0.4),
+  5px 5px 9px 9px rgba(0, 0, 0, 1);
+
+}
+
+.addButton:active {
+  box-shadow: 
+  5px 5px 11px 2px rgba(255, 255, 255, 0.2),
+  -3px -3px 11px 0 rgba(0, 0, 0, 1);
+  outline: none;
+  transition: 0.1s ease-in-out;
+}
+
+.addButton:focus {
+  outline: none;
+}
+
+
 
 .songInQue {
-  max-width: 92%;
+  /* max-width: 92%; */
+  width: 340px;
   height: 5em;
-  background: #e0e7e9;
-  color: black;
+  /* background: #e0e7e9; */
+  /* color: black; */
   margin: auto;
   margin-bottom: 1em;
   text-align: left;
@@ -82,21 +192,30 @@ button {
   border-top-right-radius: 10px;
   border-top-left-radius: 20px;
   -webkit-transform: skew(-10deg);
-  opacity: 0.95;
+    /* box-shadow: 
+    -2px -2px 14px 0 rgba(255, 255, 255, 0.2),
+    2px 2px 14px 0 rgba(0,0,0, 1); */
+    box-shadow: 
+    5px 5px 11px 2px rgba(0, 0, 0, 1),
+    -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
+    margin-top: 2.5em;
 }
 
-.songInQue:nth-child(odd) {
+/* .songInQue:nth-child(odd) {
   background: #a3c6c4;
-}
+} */
 
 .songData {
   /* background: blue; */
+  color: #e0e7e9;
+  opacity: 0.95;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   margin-left: 0.5em;
   margin-right: 0.5em;
+  font-family: 'Fondamento', cursive;
 }
 
 .navButtons {
@@ -120,6 +239,7 @@ button {
   color: red;
   font-style: italic;
   font-size: 1.3em;
+  font-family: 'Gloria Hallelujah', cursive;
 }
 
 /*
@@ -144,7 +264,12 @@ button {
 
 @media(min-width: 42.3em) {
   .songInQue {
-    max-width: 70%;
+    /* max-width: 70%; */
+    width: 500px;
+  }
+
+  .container {
+    width: 500px;
   }
 
   iframe {
@@ -155,10 +280,18 @@ button {
 
 @media(min-width: 57.7125em) {
   .songInQue {
-    max-width: 55%;
+    /* max-width: 55%; */
+    width: 600px;
+  }
+
+  .container {
+    width: 600px;
   }
 
   iframe {
+    /* width: 431.9808px;
+    height: 242.3808px; */
+
     width: 539.976px;
     height: 302.976px;
   }
@@ -166,10 +299,22 @@ button {
 
 @media(min-width: 84.6em) {
   .songInQue {
-    max-width: 40%;
+    /* max-width: 40%; */
+    width: 770px;
+  }
+
+  .container {
+    width: 770px;
   }
 
   iframe {
+
+    /* width: 485.9784px;
+    height: 272.6784px; */
+
+    /* width: 539.976px;
+    height: 302.976px; */
+
     width: 719.968px;
     height: 403.968px;
     }

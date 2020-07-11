@@ -389,7 +389,7 @@ function addToPlaylist() {
 
 
       let newImgUp = document.createElement("img");
-      newImgUp.src = "assets/triangle-fill.svg";
+      newImgUp.src = "assets/triangle-fill-light.svg";
       newImgUp.setAttribute("class", "up");
       // newImgUp.addEventListener("click", () => {
       //   let temp = event.target.parentElement.parentElement.previousElementSibling.innerHTML;
@@ -399,7 +399,7 @@ function addToPlaylist() {
       navButtons.appendChild(newImgUp);
 
       let newImgDown = document.createElement("img");
-      newImgDown.src = "assets/triangle-fill.svg";
+      newImgDown.src = "assets/triangle-fill-light.svg";
       newImgDown.setAttribute("class", "down");
       newImgDown.style.transform = "rotate(180deg)";
       // newImgDown.addEventListener("click", () => {
@@ -412,7 +412,7 @@ function addToPlaylist() {
 
 
       let newImgX = document.createElement("img");
-      newImgX.src = "assets/x.svg";
+      newImgX.src = "assets/x-light.svg";
       newImgX.setAttribute("class", "remove");
       // newImgX.addEventListener("click", () => {
       //   event.target.parentElement.parentElement.remove();
