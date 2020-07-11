@@ -28,8 +28,9 @@ DONE make the UI responsive
       0:31 / 3:58 / 3:22:08
       
 - make the UI pretty
-  - input font family?
-  - adjust font sizes
+  DONE input font family?
+  DONE adjust font sizes
+  - adjust margins
   - make light mode (with a switch?)
   
 - create patreon for full list
