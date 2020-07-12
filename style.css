@@ -48,7 +48,9 @@ h2 {
 .SongDescription {
   display: flex;
   flex-direction: column;
+  margin-top: .7em;
 }
+
 
 .title,
 .artist {
@@ -365,9 +367,6 @@ footer {
     font-size: 1.7em;
   }
 
-  .SongDescription {
-    margin-top: .7em;
-  }
 
   .title, .artist {
     font-size: 1.2em;
