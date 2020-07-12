@@ -2,8 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -51,7 +49,6 @@ h2 {
 }
 
 iframe {
-  padding-top: 1em;
   margin: auto;
   display: inline-block;
   /* width: 95%; */
@@ -61,25 +58,25 @@ iframe {
 }
 
 #player {
+  margin-top: 1em;
   box-sizing: content-box;
-  margin-bottom: 2em;
   /* padding: 2em; */
   /* border-radius: 2em; */
   /* box-shadow: 
   -2px -2px 14px 0 rgba(255, 255, 255, 0.2),
   2px 2px 14px 0 rgba(0,0,0, 1); */
   /* margin-top: 2.5em; */
+  box-shadow: 
+  5px 5px 11px 2px rgba(0, 0, 0, 1),
+  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
 }
 
 .container {
   margin: auto;
-  width: 340px;
+  width: 360px;
   box-sizing: content-box;
   padding-top: 0.1em;
   border-radius: 2em;
-  box-shadow: 
-  5px 5px 11px 2px rgba(0, 0, 0, 1),
-  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
   margin-top: 2.5em;
 }
 
@@ -92,8 +89,13 @@ original dimensions:
 */
 
 .message {
-  margin-top: 3em;
-  visibility: hidden;
+  margin-top: 2em;
+  padding-bottom: 3em;
+  display: none;
+  color: red;
+  font-style: italic;
+  font-size: 0.8em;
+  font-family: 'Fondamento', cursive;
 }
 
 input {
@@ -286,6 +288,11 @@ button {
     font-size: 0.8em;
   }
 
+  .message {
+    margin-bottom: 3em;
+    font-size: .9em;
+  }
+
   input {
     font-size: .9em;
   }
@@ -309,7 +316,10 @@ button {
   }
 
   .container {
-    width: 500px;
+    width: 520px;
+    box-shadow: 
+    5px 5px 11px 2px rgba(0, 0, 0, 1),
+    -3px -3px 11px 0 rgba(90, 90, 90, 0.4);  
   }
 
   iframe {
@@ -335,6 +345,12 @@ button {
     font-size: 0.9em;
   }
 
+  .message {
+    margin-bottom: 3em;
+    font-size: 1em;
+  }
+
+
   input {
     font-size: 1em;
   }
@@ -358,7 +374,7 @@ button {
   }
 
   .container {
-    width: 600px;
+    width: 620px;
   }
 
   iframe {
@@ -387,6 +403,11 @@ button {
     font-size: 1em;
   }
 
+  .message {
+    margin-bottom: 3em;
+    font-size: 1.1em;
+  }
+
   input {
     font-size: 1.1em;
   }
@@ -410,7 +431,7 @@ button {
   }
 
   .container {
-    width: 770px;
+    width: 790px;
   }
 
   iframe {

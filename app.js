@@ -24,16 +24,17 @@ DONE make the UI responsive
     DONE Make the navigation also change the songList
     DONE BUGFIX: player doenst play the next song if you added something after the last song was over
     - BUGFIX: if you dont enter a valid link (for example an empty input) the next song gets added twice
-    - Fix Duration display (it should be just like youtube)
+    - Fix Duration display (it should be just like on youtube)
       0:31 / 3:58 / 3:22:08
       
 - make the UI pretty
   DONE input font family?
   DONE adjust font sizes
-  - adjust margins
   - make light mode (with a switch?)
+  - special messages design (maybe red like the dev. in progress thing with the same font family???)
   
 - create patreon for full list
+- delete unused code and comments and refactor the rest
 - upload everything to the GitHub repo
 
 
@@ -106,11 +107,11 @@ const now = new Date;
 const thisYear = now.getFullYear();
 const startingTime = new Date(`January 1, ${thisYear} 00:00:00 GMT+200`);
 
-// const month = 11;
-// const date = 1;
+const month = 11;
+const date = 25;
 
-const month = now.getMonth();
-const date = now.getDate();
+// const month = now.getMonth();
+// const date = now.getDate();
 
 
 const startingTimeMs = startingTime.getTime();
@@ -135,8 +136,9 @@ for (let i = 0; i < specialSongs.length; i++) {
   if (month === specialSongs[i].month && date === specialSongs[i].date) {
     iframe.src = urlToEmbed(specialSongs[i].link);
     let message = document.querySelector(".message");
-    message.innerText = specialSongs[i].message;
-    message.style.visibility = "visible";
+    message.innerText = `- ${specialSongs[i].message} -`;
+    message.style.display = "block";
+    
 
     document.querySelector(".title").innerText = specialSongs[i].title;
     document.querySelector(".artist").innerText = specialSongs[i].artist;
