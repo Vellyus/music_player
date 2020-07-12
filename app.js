@@ -32,6 +32,8 @@ DONE make the UI responsive
   DONE adjust font sizes
   - make light mode (with a switch?)
   DONE special messages design (maybe red like the dev. in progress thing with the same font family???)
+  DONE remove the container div
+  DONE Today's Song title, by, and artist should appear in one line on bigger screens
   
 - create patreon for full list
 - delete unused code and comments and refactor the rest
