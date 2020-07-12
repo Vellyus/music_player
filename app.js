@@ -107,8 +107,8 @@ const now = new Date;
 const thisYear = now.getFullYear();
 const startingTime = new Date(`January 1, ${thisYear} 00:00:00 GMT+200`);
 
-const month = 11;
-const date = 25;
+const month = 1;
+const date = 26;
 
 // const month = now.getMonth();
 // const date = now.getDate();
@@ -136,7 +136,7 @@ for (let i = 0; i < specialSongs.length; i++) {
   if (month === specialSongs[i].month && date === specialSongs[i].date) {
     iframe.src = urlToEmbed(specialSongs[i].link);
     let message = document.querySelector(".message");
-    message.innerText = `- ${specialSongs[i].message} -`;
+    message.innerText = specialSongs[i].message;
     message.style.display = "block";
     
 

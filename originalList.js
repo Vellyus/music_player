@@ -5210,7 +5210,7 @@ const specialSongs = [
     link: "https://www.youtube.com/watch?v=faFdOj-FQjc",
     month: 11,
     date: 25,
-    message: "This is the only Christmas song I like. Merry Christmas!"
+    message: "This is the only Christmas song I like.\nMerry Christmas!"
   },
 
   {
@@ -5237,7 +5237,7 @@ const specialSongs = [
     link: "https://www.youtube.com/watch?v=v2H4l9RpkwM",
     month: 1,
     date: 26,
-    message: "Today is my birthday and this is my favourite song."
+    message: "Today is my birthday.\nAnd this is my favourite song."
   },
 
   {
