@@ -58,6 +58,7 @@ iframe {
 }
 
 #player {
+  margin-top: 1em;
   margin-bottom: 2.8em;
   box-sizing: content-box;
   /* padding: 2em; */

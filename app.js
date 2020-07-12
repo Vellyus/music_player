@@ -31,7 +31,7 @@ DONE make the UI responsive
   DONE input font family?
   DONE adjust font sizes
   - make light mode (with a switch?)
-  - special messages design (maybe red like the dev. in progress thing with the same font family???)
+  DONE special messages design (maybe red like the dev. in progress thing with the same font family???)
   
 - create patreon for full list
 - delete unused code and comments and refactor the rest
