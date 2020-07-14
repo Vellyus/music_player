@@ -13,6 +13,7 @@ body {
   background: #222;
   color: white;
   text-shadow: 3px 3px 7px rgba(0, 0, 0, 1);
+  transition: all 0.5s ease;
 }
 
 h1 {
@@ -76,15 +77,6 @@ iframe {
   -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
 }
 
-.container {
-  margin: auto;
-  width: 360px;
-  box-sizing: content-box;
-  padding-top: 0.1em;
-  border-radius: 2em;
-  margin-top: 2.5em;
-}
-
 .message {
   max-width: 92%;
   margin: auto;
@@ -97,7 +89,7 @@ iframe {
   line-height: 1.6;
 }
 
-input {
+.input {
   display: block;
   width: 20em;
   margin: auto;
@@ -116,7 +108,7 @@ input {
   transition: all 0.3s ease-in-out;
 }
 
-input:focus {
+.input:focus {
   box-shadow: 
   10px 10px 11px 2px rgba(0, 0, 0, 1),
   -6px -6px 11px 0 rgba(90, 90, 90, 0.4);
@@ -225,9 +217,175 @@ button {
   vertical-align: bottom;
 }
 
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between
+}
+
 footer {
+  background-color: #1a1a1a;
+  margin-top: 3em;
+  padding: 1em;
+  line-height: 1.6;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.fullList {
+  font-size: 1em;
+}
+
+.fullList, .checkboxContainer {
+  display: block;
+  margin: auto;
+}
+
+.fullList, .checkbox {
+  margin-top: 2em;
   margin-bottom: 2em;
 }
+
+.checkboxContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkboxContainer p {
+  opacity: 0.95;
+  color: #e0e7e9;
+  margin: 0.6em;
+  font-size: 1em;
+  font-family: 'Fondamento', cursive;
+}
+
+.checkbox {
+	display: none;
+}
+
+.label {
+	background-color: #111;
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	position: relative;
+	height: 26px;
+	width: 50px;
+  /* transform: scale(1.5); */
+  margin: auto;
+}
+
+.label .ball {
+	background-color: #fff;
+	border-radius: 50%;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	height: 22px;
+	width: 22px;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+	transform: translateX(24px);
+}
+
+/* LIGHT MODE */
+
+body.light .label {
+  background-color: #eee;
+}
+
+body.light .label .ball {
+  background-color: #1a1a1a;
+}
+
+body.light {
+  background: #eee;
+  color: black;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+body.light .inProgress {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+}
+
+body.light h2 {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+}
+
+body.light .title,
+body.light .artist {
+  color: #222;
+}
+
+body.light .by {
+  color: #222;
+}
+
+body.light #player {
+  box-shadow: 
+  7px 7px 11px 0 rgba(0, 0, 0, .8),
+  -3px -3px 11px 2px rgba(255, 255, 255, .8);
+}
+
+body.light input {
+  background-color: #eee;
+  color: #222;
+  box-shadow: 
+  7px 7px 11px 0 rgba(0, 0, 0, .8),
+  -3px -3px 11px 2px rgba(255, 255, 255, .8);
+}
+
+body.light input:focus {
+  box-shadow: 
+  10px 10px 11px 0 rgba(0, 0, 0, .8),
+  -6px -6px 11px 2px rgba(255, 255, 255, .8);
+}
+
+body.light .addButton {
+  background-color: #eee;
+  color: #222;
+  box-shadow: 
+  7px 7px 11px 0 rgba(0, 0, 0, .8),
+  -3px -3px 11px 2px rgba(255, 255, 255, .8);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
+}
+
+body.light .addButton:hover{
+  box-shadow: 
+  10px 10px 11px 0 rgba(0, 0, 0, .8),
+  -6px -6px 11px 2px rgba(255, 255, 255, .8);
+}
+
+body.light .addButton:active {
+  box-shadow: 
+  5px 5px 11px 2px rgba(255, 255, 255, 0.2),
+  -3px -3px 11px 0 rgba(0, 0, 0, 1);
+}
+
+body.light .songInQue {
+  box-shadow: 
+  5px 5px 11px 0 rgba(0, 0, 0, .8),
+  -3px -3px 11px 2px rgba(255, 255, 255, .8);
+}
+
+body.light .songData {
+  color: #222;
+}
+
+/* MEDIA QUERIES */
 
 @media(min-width: 42.3em) {
   h1 {
@@ -236,7 +394,6 @@ footer {
   }
 
   h2 {
-    margin-top: 2.8em;
     font-size: 1.6em;
   }
 
@@ -253,7 +410,7 @@ footer {
     font-size: 1em;
   }
 
-  input {
+  .input {
     font-size: .9em;
   }
 
@@ -263,6 +420,14 @@ footer {
 
   .songData {
     font-size: .9em;
+  }
+
+  .fullList {
+    font-size: 1.1em;
+  }
+
+  .checkboxContainer p {
+    font-size: 1.1em;
   }
 
   .songInQue p {
@@ -284,7 +449,7 @@ footer {
     width: 520px;
   }
 
-  iframe {
+iframe {
     width: 431.9808px;
     height: 242.3808px;
     }
@@ -297,7 +462,6 @@ footer {
   }
 
   h2 {
-    margin-top: 1.2em;
     font-size: 1.7em;
   }
 
@@ -314,7 +478,7 @@ footer {
     font-size: 1.1em;
   }
 
-  input {
+  .input {
     font-size: 1em;
   }
 
@@ -325,6 +489,15 @@ footer {
   .songData {
     font-size: 1em;
   }
+
+  .fullList {
+    font-size: 1.2em;
+  }
+
+  .checkboxContainer p {
+    font-size: 1.2em;
+  }
+
 
   .songInQue p {
     margin-left: .9em;
@@ -367,7 +540,7 @@ footer {
     font-size: 1.2em;
   }
 
-  input {
+  .input {
     font-size: 1.1em;
   }
 
@@ -378,6 +551,15 @@ footer {
   .songData {
     font-size: 1.1em;
   }
+
+  .fullList {
+    font-size: 1.3em;
+  }
+
+  .checkboxContainer p {
+    font-size: 1.3em;
+  }
+
 
   .songInQue p {
     margin-left: 1.2em;

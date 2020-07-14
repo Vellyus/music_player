@@ -86,6 +86,29 @@ console.log(newList);
 
 */
 
+const chk = document.getElementById('chk');
+
+chk.addEventListener('change', () => {
+  document.body.classList.toggle('light');
+  if (chk.checked === true) {
+    let upButtons = document.querySelectorAll('.up');
+    let downButtons = document.querySelectorAll('.down');
+    let removeButtons = document.querySelectorAll('.remove');
+    upButtons.forEach(e => e.src = "assets/triangle-fill.svg");
+    downButtons.forEach(e => e.src = "assets/triangle-fill.svg");
+    removeButtons.forEach(e => e.src = "assets/x.svg");
+  } else {
+    let upButtons = document.querySelectorAll('.up');
+    let downButtons = document.querySelectorAll('.down');
+    let removeButtons = document.querySelectorAll('.remove');
+    upButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
+    downButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
+    removeButtons.forEach(e => e.src = "assets/x-light.svg");
+
+  }
+});
+
+
 
 function updatePlayList() {
   let listUl = document.querySelectorAll(".songInQue");
@@ -140,7 +163,7 @@ for (let i = 0; i < specialSongs.length; i++) {
     let message = document.querySelector(".message");
     message.innerText = specialSongs[i].message;
     message.style.display = "block";
-    
+
 
     document.querySelector(".title").innerText = specialSongs[i].title;
     document.querySelector(".artist").innerText = specialSongs[i].artist;
