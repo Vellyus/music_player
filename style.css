@@ -37,20 +37,13 @@ h2 {
   font-family: 'Gloria Hallelujah', cursive;
   color: red;
   font-style: italic;
-  /* text-transform: uppercase; */
 }
-
-/* .playerTitle {
-  color: red;
-  font-style: italic;
-} */
 
 .SongDescription {
   display: flex;
   flex-direction: column;
   margin-top: .7em;
 }
-
 
 .title,
 .artist {
@@ -71,22 +64,13 @@ h2 {
 iframe {
   margin: auto;
   display: inline-block;
-  /* width: 95%; */
-  /* height: 350px; */
   width: 323.9856px;
   height: 181.7856px;
 }
 
 #player {
   margin-top: 1em;
-  /* margin-bottom: 2.8em; */
   box-sizing: content-box;
-  /* padding: 2em; */
-  /* border-radius: 2em; */
-  /* box-shadow: 
-  -2px -2px 14px 0 rgba(255, 255, 255, 0.2),
-  2px 2px 14px 0 rgba(0,0,0, 1); */
-  /* margin-top: 2.5em; */
   box-shadow: 
   5px 5px 11px 2px rgba(0, 0, 0, 1),
   -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
@@ -101,19 +85,10 @@ iframe {
   margin-top: 2.5em;
 }
 
-
-/*
-original dimensions:
-  width: 359.984px;
-  height: 201.984px;
-
-*/
-
 .message {
   max-width: 92%;
   margin: auto;
   margin-top: 1em;
-  /* padding-bottom: 2.8em; */
   display: none;
   color: red;
   font-style: italic;
@@ -138,14 +113,15 @@ input {
   -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
   font-size: 0.8em;
   font-family: 'Fondamento', cursive;
+  transition: all 0.3s ease-in-out;
 }
 
 input:focus {
-  /* box-shadow: inset #000 0 0 1px; */
   box-shadow: 
-  5px 5px 11px 2px rgba(255, 255, 255, 0.2),
-  -3px -3px 11px 0 rgba(0, 0, 0, 1);
+  10px 10px 11px 2px rgba(0, 0, 0, 1),
+  -6px -6px 11px 0 rgba(90, 90, 90, 0.4);
   outline: none;
+  transform: scale(1.02);
 }
 
 button {
@@ -156,20 +132,9 @@ button {
   padding: 0.5em;
 }
 
-/* .addButton {
-  border: none;
-  border-radius: 3px;
-  box-shadow: 0px 0px 20px 6px rgba(0,0,0, 1);
-} */
-
 .addButton:hover {
   cursor: pointer;
 }
-
-/* .addButton:focus {
-  box-shadow: inset #000 0 0 6px;
-  outline: none;
-} */
 
 .addButton {
   margin-top: 2.5em;
@@ -186,6 +151,7 @@ button {
   font-family: 'Gloria Hallelujah', cursive;
   font-weight: 800;
   text-transform: uppercase;
+  text-shadow: 3px 3px 7px rgba(0, 0, 0, 1);
 }
 
 .addButton:hover{
@@ -208,11 +174,8 @@ button {
 }
 
 .songInQue {
-  /* max-width: 92%; */
   width: 330px;
   height: 5em;
-  /* background: #e0e7e9; */
-  /* color: black; */
   margin: auto;
   margin-bottom: 1em;
   text-align: left;
@@ -222,27 +185,17 @@ button {
   border-top-right-radius: 10px;
   border-top-left-radius: 20px;
   -webkit-transform: skew(-10deg);
-    /* box-shadow: 
-    -2px -2px 14px 0 rgba(255, 255, 255, 0.2),
-    2px 2px 14px 0 rgba(0,0,0, 1); */
-    box-shadow: 
-    5px 5px 11px 2px rgba(0, 0, 0, 1),
-    -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
-    margin-top: 2.5em;
+  box-shadow: 
+  5px 5px 11px 2px rgba(0, 0, 0, 1),
+  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
+  margin-top: 2.5em;
 }
 
 .songInQue p {
-  /* margin-top: .6em;
-  margin-bottom: .6em; */
   margin-left: .5em;
 }
 
-/* .songInQue:nth-child(odd) {
-  background: #a3c6c4;
-} */
-
 .songData {
-  /* background: blue; */
   color: #e0e7e9;
   opacity: 0.95;
   flex: 1;
@@ -275,21 +228,6 @@ button {
 footer {
   margin-bottom: 2em;
 }
-
-/*
-.buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.buttons span {
-  margin-top: .3em;
-  margin-bottom: .3em;
-  margin-right: .5em;
-}
-*/
-
 
 @media(min-width: 42.3em) {
   h1 {
@@ -338,16 +276,12 @@ footer {
 }
 
   .songInQue {
-    /* max-width: 70%; */
     width: 500px;
     height: 5.2em;
   }
 
   .container {
     width: 520px;
-    /* box-shadow: 
-    5px 5px 11px 2px rgba(0, 0, 0, 1),
-    -3px -3px 11px 0 rgba(90, 90, 90, 0.4);   */
   }
 
   iframe {
@@ -367,7 +301,6 @@ footer {
     font-size: 1.7em;
   }
 
-
   .title, .artist {
     font-size: 1.2em;
   }
@@ -380,7 +313,6 @@ footer {
     margin-bottom: 3em;
     font-size: 1.1em;
   }
-
 
   input {
     font-size: 1em;
@@ -399,7 +331,6 @@ footer {
   }
 
   .songInQue {
-    /* max-width: 55%; */
     width: 600px;
     height: 5.3em;
   }
@@ -409,9 +340,6 @@ footer {
   }
 
   iframe {
-    /* width: 431.9808px;
-    height: 242.3808px; */
-
     width: 539.976px;
     height: 302.976px;
   }
@@ -456,7 +384,6 @@ footer {
   }
 
   .songInQue {
-    /* max-width: 40%; */
     width: 770px;
     height: 5.4em;
   }
@@ -466,13 +393,6 @@ footer {
   }
 
   iframe {
-
-    /* width: 485.9784px;
-    height: 272.6784px; */
-
-    /* width: 539.976px;
-    height: 302.976px; */
-
     width: 719.968px;
     height: 403.968px;
     }
