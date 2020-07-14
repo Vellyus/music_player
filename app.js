@@ -89,7 +89,7 @@ console.log(newList);
 const chk = document.getElementById('chk');
 
 chk.addEventListener('change', () => {
-  // document.body.classList.toggle('light');
+  document.body.classList.toggle('light');
   if (chk.checked === true) {
     document.body.classList.add("light");
   } else {
