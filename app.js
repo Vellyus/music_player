@@ -27,7 +27,7 @@ DONE make the UI responsive
     - Fix Duration display (it should be just like on youtube)
       0:31 / 3:58 / 3:22:08
       
-- make the UI pretty
+DONE make the UI pretty
   DONE input font family?
   DONE adjust font sizes
   DONE make light mode (with a switch?)
