@@ -87,6 +87,11 @@ console.log(newList);
 */
 
 const chk = document.getElementById('chk');
+if (chk.checked === true) {
+  document.body.classList.add("light");
+} else {
+  document.body.classList.remove("light");
+}
 
 chk.addEventListener('change', () => {
   document.body.classList.toggle('light');
