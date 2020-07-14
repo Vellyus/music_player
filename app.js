@@ -30,7 +30,7 @@ DONE make the UI responsive
 - make the UI pretty
   DONE input font family?
   DONE adjust font sizes
-  - make light mode (with a switch?)
+  DONE make light mode (with a switch?)
   DONE special messages design (maybe red like the dev. in progress thing with the same font family???)
   DONE remove the container div
   DONE Today's Song title, by, and artist should appear in one line on bigger screens
@@ -89,7 +89,12 @@ console.log(newList);
 const chk = document.getElementById('chk');
 
 chk.addEventListener('change', () => {
-  document.body.classList.toggle('light');
+  // document.body.classList.toggle('light');
+  if (chk.checked === true) {
+    document.body.classList.add("light");
+  } else {
+    document.body.classList.remove("light");
+  }
   if (chk.checked === true) {
     let upButtons = document.querySelectorAll('.up');
     let downButtons = document.querySelectorAll('.down');
