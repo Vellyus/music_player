@@ -116,6 +116,16 @@ iframe {
   transform: scale(1.02);
 }
 
+.errorMessage {
+  display: none;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-style: italic;
+  color: red;
+  margin-top: 1.5em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
 button {
   display: block;
   margin: auto;
@@ -414,6 +424,10 @@ body.light .songData {
     font-size: .9em;
   }
 
+  .errorMessage {
+    font-size: 1em;
+  }
+
   .addButton{
     font-size: .9em;
   }
@@ -482,6 +496,10 @@ iframe {
     font-size: 1em;
   }
 
+  .errorMessage {
+    font-size: 1.1em;
+  }
+
   .addButton{
     font-size: 1em;
   }
@@ -497,7 +515,6 @@ iframe {
   .checkboxContainer p {
     font-size: 1.2em;
   }
-
 
   .songInQue p {
     margin-left: .9em;
@@ -544,7 +561,11 @@ iframe {
     font-size: 1.1em;
   }
 
-  .addButton{
+  .errorMessage {
+    font-size: 1.2em;
+  }
+
+.addButton{
     font-size: 1.1em;
   }
 
