@@ -23,7 +23,7 @@ DONE make the UI responsive
     https://shopify.github.io/draggable/examples/simple-list.html
     DONE Make the navigation also change the songList
     DONE BUGFIX: player doenst play the next song if you added something after the last song was over
-    - BUGFIX: if you dont enter a valid link (for example an empty input) the next song gets added twice
+    DONE BUGFIX: if you dont enter a valid link (for example an empty input) the next song gets added twice
     - Fix Duration display (it should be just like on youtube)
       0:31 / 3:58 / 3:22:08
       
@@ -237,8 +237,10 @@ function convertDuration(input) {
     hours = "0" + hours.toString();
   }
 
-  if (minutes < 10) {
-    minutes = "0" + minutes.toString();
+  if (hours != "00" && minutes > 10) {
+    if (minutes < 10) {
+      minutes = "0" + minutes.toString();
+    }
   }
 
   if (seconds < 10) {
@@ -247,6 +249,12 @@ function convertDuration(input) {
 
   minutes = minutes.toString();
   seconds = seconds.toString();
+
+
+
+  if (hours === "00") {
+    return `${minutes}:${seconds}`;
+  }
 
   return `${hours}:${minutes}:${seconds}`;
 }
@@ -390,8 +398,11 @@ function addToPlaylist() {
   invisiblePlayer.loadVideoById(urlToID2(urlToID(input.value)));
  
   if (input.value === "" || urlToID2(urlToID(input.value)).length != 11) {
+    document.querySelector(".errorMessage").style.display = "block";
     return;
   }
+
+  document.querySelector(".errorMessage").style.display = "none";
 
 
   myTimer3 = setInterval(muteInvisiblePlayer, 200);
