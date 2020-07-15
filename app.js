@@ -388,7 +388,11 @@ function addToPlaylist() {
 
   const input = document.querySelector('input');
 
-  invisiblePlayer.loadVideoById(urlToID2(urlToID(input.value)));
+  try {
+    invisiblePlayer.loadVideoById(urlToID2(urlToID(input.value)));
+  } catch (e) {
+    console.log(e);
+  }
   myTimer3 = setInterval(muteInvisiblePlayer, 200);
 
   let myTimer2 = setInterval(meh, 1000);
@@ -397,91 +401,87 @@ function addToPlaylist() {
   function meh() {
     if (invisiblePlayer.getCurrentTime() > 0) {
       video = new Video(input.value);
-      try {
-        const newSongInQue = document.createElement('li');
-        newSongInQue.setAttribute("id", serialNr);
-        document.querySelector('.songsInQue').appendChild(newSongInQue);
-        newSongInQue.className = "songInQue";
 
-        const newSongData = document.createElement('div');
-        newSongInQue.appendChild(newSongData);
-        newSongData.className = "songData";
+      const newSongInQue = document.createElement('li');
+      newSongInQue.setAttribute("id", serialNr);
+      document.querySelector('.songsInQue').appendChild(newSongInQue);
+      newSongInQue.className = "songInQue";
 
-
-        let songTitle = document.createElement("p");
-        songTitle.innerText = video.title;
-        newSongData.appendChild(songTitle);
-
-        let songDuration = document.createElement("p");
-        songDuration.innerText = `Duration: ${convertDuration(video.duration)}`;
-        newSongData.appendChild(songDuration);
+      const newSongData = document.createElement('div');
+      newSongInQue.appendChild(newSongData);
+      newSongData.className = "songData";
 
 
+      let songTitle = document.createElement("p");
+      songTitle.innerText = video.title;
+      newSongData.appendChild(songTitle);
 
-
-
-        let navButtons = document.createElement("div");
-        newSongInQue.appendChild(navButtons);
-        navButtons.setAttribute("class", "navButtons");
-
-
-        let newImgUp = document.createElement("img");
-        if (chk.checked === true) {
-          newImgUp.src = "assets/triangle-fill.svg";
-        } else {
-          newImgUp.src = "assets/triangle-fill-light.svg";
-        }
-        newImgUp.setAttribute("class", "up");
-        // newImgUp.addEventListener("click", () => {
-        //   let temp = event.target.parentElement.parentElement.previousElementSibling.innerHTML;
-        //   event.target.parentElement.parentElement.previousElementSibling.innerHTML = event.target.parentElement.parentElement.innerHTML;
-        //   event.target.parentElement.parentElement.innerHTML = temp;
-        // })
-        navButtons.appendChild(newImgUp);
-
-        let newImgDown = document.createElement("img");
-        if (chk.checked === true) {
-          newImgDown.src = "assets/triangle-fill.svg";
-        } else {
-          newImgDown.src = "assets/triangle-fill-light.svg";
-        }
-        newImgDown.setAttribute("class", "down");
-        newImgDown.style.transform = "rotate(180deg)";
-        // newImgDown.addEventListener("click", () => {
-        //   let temp = event.target.parentElement.parentElement.nextElementSibling;
-        //   event.target.parentElement.parentElement.nextElementSibling = event.target.parentElement.parentElement;
-        //   event.target.parentElement.parentElement = temp;
-        // })
-        navButtons.appendChild(newImgDown);
-
-
-
-        let newImgX = document.createElement("img");
-        if (chk.checked === true) {
-          newImgX.src = "assets/x.svg";
-        } else {
-          newImgX.src = "assets/x-light.svg";
-        }
-        newImgX.setAttribute("class", "remove");
-        // newImgX.addEventListener("click", () => {
-        //   event.target.parentElement.parentElement.remove();
-        // })
-        navButtons.appendChild(newImgX);
+      let songDuration = document.createElement("p");
+      songDuration.innerText = `Duration: ${convertDuration(video.duration)}`;
+      newSongData.appendChild(songDuration);
 
 
 
 
-        addEventListeners();
-        updateButtons();
 
-        playList.push(video);  //(urlToID2(urlToID(input.value)));
-        serialNr++;
-        input.value = "";
-      } catch (e) {
-        console.log(e);
-      } finally {
-        clearInterval(myTimer2);
+      let navButtons = document.createElement("div");
+      newSongInQue.appendChild(navButtons);
+      navButtons.setAttribute("class", "navButtons");
+
+
+      let newImgUp = document.createElement("img");
+      if (chk.checked === true) {
+        newImgUp.src = "assets/triangle-fill.svg";
+      } else {
+        newImgUp.src = "assets/triangle-fill-light.svg";
       }
+      newImgUp.setAttribute("class", "up");
+      // newImgUp.addEventListener("click", () => {
+      //   let temp = event.target.parentElement.parentElement.previousElementSibling.innerHTML;
+      //   event.target.parentElement.parentElement.previousElementSibling.innerHTML = event.target.parentElement.parentElement.innerHTML;
+      //   event.target.parentElement.parentElement.innerHTML = temp;
+      // })
+      navButtons.appendChild(newImgUp);
+
+      let newImgDown = document.createElement("img");
+      if (chk.checked === true) {
+        newImgDown.src = "assets/triangle-fill.svg";
+      } else {
+        newImgDown.src = "assets/triangle-fill-light.svg";
+      }
+      newImgDown.setAttribute("class", "down");
+      newImgDown.style.transform = "rotate(180deg)";
+      // newImgDown.addEventListener("click", () => {
+      //   let temp = event.target.parentElement.parentElement.nextElementSibling;
+      //   event.target.parentElement.parentElement.nextElementSibling = event.target.parentElement.parentElement;
+      //   event.target.parentElement.parentElement = temp;
+      // })
+      navButtons.appendChild(newImgDown);
+
+
+
+      let newImgX = document.createElement("img");
+      if (chk.checked === true) {
+        newImgX.src = "assets/x.svg";
+      } else {
+        newImgX.src = "assets/x-light.svg";
+      }
+      newImgX.setAttribute("class", "remove");
+      // newImgX.addEventListener("click", () => {
+      //   event.target.parentElement.parentElement.remove();
+      // })
+      navButtons.appendChild(newImgX);
+
+
+
+
+      addEventListeners();
+      updateButtons();
+
+      playList.push(video);  //(urlToID2(urlToID(input.value)));
+      serialNr++;
+      input.value = "";
+      clearInterval(myTimer2);
     }
   }
 }
