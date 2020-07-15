@@ -253,10 +253,10 @@ function convertDuration(input) {
 
 
   if (hours === "00") {
-    return `${minutes} : ${seconds}`;
+    return `${minutes}:${seconds}`;
   }
 
-  return `${hours} : ${minutes} : ${seconds}`;
+  return `${hours}:${minutes}:${seconds}`;
 }
 
 
