@@ -401,7 +401,6 @@ function addToPlaylist() {
       newSongInQue.setAttribute("id", serialNr);
       document.querySelector('.songsInQue').appendChild(newSongInQue);
       newSongInQue.className = "songInQue";
-      console.log(invisiblePlayer.videoId);
 
       const newSongData = document.createElement('div');
       newSongInQue.appendChild(newSongData);
