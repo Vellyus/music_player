@@ -386,6 +386,9 @@ function muteInvisiblePlayer() {
 function addToPlaylist() {
 
   const input = document.querySelector('input');
+  if (input.value === "") {
+    return;
+  }
 
   invisiblePlayer.loadVideoById(urlToID2(urlToID(input.value)));
   myTimer3 = setInterval(muteInvisiblePlayer, 200);
@@ -396,7 +399,6 @@ function addToPlaylist() {
   function meh() {
     if (invisiblePlayer.getCurrentTime() > 0) {
       video = new Video(input.value);
-      console.log("meh");
 
       const newSongInQue = document.createElement('li');
       newSongInQue.setAttribute("id", serialNr);
