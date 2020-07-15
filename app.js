@@ -394,9 +394,6 @@ function addToPlaylist() {
 
 
   function meh() {
-    if (invisiblePlayer.videoId === "JA6_CnYLpS4") {
-      console.log("Invalid url!");
-    }
     if (invisiblePlayer.getCurrentTime() > 0) {
       video = new Video(input.value);
 
@@ -404,6 +401,7 @@ function addToPlaylist() {
       newSongInQue.setAttribute("id", serialNr);
       document.querySelector('.songsInQue').appendChild(newSongInQue);
       newSongInQue.className = "songInQue";
+      console.log(invisiblePlayer.videoId);
 
       const newSongData = document.createElement('div');
       newSongInQue.appendChild(newSongData);
