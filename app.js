@@ -428,7 +428,8 @@ function addToPlaylist() {
       newSongData.appendChild(songTitle);
 
       let songDuration = document.createElement("p");
-      songDuration.innerText = `Duration: ${convertDuration(video.duration)}`;
+      songDuration.setAttribute("class", "duration");
+      songDuration.innerText = `${convertDuration(video.duration)}`;
       newSongData.appendChild(songDuration);
 
 

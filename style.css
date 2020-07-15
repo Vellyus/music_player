@@ -210,6 +210,10 @@ button {
   font-family: 'Fondamento', cursive;
 }
 
+.duration {
+  letter-spacing: .15em;
+}
+
 .navButtons {
   position: absolute;
   bottom: 0;
