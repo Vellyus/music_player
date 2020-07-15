@@ -396,6 +396,7 @@ function addToPlaylist() {
   function meh() {
     if (invisiblePlayer.getCurrentTime() > 0) {
       video = new Video(input.value);
+      console.log("meh");
 
       const newSongInQue = document.createElement('li');
       newSongInQue.setAttribute("id", serialNr);
