@@ -386,11 +386,14 @@ function muteInvisiblePlayer() {
 function addToPlaylist() {
 
   const input = document.querySelector('input');
-  if (input.value === "") {
+
+  invisiblePlayer.loadVideoById(urlToID2(urlToID(input.value)));
+ 
+  if (input.value === "" || urlToID2(urlToID(input.value)).length != 11) {
     return;
   }
 
-  invisiblePlayer.loadVideoById(urlToID2(urlToID(input.value)));
+
   myTimer3 = setInterval(muteInvisiblePlayer, 200);
 
   let myTimer2 = setInterval(meh, 1000);
