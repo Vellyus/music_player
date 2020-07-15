@@ -401,7 +401,6 @@ function addToPlaylist() {
     document.querySelector(".errorMessage").style.display = "block";
     return;
   }
-
   document.querySelector(".errorMessage").style.display = "none";
 
 
