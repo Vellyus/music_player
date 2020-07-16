@@ -541,6 +541,7 @@ function playNextSong() {
       }
     }
   }
+  updateButtons();
 }
 
 let myTimer3 = setInterval(muteInvisiblePlayer, 200);
