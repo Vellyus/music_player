@@ -3,7 +3,7 @@
 - add the special songs at the bottom in a separate section
 - pass on the title and the artist from my list to the actual playlist and to the player
 - add search feature: try real time search while typing, if that doesnt work do a simple one with a search button
-- BUGFIX: somehow the app freezes when you change a few song positions, maybe the updateButtons function is not efficent enough?
+- BUGFIX: somehow the app freezes when you change a few song positions, maybe the updateButtons function or something else is not efficent enough... out of memory error message
 
 
 */
@@ -542,13 +542,13 @@ function addSortedSongs() {
 
     video = new SortedVideo(sortedSongs[i]);
 
-    const newSongInQue = document.createElement('li');
-    newSongInQue.setAttribute("id", serialNr);
-    document.querySelector('.playList').appendChild(newSongInQue);
-    newSongInQue.className = "songInQue";
+    const newSongInList = document.createElement('li');
+    newSongInList.setAttribute("id", serialNr);
+    document.querySelector('.playList').appendChild(newSongInList);
+    newSongInList.className = "newSongInList";
 
     const newSongData = document.createElement('div');
-    newSongInQue.appendChild(newSongData);
+    newSongInList.appendChild(newSongData);
     newSongData.className = "songData";
 
 
