@@ -780,7 +780,6 @@ function addSortedSongs() {
   
         playList.push(video);
         serialNr++;
-        input.value = "";
         clearInterval(myTimer2);
       }
     }
