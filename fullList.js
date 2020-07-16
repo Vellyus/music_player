@@ -692,6 +692,7 @@ function addSortedSongs() {
   }
   document.querySelectorAll(".addToPlaylist").forEach(e => e.addEventListener("click", (event) => {
     invisiblePlayer.loadVideoById(event.target.firstElementChild.innerText);
+    document.querySelector(".playList").style.display = "block";
 
 
 
