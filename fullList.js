@@ -110,7 +110,7 @@ chk.addEventListener('change', () => {
     upButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
     downButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
     removeButtons.forEach(e => e.src = "assets/x-light.svg");
-
+    addToPlayListButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
   }
 });
 
