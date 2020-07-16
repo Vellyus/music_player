@@ -453,7 +453,7 @@ function addEventListeners() {
 
 function hidePlayList() {
   const playList = document.querySelector(".playList");
-  if (playList.style.display === "block") {
+  if (playList.style.display === "block" ||playList.style.display === "") {
     playList.style.display = "none";
   } else {
     playList.style.display = "block";
@@ -692,7 +692,6 @@ function addSortedSongs() {
   }
   document.querySelectorAll(".addToPlaylist").forEach(e => e.addEventListener("click", (event) => {
     invisiblePlayer.loadVideoById(event.target.firstElementChild.innerText);
-    document.querySelector(".playList").style.display = "block";
 
 
 
