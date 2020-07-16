@@ -229,13 +229,13 @@ button {
   letter-spacing: .15em;
 }
 
-.navButtons {
+.navButtons, .playButtons {
   position: absolute;
   bottom: 0;
   right: 0.5em;
 }
 
-.navButtons img {
+.navButtons img, .playButtons img {
   margin: .5em;
   width: 1.3em;
   cursor: pointer;
