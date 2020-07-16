@@ -787,6 +787,8 @@ function addSortedSongs() {
   }));
 }
 
+addSortedSongs();
+
 
 
 
