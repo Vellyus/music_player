@@ -593,10 +593,22 @@ let myTimer = setInterval(playNextSong, 10000);
 
 
 
+function compareByArtist(a, b) {
+  const bandA = a.artist;
+  const bandB = b.artist;
+
+  let comparison = 0;
+  if (bandA > bandB) {
+    comparison = 1;
+  } else if (bandA < bandB) {
+    comparison = -1;
+  }
+  return comparison;
+}
 
 
 
-const sortedSongs = listInUse.sort(compare);
+const sortedSongs = listInUse.sort(compareByArtist);
 
 function addSortedSongs() {
 
