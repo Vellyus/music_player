@@ -564,7 +564,7 @@ function addSortedSongs() {
 
 
     let playButtons = document.createElement("div");
-    newSongInQue.appendChild(playButtons);
+    newSongInList.appendChild(playButtons);
     playButtons.setAttribute("class", "playButtons");
 
 
