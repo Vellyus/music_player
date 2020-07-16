@@ -1,88 +1,10 @@
 /* PLAN
 
-DONE set starting time (start of the year)
-DONE get now
-DONE Math.floor (now - startingTime (in days) /1000 /60 /60 /24) = number of the song
-DONE create playlist
-DONE play the song of the day (Randomization - notes on my phone!)
-DONE create a new randomized list each year (like the start-now -> same solution)
-DONE add messages for special dates
-DONE get the special date messages on screen
-DONE make the UI responsive
- Playlist:
-    DONE if you enter a link and lick the button add it to the playlist
-    DONE if a song is over play the first element from the list
-    DONE if there are no more songs to play go back to today's song
-    DONE  delete the list elements that are finished playing
-    DONE Clear the interval when the playlist is empty (animal sounds)
-    DONE wait of both promises with promise.All when adding a song to the playlist, throw an error message if it fails
-    DONE cut down everything after the id (lists)
-    https://www.youtube.com/watch?v=6A-IoOEPbUs&list=RD6A-IoOEPbUs&start_radio=1
-    DONE make the links to work on mobile too
-    DONE add buttons for navigation or try drag & drop
-    https://shopify.github.io/draggable/examples/simple-list.html
-    DONE Make the navigation also change the songList
-    DONE BUGFIX: player doenst play the next song if you added something after the last song was over
-    DONE BUGFIX: if you dont enter a valid link (for example an empty input) the next song gets added twice
-    DONE Fix Duration display (it should be just like on youtube)
-      0:31 / 3:58 / 3:22:08
-      
-DONE make the UI pretty
-  DONE input font family?
-  DONE adjust font sizes
-  DONE make light mode (with a switch?)
-  DONE special messages design (maybe red like the dev. in progress thing with the same font family???)
-  DONE remove the container div
-  DONE Today's Song title, by, and artist should appear in one line on bigger screens
-  
-- create patreon for full list
-- delete unused code and comments and refactor the rest
-- upload everything to the GitHub repo
+- add the special songs at the bottom in a separate section
+- pass on the title and the artist from my list to the actual playlist and to the player
+- add search feature: try real time search while typing, if that doesnt work do a simple one with a search button
+- BUGFIX: updateButtons doesnt work when a new video starts
 
-
-DONE FOR GETTING AROUND THE 403 ERROR
-
-  DONE Make a second video player and hide it + stop the playing
-  DONE Get the data from that second player:
-      DONE Title: player.getVideoData().title
-      DONE Duration player.getDuration()
-
-
-
-
-link to GitHub Pages: https://vellyus.github.io/music_player/
-
-Wallpaper? :
-https://www.pexels.com/hu-hu/foto/4k-hatterkep-elektromos-gitar-fa-fokusz-1266821/
-
-PROJECT NAME: moonlit-conduit-280617
-APP NAME: moonlit-conduit
-API KEY: AIzaSyDZlS3XRm3Uw5Wa8YFPgTT3cMQqkTPo5Zw
-API CLIENT ID: 688278274189-rvosqpj4gfatp0c3sie6g333o4s75kv2.apps.googleusercontent.com
-API CLIENT SECRET: vv1LuueEwRRU8jkBKUijJsPB
-*/
-
-/* DO THIS AT EVERY NEW YEAR !!!
-
-function shuffleArray(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-  return array;
-}
-
-let newList = shuffleArray(originalList);
-newList = JSON.stringify(newList);
-console.log(newList);
-
-// Go to console! "Copy" button at the end of the log!
-// Paste it to listInUse!
-// "keys" -> keys (with replace all in VSCode)
-// { -> shift+enter { shift+enter
-// }, -> shift+enter }, shift+enter
 
 */
 
@@ -564,6 +486,7 @@ function playNextSong() {
       }
     }
   }
+  updateButtons();
 }
 
 let myTimer3 = setInterval(muteInvisiblePlayer, 200);
