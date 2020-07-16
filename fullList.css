@@ -190,7 +190,7 @@ button {
   outline: none;
 }
 
-.songInQue {
+.songInQue, .songInList {
   width: 330px;
   height: 5em;
   margin: auto;
@@ -208,7 +208,7 @@ button {
   margin-top: 2.5em;
 }
 
-.songInQue p {
+.songInQue p, .songInList p{
   margin-left: .5em;
 }
 
@@ -409,7 +409,8 @@ body.light .hideList:active {
   -3px -3px 11px 0 rgba(0, 0, 0, 1);
 }
 
-body.light .songInQue {
+body.light .songInQue,
+body.light .songInList {
   box-shadow: 
   5px 5px 11px 0 rgba(0, 0, 0, .8),
   -3px -3px 11px 2px rgba(255, 255, 255, .8);
@@ -468,7 +469,7 @@ body.light .songData {
     font-size: 1.1em;
   }
 
-  .songInQue p {
+  .songInQue p, .songInList p {
     margin-left: .7em;
   }
   
@@ -478,7 +479,7 @@ body.light .songData {
   align-items: center;
 }
 
-  .songInQue {
+  .songInQue, .songInList {
     width: 500px;
     height: 5.2em;
   }
@@ -540,11 +541,11 @@ iframe {
     font-size: 1.2em;
   }
 
-  .songInQue p {
+  .songInQue p, .songInList p {
     margin-left: .9em;
   }
 
-  .songInQue {
+  .songInQue, .songInList {
     width: 600px;
     height: 5.3em;
   }
@@ -606,11 +607,11 @@ iframe {
   }
 
 
-  .songInQue p {
+  .songInQue p, .songInList p {
     margin-left: 1.2em;
   }
 
-  .songInQue {
+  .songInQue, .songInList {
     width: 770px;
     height: 5.4em;
   }
