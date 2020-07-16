@@ -3,7 +3,7 @@
 - add the special songs at the bottom in a separate section
 - pass on the title and the artist from my list to the actual playlist and to the player
 - add search feature: try real time search while typing, if that doesnt work do a simple one with a search button
-- BUGFIX: updateButtons doesnt work when a new video starts
+- BUGFIX: somehow the app freezes when you change a few song positions, maybe the updateButtons function is not efficent enough?
 
 
 */
@@ -563,9 +563,9 @@ function addSortedSongs() {
 
 
 
-    let navButtons = document.createElement("div");
-    newSongInQue.appendChild(navButtons);
-    navButtons.setAttribute("class", "navButtons");
+    let playButtons = document.createElement("div");
+    newSongInQue.appendChild(playButtons);
+    playButtons.setAttribute("class", "playButtons");
 
 
     let newImgDown = document.createElement("img");
@@ -576,7 +576,7 @@ function addSortedSongs() {
     }
     newImgDown.setAttribute("class", "addToPlaylist");
     newImgDown.style.transform = "rotate(90deg)";
-    navButtons.appendChild(newImgDown);
+    playButtons.appendChild(newImgDown);
 
     let url = document.createElement("p");
     url.setAttribute("class", "url");
