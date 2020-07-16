@@ -545,7 +545,7 @@ function addSortedSongs() {
     const newSongInList = document.createElement('li');
     newSongInList.setAttribute("id", serialNr);
     document.querySelector('.playList').appendChild(newSongInList);
-    newSongInList.className = "SongInList";
+    newSongInList.className = "songInList";
 
     const newSongData = document.createElement('div');
     newSongInList.appendChild(newSongData);
