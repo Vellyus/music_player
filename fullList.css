@@ -383,6 +383,11 @@ body.light input:focus {
   -6px -6px 11px 2px rgba(255, 255, 255, .8);
 }
 
+body.light hr {
+  background-color: #222;
+}
+
+
 body.light .hideList {
   background-color: #eee;
   color: #222;
