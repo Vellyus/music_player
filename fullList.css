@@ -127,6 +127,10 @@ hr {
   background-color: #e0e7e9;
 }
 
+.playList {
+  display: block;
+}
+
 .errorMessage {
   display: none;
   font-family: 'Gloria Hallelujah', cursive;

@@ -454,9 +454,9 @@ function addEventListeners() {
 function hidePlayList() {
   const playList = document.querySelector(".playList");
   if (playList.style.display === "block") {
-    playList.style.display = none;
+    playList.style.display = "none";
   } else {
-    playList.style.display = block;
+    playList.style.display = "block";
   }
 }
 
