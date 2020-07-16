@@ -271,6 +271,17 @@ class Video {
 
 }
 
+class Video2 {
+  constructor(id) {
+    this.id = id;
+    this.title = invisiblePlayer.getVideoData().title;
+    this.duration = invisiblePlayer.getDuration();
+    this.serialNr = serialNr;
+  }
+
+}
+
+
 
 class SortedVideo {
   constructor(e) {
@@ -440,8 +451,17 @@ function addEventListeners() {
   )
 };
 
-const addButton = document.querySelector('.addButton');
-addButton.addEventListener('click', addToPlaylist);
+function hidePlayList() {
+  const playList = document.querySelector(".playList");
+  if (playList.style.display === "block") {
+    playList.style.display = none;
+  } else {
+    playList.style.display = block;
+  }
+}
+
+const addButton = document.querySelector('.hideList');
+addButton.addEventListener('click', hidePlayList);
 
 
 
@@ -546,3 +566,228 @@ function playNextSong() {
 let myTimer3 = setInterval(muteInvisiblePlayer, 200);
 
 let myTimer = setInterval(playNextSong, 10000);
+
+// EXPERIMENT
+
+
+// function urlToID3(input) {
+//   let re = /https:\/\/www.youtube.com\/watch\?v=|https:\/\/youtu.be\/|https:\/\/m.youtube.com\/watch\?v=/g;
+//   return input.replace(re, "");
+// }
+
+// function urlToID4(input) {
+//   let re = /&.+|\?list.+/g;
+//   return input.replace(re, "");
+// }
+
+
+
+
+function addToPlaylist2() {
+
+
+  invisiblePlayer.loadVideoById(event.target.firstElementChild.innerText);
+
+
+
+  // const input = document.querySelector('input');
+
+
+  // if (input.value === "" || urlToID2(urlToID(input.value)).length != 11) {
+  //   document.querySelector(".errorMessage").style.display = "block";
+  //   return;
+  // }
+  // document.querySelector(".errorMessage").style.display = "none";
+
+
+  myTimer3 = setInterval(muteInvisiblePlayer, 200);
+
+  let myTimer2 = setInterval(addSong2, 1000);
+
+
+  function addSong2() {
+    if (invisiblePlayer.getCurrentTime() > 0) {
+      video = new Video2(event.target.firstElementChild.innerText);
+
+      const newSongInQue = document.createElement('li');
+      newSongInQue.setAttribute("id", serialNr);
+      document.querySelector('.songsInQue').appendChild(newSongInQue);
+      newSongInQue.className = "songInQue";
+
+      const newSongData = document.createElement('div');
+      newSongInQue.appendChild(newSongData);
+      newSongData.className = "songData";
+
+
+      let songTitle = document.createElement("p");
+      songTitle.innerText = video.title;
+      newSongData.appendChild(songTitle);
+
+      let songDuration = document.createElement("p");
+      songDuration.setAttribute("class", "duration");
+      songDuration.innerText = `${convertDuration(video.duration)}`;
+      newSongData.appendChild(songDuration);
+
+
+
+
+
+      let navButtons = document.createElement("div");
+      newSongInQue.appendChild(navButtons);
+      navButtons.setAttribute("class", "navButtons");
+
+
+      let newImgUp = document.createElement("img");
+      if (chk.checked === true) {
+        newImgUp.src = "assets/triangle-fill.svg";
+      } else {
+        newImgUp.src = "assets/triangle-fill-light.svg";
+      }
+      newImgUp.setAttribute("class", "up");
+      navButtons.appendChild(newImgUp);
+
+      let newImgDown = document.createElement("img");
+      if (chk.checked === true) {
+        newImgDown.src = "assets/triangle-fill.svg";
+      } else {
+        newImgDown.src = "assets/triangle-fill-light.svg";
+      }
+      newImgDown.setAttribute("class", "down");
+      newImgDown.style.transform = "rotate(180deg)";
+      navButtons.appendChild(newImgDown);
+
+
+
+      let newImgX = document.createElement("img");
+      if (chk.checked === true) {
+        newImgX.src = "assets/x.svg";
+      } else {
+        newImgX.src = "assets/x-light.svg";
+      }
+      newImgX.setAttribute("class", "remove");
+      navButtons.appendChild(newImgX);
+
+
+
+
+      addEventListeners();
+      updateButtons();
+
+      playList.push(video);
+      serialNr++;
+      input.value = "";
+      clearInterval(myTimer2);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+const sortedSongs = listInUse.sort(compare);
+
+function addSortedSongs() {
+
+
+  for (let i = 0; i < sortedSongs.length; i++) {
+
+
+
+    video = new SortedVideo(sortedSongs[i]);
+
+    const newSongInQue = document.createElement('li');
+    newSongInQue.setAttribute("id", serialNr);
+    document.querySelector('.playList').appendChild(newSongInQue);
+    newSongInQue.className = "songInQue";
+
+    const newSongData = document.createElement('div');
+    newSongInQue.appendChild(newSongData);
+    newSongData.className = "songData";
+
+
+    let songTitle = document.createElement("p");
+    songTitle.innerText = video.title;
+    newSongData.appendChild(songTitle);
+
+    let songDuration = document.createElement("p");
+    songDuration.setAttribute("class", "duration");
+    songDuration.innerText = video.artist;
+    newSongData.appendChild(songDuration);
+
+
+
+    let navButtons = document.createElement("div");
+    newSongInQue.appendChild(navButtons);
+    navButtons.setAttribute("class", "navButtons");
+
+
+    let newImgDown = document.createElement("img");
+    if (chk.checked === true) {
+      newImgDown.src = "assets/triangle-fill.svg";
+    } else {
+      newImgDown.src = "assets/triangle-fill-light.svg";
+    }
+    newImgDown.setAttribute("class", "addToPlaylist");
+    newImgDown.style.transform = "rotate(90deg)";
+    navButtons.appendChild(newImgDown);
+
+    let url = document.createElement("p");
+    url.setAttribute("class", "url");
+    newImgDown.appendChild(url);
+    url.innerText = video.id;
+    url.style.display = "none";
+
+
+
+
+
+
+    // let newImgUp = document.createElement("img");
+    // if (chk.checked === true) {
+    //   newImgUp.src = "assets/triangle-fill.svg";
+    // } else {
+    //   newImgUp.src = "assets/triangle-fill-light.svg";
+    // }
+    // newImgUp.setAttribute("class", "up");
+    // navButtons.appendChild(newImgUp);
+
+    // let newImgDown = document.createElement("img");
+    // if (chk.checked === true) {
+    //   newImgDown.src = "assets/triangle-fill.svg";
+    // } else {
+    //   newImgDown.src = "assets/triangle-fill-light.svg";
+    // }
+    // newImgDown.setAttribute("class", "down");
+    // newImgDown.style.transform = "rotate(180deg)";
+    // navButtons.appendChild(newImgDown);
+
+
+
+    // let newImgX = document.createElement("img");
+    // if (chk.checked === true) {
+    //   newImgX.src = "assets/x.svg";
+    // } else {
+    //   newImgX.src = "assets/x-light.svg";
+    // }
+    // newImgX.setAttribute("class", "remove");
+    // navButtons.appendChild(newImgX);
+
+
+
+    // addEventListeners();
+    // updateButtons();
+
+    // playList.push(video);
+    // serialNr++;
+
+  }
+  document.querySelectorAll(".addToPlaylist").forEach(e => e.addEventListener("click", addToPlaylist2));
+}
+
+
+
+

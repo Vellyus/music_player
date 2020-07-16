@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="fullList.css">
+</head>
+
+<body>
+
+  <div class="flex-wrapper">
+    <header>
+
+      <h1>Vellyus's Playlist</h1>
+      <span class="inProgress">( Some songs for special dates are excluded )</span>
+
+    </header>
+
+    <main>
+
+      <h2 class="playerTitle">Today's song</h2>
+      <div class="SongDescription">
+
+        <p class="title"></p>
+        <p class="by">by</p>
+        <p class="artist"></p>
+      </div>
+      <div id="player"></div>
+      <div id="invisiblePlayer"></div>
+
+      <p class="message"></p>
+
+
+      <input class="input" type="url" placeholder="Enter a YouTube link">
+      <p class="errorMessage">- Invalid url! -</p>
+
+      <ul class="songsInQue"></ul>
+
+      <hr>
+
+      <button class="hideList">Hide Playlist</button>
+
+      <ul class="playList"></ul>
+
+
+    </main>
+
+    <footer>
+      <div class="container">
+        <h2 class="fullList">The full playlist <br> is coming soon!</h2>
+        <div class="checkboxContainer">
+          <p>Dark / Light Mode</p>
+          <input type="checkbox" class="checkbox" id="chk" />
+          <label class="label" for="chk">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+          </label>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="originalList.js">
+  </script>
+  <script src="listInUse.js"></script>
+  <script src="fullList.js"></script>
+</body>
+
+</html>
