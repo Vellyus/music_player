@@ -107,6 +107,7 @@ chk.addEventListener('change', () => {
     let upButtons = document.querySelectorAll('.up');
     let downButtons = document.querySelectorAll('.down');
     let removeButtons = document.querySelectorAll('.remove');
+    let addToPlayListButtons = document.querySelectorAll(".addToPlaylist");
     upButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
     downButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
     removeButtons.forEach(e => e.src = "assets/x-light.svg");
