@@ -1,7 +1,11 @@
 /* PLAN
 
 PRIO 1 !!!
-  - pass on the title and the artist from my list to the actual playlist and to the player
+  DONE pass on the title and the artist from my list to the actual playlist and to the player
+  - maybe add a toTop Button instead of the shuffle button ???
+    ICON: "Shift fill" in icons dir
+  - change the list play buttons to "Plus circle fill" in icons dir
+
 
 - add search feature: try real time search while typing, if that doesnt work do a simple one with a search button
 DONE BUGFIX: somehow the app freezes when you change a few song positions, maybe the updateButtons function or something else is not efficent enough... out of memory error message
@@ -11,10 +15,9 @@ DONE BUGFIX: somehow the app freezes when you change a few song positions, maybe
 MAKE IT LIKE ON GROOVESHARK - PICTURE IN THIS DIR. !!!  OR SOUNDCLOUD
 add a clear list button too!
 (current playlist floats in from side)
-    - maybe hide the video on mobiles and add a mute/unmute button
-      /more place for browsing and the user can control volume on the phone/
 - add play all in random order feature
 - add the special songs at the bottom in a separate section
+
 */
 
 const chk = document.getElementById('chk');
