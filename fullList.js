@@ -212,8 +212,9 @@ class Video {
 class Video2 {
   constructor(element) {
     this.id = element.innerText;
-    this.artist = element.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling.innerText;
-    this.title = invisiblePlayer.getVideoData().title;
+    this.title = element.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.innerText;;
+    this.artist = element.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling.innerText;
+    this.display = `${this.title} - ${this.artist}`;
     this.duration = invisiblePlayer.getDuration();
     this.serialNr = serialNr;
   }
@@ -685,7 +686,8 @@ function addSortedSongs() {
 
 
         let songTitle = document.createElement("p");
-        songTitle.innerText = video.title;
+
+        songTitle.innerText = video.display;
         newSongData.appendChild(songTitle);
 
         let songDuration = document.createElement("p");
