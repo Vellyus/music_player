@@ -264,7 +264,7 @@ color: red;
   cursor: pointer;
   color: white;
   text-decoration: underline;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
 }
 
 .fullList, .checkboxContainer {
