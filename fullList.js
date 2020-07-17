@@ -464,7 +464,7 @@ function onPlayerStateChange(event) {
   //   setTimeout(stopVideo, 6000);
   //   done = true;
   // }
-  if (player.getPlayerState() === 1) {
+  if (player.getPlayerState() === 1 || player.getPlayerState() === 5) {
     document.querySelector("#playButton").setAttribute("src", "assets/pause-fill-light.svg");
   }
   if (player.getPlayerState() === 2) {
