@@ -486,7 +486,7 @@ function playNextSong() {
       document.querySelector(".by").style.display = "block";
       document.querySelector(".artist").style.display = "block";
 
-      document.querySelector('.footerInfo').innerText = `${listInUse[numberOfSong].title} - ${listInUse[numberOfSong].artist}`;
+      document.querySelector('.footerInfo').innerText = `${todaysSong.title} - ${todaysSong.artist}`;
 
 
     } else {
