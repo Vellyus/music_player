@@ -598,6 +598,22 @@ function playPause() {
 document.querySelector("#playButton").addEventListener("click", playPause);
 
 
+
+function muteUnmute() {
+  const muteButton = document.querySelector("#mute");
+  if (player.isMuted() === false) {
+    player.mute();
+    muteButton.setAttribute("src", "assets/volume-mute-fill-light.svg");
+  }
+  if (player.isMuted() === true) {
+    player.unMute();
+    muteButton.setAttribute("src", "assets/volume-up-fill-light.svg");
+  }
+
+}
+
+document.querySelector("#mute").addEventListener("click", muteUnmute);
+
 let myTimer3 = setInterval(muteInvisiblePlayer, 200);
 
 let myTimer = setInterval(playNextSong, 10000);
