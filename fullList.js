@@ -3,9 +3,16 @@
 - add the special songs at the bottom in a separate section
 - pass on the title and the artist from my list to the actual playlist and to the player
 - add search feature: try real time search while typing, if that doesnt work do a simple one with a search button
-- BUGFIX: somehow the app freezes when you change a few song positions, maybe the updateButtons function or something else is not efficent enough... out of memory error message
-
-
+DONE BUGFIX: somehow the app freezes when you change a few song positions, maybe the updateButtons function or something else is not efficent enough... out of memory error message
+- maybe add a fixed footer with PREVIOUS PLAY/PAUSE NEXT buttons + currently playing title + artist
+    - also make the playlist step forward when a song is over - this way you dont lose history
+    - maybe add the hide list and to top buttons here too
+MAKE IT LIKE ON GROOVESHARK - PICTURE IN THIS DIR. !!!  OR SOUNDCLOUD
+add a clear list button too!
+(current playlist floats in from side)
+    - maybe hide the video on mobiles and add a mute/unmute button
+      /more place for browsing and the user can control volume on the phone/
+- add play all in random order feature
 */
 
 const chk = document.getElementById('chk');
@@ -87,6 +94,8 @@ const todaysSong = listInUse[numberOfSong].link;
 document.querySelector(".title").innerText = listInUse[numberOfSong].title;
 document.querySelector(".artist").innerText = listInUse[numberOfSong].artist;
 
+document.querySelector('.footerInfo').innerText = `${listInUse[numberOfSong].title} - ${listInUse[numberOfSong].artist}`;
+
 for (let i = 0; i < specialSongs.length; i++) {
   if (month === specialSongs[i].month && date === specialSongs[i].date) {
     iframe.src = urlToEmbed(specialSongs[i].link);
@@ -97,6 +106,8 @@ for (let i = 0; i < specialSongs.length; i++) {
 
     document.querySelector(".title").innerText = specialSongs[i].title;
     document.querySelector(".artist").innerText = specialSongs[i].artist;
+    document.querySelector('.footerInfo').innerText = `${specialSongs[i].title} - ${specialSongs[i].artist}`;
+
   }
 }
 
@@ -380,8 +391,10 @@ function hidePlayList() {
   const playList = document.querySelector(".playList");
   if (playList.style.display === "block" ||playList.style.display === "") {
     playList.style.display = "none";
+    document.querySelector('.hideList').innerText = "Show Playlist";
   } else {
     playList.style.display = "block";
+    document.querySelector('.hideList').innerText = "Hide Playlist";
   }
 }
 
@@ -469,6 +482,9 @@ function playNextSong() {
       document.querySelector(".by").style.display = "block";
       document.querySelector(".artist").style.display = "block";
 
+      document.querySelector('.footerInfo').innerText = `${listInUse[numberOfSong].title} - ${listInUse[numberOfSong].artist}`;
+
+
     } else {
       clearInterval(myTimer);
       try {
@@ -476,6 +492,9 @@ function playNextSong() {
         document.querySelector(".title").innerText = playList[0].title;
         document.querySelector(".by").style.display = "none";
         document.querySelector(".artist").style.display = "none";
+
+        document.querySelector('.footerInfo').innerText = `${playList[0].title}`;
+
 
         player.loadVideoById(playList[0].id);
         playList = playList.slice(1);

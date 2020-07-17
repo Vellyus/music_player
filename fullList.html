@@ -15,7 +15,12 @@
     <header>
 
       <h1>Vellyus's Playlist</h1>
-      <span class="inProgress">( Some songs for special dates are excluded )</span>
+      <span class="inProgress">
+      - Development In progress -<br>
+        Some songs for special dates are excluded.<br>
+        The buttons in the footer are not working yet.<br>
+        The search field is not working yet.
+      </span>
 
     </header>
 
@@ -34,14 +39,25 @@
       <p class="message"></p>
 
 
-      <input class="input" type="url" placeholder="Enter a YouTube link">
       <p class="errorMessage">- Invalid url! -</p>
 
       <ul class="songsInQue"></ul>
 
       <hr>
 
-      <button class="hideList">Hide Playlist</button>
+      <div class="container">
+        <button class="hideList">Hide Playlist</button>
+        <div class="checkboxContainer">
+          <p>Dark / Light Mode</p>
+          <input type="checkbox" class="checkbox" id="chk" />
+          <label class="label" for="chk">
+            <div class="ball"></div>
+          </label>
+        </div>
+      </div>
+
+      <input class="input" type="url" placeholder="Search for a song in the list">
+
 
       <ul class="playList"></ul>
 
@@ -49,18 +65,18 @@
     </main>
 
     <footer>
-      <div class="container">
-        <h2 class="fullList">The full playlist <br> is coming soon!</h2>
-        <div class="checkboxContainer">
-          <p>Dark / Light Mode</p>
-          <input type="checkbox" class="checkbox" id="chk" />
-          <label class="label" for="chk">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-            <div class="ball"></div>
-          </label>
+      <div class="container2">
+        <div class="contaier3">
+
+            <img id="shuffle" src="assets/shuffle-light.svg" alt="">
+            <img src="assets/arrow-repeat-light.svg" alt="">
+            <img id="skipStart" src="assets/skip-start-fill-light.svg" alt="">
+            <img id="playButton" src="assets/play-fill-light.svg" alt="">
+            <img id="skipEnd" src="assets/skip-end-fill-light.svg" alt="">
+            <img src="assets/volume-up-fill-light.svg" alt="">
+            <img id="musicNoteList" src="assets/music-note-list-light.svg" alt="">
         </div>
-      </div>
+        <p class="footerInfo" >Some song - Some band</p>
     </footer>
   </div>
 
