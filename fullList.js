@@ -481,8 +481,8 @@ function playNextSong() {
       player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
       player.stopVideo();
       document.querySelector("h2").innerText = "Today's song";
-      document.querySelector(".title").innerText = listInUse[numberOfSong].title;
-      document.querySelector(".artist").innerText = listInUse[numberOfSong].artist;
+      document.querySelector(".title").innerText = todaysSong.title;
+      document.querySelector(".artist").innerText = todaysSong.artist;
       document.querySelector(".by").style.display = "block";
       document.querySelector(".artist").style.display = "block";
 
