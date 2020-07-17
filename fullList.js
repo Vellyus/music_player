@@ -395,10 +395,10 @@ function hidePlayList() {
   const playList = document.querySelector(".playList");
   if (playList.style.display === "block" || playList.style.display === "") {
     playList.style.display = "none";
-    document.querySelector('.hideList').innerText = "Show Playlist";
+    document.querySelector('.hideList').innerText = "Show List";
   } else {
     playList.style.display = "block";
-    document.querySelector('.hideList').innerText = "Hide Playlist";
+    document.querySelector('.hideList').innerText = "Hide List";
   }
 }
 
