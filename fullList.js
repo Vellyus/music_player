@@ -590,7 +590,7 @@ document.querySelector("#repeat").addEventListener("click", repeatSong);
 
 
 function playPause() {
-  if (player.getPlayerState() === 1) {
+  if (player.getPlayerState() === 1 || player.getPlayerState() === 5) {
     player.pauseVideo();
   }
   if (player.getPlayerState() === 2) {
