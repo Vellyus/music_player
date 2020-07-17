@@ -253,6 +253,18 @@ footer {
 
 .fullList {
   font-size: 1em;
+  text-decoration: none;
+  font-family: 'Gloria Hallelujah', cursive;
+font-style: italic;
+color: red;
+
+}
+
+.fullList:hover {
+  cursor: pointer;
+  color: white;
+  text-decoration: underline;
+  transition: all 0.5s ease;
 }
 
 .fullList, .checkboxContainer {
