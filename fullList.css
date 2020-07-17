@@ -320,10 +320,12 @@ footer {
 
 .repeatActive {
   border: solid 2px #eee;
+  border-radius: 3px;
   padding: .1em;
 }
 .shuffleActive {
   border: solid 2px #eee;
+  border-radius: 3px;
   padding: .1em;
 }
 
