@@ -513,6 +513,45 @@ function playNextSong() {
   updateButtons();
 }
 
+function playNextSongWithButton() {
+  if (playList.length === 0) {
+    player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
+    player.stopVideo();
+    document.querySelector("h2").innerText = "Today's song";
+    document.querySelector(".title").innerText = todaysSong.title;
+    document.querySelector(".artist").innerText = todaysSong.artist;
+    document.querySelector(".by").style.display = "block";
+    document.querySelector(".artist").style.display = "block";
+
+    document.querySelector('.footerInfo').innerText = `${todaysSong.title} - ${todaysSong.artist}`;
+
+
+  } else {
+    clearInterval(myTimer);
+    try {
+      document.querySelector("h2").innerText = "Currently Playing";
+      document.querySelector(".title").innerText = playList[0].title;
+      // document.querySelector(".by").style.display = "none";
+      // document.querySelector(".artist").style.display = "none";
+      document.querySelector(".artist").innerText = playList[0].artist;
+
+      document.querySelector('.footerInfo').innerText = `${playList[0].title} - ${playList[0].artist}`;
+
+
+      player.loadVideoById(playList[0].id);
+      playList = playList.slice(1);
+      document.querySelector('.songInQue').remove();
+      myTimer = setInterval(playNextSong, 10000);
+    } catch {
+      myTimer = setInterval(playNextSong, 10000);
+    }
+  }
+  updateButtons();
+}
+
+document.querySelector("#skipEnd").addEventListener("click", playNextSongWithButton);
+
+
 let myTimer3 = setInterval(muteInvisiblePlayer, 200);
 
 let myTimer = setInterval(playNextSong, 10000);
