@@ -91,7 +91,7 @@ function urlToEmbed(input) {
 }
 
 const iframe = document.querySelector("#player");
-const todaysSong = listInUse[numberOfSong].link;
+const todaysSong = listInUse[numberOfSong];
 
 document.querySelector(".title").innerText = listInUse[numberOfSong].title;
 document.querySelector(".artist").innerText = listInUse[numberOfSong].artist;
@@ -427,7 +427,7 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
     width: '640',
-    videoId: urlToID2(urlToID(todaysSong)),
+    videoId: urlToID2(urlToID(todaysSong.link)),
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
@@ -436,7 +436,7 @@ function onYouTubeIframeAPIReady() {
   invisiblePlayer = new YT.Player('invisiblePlayer', {
     height: '390',
     width: '640',
-    videoId: urlToID2(urlToID(todaysSong)),
+    videoId: urlToID2(urlToID(todaysSong.link)),
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
@@ -478,7 +478,7 @@ document.querySelector('#invisiblePlayer').style.display = "none";
 function playNextSong() {
   if (player.getCurrentTime() === player.getDuration()) {
     if (playList.length === 0) {
-      player.loadVideoById(urlToID2(urlToID(todaysSong)));
+      player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
       player.stopVideo();
       document.querySelector("h2").innerText = "Today's song";
       document.querySelector(".title").innerText = listInUse[numberOfSong].title;
@@ -553,8 +553,7 @@ function compareByArtist(a, b) {
   return comparison;
 }
 
-let tempList = listInUse;
-const sortedSongs = tempList.sort(compareByArtist);
+const sortedSongs = listInUse.sort(compareByArtist);
 
 function addSortedSongs() {
 
