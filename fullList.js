@@ -553,7 +553,7 @@ function compareByArtist(a, b) {
   return comparison;
 }
 
-const tempList = listInUse;
+let tempList = listInUse;
 const sortedSongs = listInUse.sort(compareByArtist);
 listInUse = tempList;
 
