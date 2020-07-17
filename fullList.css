@@ -226,9 +226,12 @@ button {
   font-family: 'Fondamento', cursive;
 }
 
-.duration, .artist {
+.duration,
+.songInQue .artist,
+.songInList .artist {
   letter-spacing: .15em;
 }
+
 
 .navButtons, .playButtons {
   position: absolute;
