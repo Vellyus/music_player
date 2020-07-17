@@ -1,7 +1,8 @@
 /* PLAN
 
-- add the special songs at the bottom in a separate section
-- pass on the title and the artist from my list to the actual playlist and to the player
+PRIO 1 !!!
+  - pass on the title and the artist from my list to the actual playlist and to the player
+
 - add search feature: try real time search while typing, if that doesnt work do a simple one with a search button
 DONE BUGFIX: somehow the app freezes when you change a few song positions, maybe the updateButtons function or something else is not efficent enough... out of memory error message
 - maybe add a fixed footer with PREVIOUS PLAY/PAUSE NEXT buttons + currently playing title + artist
@@ -13,6 +14,7 @@ add a clear list button too!
     - maybe hide the video on mobiles and add a mute/unmute button
       /more place for browsing and the user can control volume on the phone/
 - add play all in random order feature
+- add the special songs at the bottom in a separate section
 */
 
 const chk = document.getElementById('chk');
@@ -208,8 +210,9 @@ class Video {
 }
 
 class Video2 {
-  constructor(id) {
-    this.id = id;
+  constructor(element) {
+    this.id = element.innerText;
+    this.artist = element.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling.innerText;
     this.title = invisiblePlayer.getVideoData().title;
     this.duration = invisiblePlayer.getDuration();
     this.serialNr = serialNr;
@@ -389,7 +392,7 @@ function addEventListeners() {
 
 function hidePlayList() {
   const playList = document.querySelector(".playList");
-  if (playList.style.display === "block" ||playList.style.display === "") {
+  if (playList.style.display === "block" || playList.style.display === "") {
     playList.style.display = "none";
     document.querySelector('.hideList').innerText = "Show Playlist";
   } else {
@@ -653,52 +656,52 @@ function addSortedSongs() {
 
 
     // const input = document.querySelector('input');
-  
-  
+
+
     // if (input.value === "" || urlToID2(urlToID(input.value)).length != 11) {
     //   document.querySelector(".errorMessage").style.display = "block";
     //   return;
     // }
     // document.querySelector(".errorMessage").style.display = "none";
-  
-  
+
+
     myTimer3 = setInterval(muteInvisiblePlayer, 200);
-  
+
     let myTimer2 = setInterval(addSong2, 1000);
-  
-  
+
+
     function addSong2() {
       if (invisiblePlayer.getCurrentTime() > 0) {
-        video = new Video2(event.target.firstElementChild.innerText);
-  
+        video = new Video2(event.target.firstElementChild);
+
         const newSongInQue = document.createElement('li');
         newSongInQue.setAttribute("id", serialNr);
         document.querySelector('.songsInQue').appendChild(newSongInQue);
         newSongInQue.className = "songInQue";
-  
+
         const newSongData = document.createElement('div');
         newSongInQue.appendChild(newSongData);
         newSongData.className = "songData";
-  
-  
+
+
         let songTitle = document.createElement("p");
         songTitle.innerText = video.title;
         newSongData.appendChild(songTitle);
-  
+
         let songDuration = document.createElement("p");
         songDuration.setAttribute("class", "duration");
         songDuration.innerText = `${convertDuration(video.duration)}`;
         newSongData.appendChild(songDuration);
-  
-  
-  
-  
-  
+
+
+
+
+
         let navButtons = document.createElement("div");
         newSongInQue.appendChild(navButtons);
         navButtons.setAttribute("class", "navButtons");
-  
-  
+
+
         let newImgUp = document.createElement("img");
         if (chk.checked === true) {
           newImgUp.src = "assets/triangle-fill.svg";
@@ -707,7 +710,7 @@ function addSortedSongs() {
         }
         newImgUp.setAttribute("class", "up");
         navButtons.appendChild(newImgUp);
-  
+
         let newImgDown = document.createElement("img");
         if (chk.checked === true) {
           newImgDown.src = "assets/triangle-fill.svg";
@@ -717,9 +720,9 @@ function addSortedSongs() {
         newImgDown.setAttribute("class", "down");
         newImgDown.style.transform = "rotate(180deg)";
         navButtons.appendChild(newImgDown);
-  
-  
-  
+
+
+
         let newImgX = document.createElement("img");
         if (chk.checked === true) {
           newImgX.src = "assets/x.svg";
@@ -728,19 +731,19 @@ function addSortedSongs() {
         }
         newImgX.setAttribute("class", "remove");
         navButtons.appendChild(newImgX);
-  
-  
-  
-  
+
+
+
+
         addEventListeners();
         updateButtons();
-  
+
         playList.push(video);
         serialNr++;
         clearInterval(myTimer2);
       }
     }
-  
+
   }));
 }
 

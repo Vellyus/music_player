@@ -226,7 +226,7 @@ button {
   font-family: 'Fondamento', cursive;
 }
 
-.duration {
+.duration, .artist {
   letter-spacing: .15em;
 }
 
