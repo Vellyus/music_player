@@ -554,8 +554,8 @@ function compareByArtist(a, b) {
 }
 
 
-
-const sortedSongs = listInUse.sort(compareByArtist);
+const newList = listInUse;
+const sortedSongs = newList.sort(compareByArtist);
 
 function addSortedSongs() {
 
