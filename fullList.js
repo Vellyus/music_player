@@ -494,10 +494,11 @@ function playNextSong() {
       try {
         document.querySelector("h2").innerText = "Currently Playing";
         document.querySelector(".title").innerText = playList[0].title;
-        document.querySelector(".by").style.display = "none";
-        document.querySelector(".artist").style.display = "none";
+        // document.querySelector(".by").style.display = "none";
+        // document.querySelector(".artist").style.display = "none";
+        document.querySelector(".artist").innerText = playList[0].artist;
 
-        document.querySelector('.footerInfo').innerText = `${playList[0].title}`;
+        document.querySelector('.footerInfo').innerText = `${playList[0].title} - ${playList[0].artist}`;
 
 
         player.loadVideoById(playList[0].id);
