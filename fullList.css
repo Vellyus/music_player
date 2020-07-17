@@ -318,6 +318,17 @@ footer {
   margin-left: 2.5em;
 }
 
+.repeatActive {
+  border: solid 2px #eee;
+  padding: .1em;
+}
+.shuffleActive {
+  border: solid 2px #eee;
+  padding: .1em;
+}
+
+
+
 
 .fullList {
   font-size: 1em;

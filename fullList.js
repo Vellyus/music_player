@@ -461,6 +461,13 @@ function onPlayerStateChange(event) {
   //   setTimeout(stopVideo, 6000);
   //   done = true;
   // }
+  if (player.getPlayerState() === 1) {
+    document.querySelector("#playButton").setAttribute("src", "assets/pause-fill-light.svg");
+  }
+  if (player.getPlayerState() === 2) {
+    document.querySelector("#playButton").setAttribute("src", "assets/play-fill-light.svg");
+  }
+
 }
 function stopVideo() {
   player.stopVideo();
@@ -550,6 +557,45 @@ function playNextSongWithButton() {
 }
 
 document.querySelector("#skipEnd").addEventListener("click", playNextSongWithButton);
+
+
+
+function shuffleList() {
+  const shuffleButton = document.querySelector("#shuffle");
+
+  if (shuffleButton.className != "shuffleActive") {
+    shuffleButton.setAttribute("class", "shuffleActive");
+  } else {
+    shuffleButton.setAttribute("class", "shuffleInactive");
+  }
+}
+
+document.querySelector("#shuffle").addEventListener("click", shuffleList);
+
+
+function repeatSong() {
+  const repeatButton = document.querySelector("#repeat");
+
+  if (repeatButton.className != "repeatActive") {
+    repeatButton.setAttribute("class", "repeatActive");
+  } else {
+    repeatButton.setAttribute("class", "repeatInactive");
+  }
+}
+
+document.querySelector("#repeat").addEventListener("click", repeatSong);
+
+
+function playPause() {
+  if (player.getPlayerState() === 1) {
+    player.pauseVideo();
+  }
+  if (player.getPlayerState() === 2) {
+    player.playVideo();
+  }
+}
+
+document.querySelector("#playButton").addEventListener("click", playPause);
 
 
 let myTimer3 = setInterval(muteInvisiblePlayer, 200);
