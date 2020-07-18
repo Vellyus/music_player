@@ -212,6 +212,15 @@ class Video {
 
 }
 
+class defaultVideo {
+  constructor(url) {
+    this.url = url;
+    this.id = urlToID2(urlToID(this.url));
+  }
+
+}
+
+
 class Video2 {
   constructor(element) {
     this.id = element.innerText;
@@ -237,7 +246,7 @@ class SortedVideo {
 
 }
 
-let playingNow = new Video(todaysSong.link);
+let playingNow = new defaultVideo(todaysSong.link);
 
 
 
