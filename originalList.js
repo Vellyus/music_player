@@ -2831,7 +2831,7 @@ const originalList =
     {
       number: 404,
       artist: "Arctic Monkeys",
-      title: "Do i Wanna Know",
+      title: "Do I Wanna Know",
       link: "https://www.youtube.com/watch?v=bpOSxM0rNPM",
     },
 
