@@ -123,7 +123,6 @@ let title;
 let duration;
 let video = {};
 let serialNr = 0;
-let playingNow = todaysSong;
 
 function checkStatus(response) {
   if (response.ok) {
@@ -237,6 +236,9 @@ class SortedVideo {
   }
 
 }
+
+let playingNow = new Video(todaysSong.link);
+
 
 
 
