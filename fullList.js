@@ -5,7 +5,7 @@ PRIO 1 !!!
   - maybe add a toTop Button instead of the shuffle button ???
     ICON: "Shift fill" in icons dir
   - change the list play buttons to "Plus circle fill" in icons dir
-
+  - move te shuffle button to the new playlist area
 
 - add search feature: try real time search while typing, if that doesnt work do a simple one with a search button
 DONE BUGFIX: somehow the app freezes when you change a few song positions, maybe the updateButtons function or something else is not efficent enough... out of memory error message
@@ -123,6 +123,7 @@ let title;
 let duration;
 let video = {};
 let serialNr = 0;
+let playingNow = {};
 
 function checkStatus(response) {
   if (response.ok) {
@@ -486,9 +487,77 @@ document.querySelector('#invisiblePlayer').style.display = "none";
 
 
 function playNextSong() {
-  if (player.getCurrentTime() === player.getDuration()) {
+  const repeatButton = document.querySelector("#repeat");
+
+  if (repeatButton.className === "repeatActive") {
+    if (player.getCurrentTime() === player.getDuration()) {
+      clearInterval(myTimer);
+      try {
+        player.loadVideoById(playingNow.id);
+        myTimer = setInterval(playNextSong, 10000);
+      } catch {
+        myTimer = setInterval(playNextSong, 10000);
+      }
+    }
+  } else {
+
+    if (player.getCurrentTime() === player.getDuration()) {
+      if (playList.length === 0) {
+        player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
+        playingNow = todaysSong;
+        player.stopVideo();
+        document.querySelector("h2").innerText = "Today's song";
+        document.querySelector(".title").innerText = todaysSong.title;
+        document.querySelector(".artist").innerText = todaysSong.artist;
+        document.querySelector(".by").style.display = "block";
+        document.querySelector(".artist").style.display = "block";
+
+        document.querySelector('.footerInfo').innerText = `${todaysSong.title} - ${todaysSong.artist}`;
+
+
+      } else {
+        clearInterval(myTimer);
+        try {
+          document.querySelector("h2").innerText = "Currently Playing";
+          document.querySelector(".title").innerText = playList[0].title;
+          // document.querySelector(".by").style.display = "none";
+          // document.querySelector(".artist").style.display = "none";
+          document.querySelector(".artist").innerText = playList[0].artist;
+
+          document.querySelector('.footerInfo').innerText = `${playList[0].title} - ${playList[0].artist}`;
+
+
+          player.loadVideoById(playList[0].id);
+          playingNow = playList[0];
+          playList = playList.slice(1);
+          document.querySelector('.songInQue').remove();
+          myTimer = setInterval(playNextSong, 10000);
+        } catch {
+          myTimer = setInterval(playNextSong, 10000);
+        }
+      }
+    }
+    updateButtons();
+  }
+}
+
+function playNextSongWithButton() {
+
+  const repeatButton = document.querySelector("#repeat");
+
+  if (repeatButton.className === "repeatActive") {
+    clearInterval(myTimer);
+    try {
+      player.loadVideoById(playingNow.id);
+      myTimer = setInterval(playNextSong, 10000);
+    } catch {
+      myTimer = setInterval(playNextSong, 10000);
+    }
+  } else {
+
     if (playList.length === 0) {
       player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
+      playingNow = todaysSong;
       player.stopVideo();
       document.querySelector("h2").innerText = "Today's song";
       document.querySelector(".title").innerText = todaysSong.title;
@@ -512,6 +581,7 @@ function playNextSong() {
 
 
         player.loadVideoById(playList[0].id);
+        playingNow = playList[0];
         playList = playList.slice(1);
         document.querySelector('.songInQue').remove();
         myTimer = setInterval(playNextSong, 10000);
@@ -519,61 +589,25 @@ function playNextSong() {
         myTimer = setInterval(playNextSong, 10000);
       }
     }
+    updateButtons();
   }
-  updateButtons();
-}
-
-function playNextSongWithButton() {
-  if (playList.length === 0) {
-    player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
-    player.stopVideo();
-    document.querySelector("h2").innerText = "Today's song";
-    document.querySelector(".title").innerText = todaysSong.title;
-    document.querySelector(".artist").innerText = todaysSong.artist;
-    document.querySelector(".by").style.display = "block";
-    document.querySelector(".artist").style.display = "block";
-
-    document.querySelector('.footerInfo').innerText = `${todaysSong.title} - ${todaysSong.artist}`;
-
-
-  } else {
-    clearInterval(myTimer);
-    try {
-      document.querySelector("h2").innerText = "Currently Playing";
-      document.querySelector(".title").innerText = playList[0].title;
-      // document.querySelector(".by").style.display = "none";
-      // document.querySelector(".artist").style.display = "none";
-      document.querySelector(".artist").innerText = playList[0].artist;
-
-      document.querySelector('.footerInfo').innerText = `${playList[0].title} - ${playList[0].artist}`;
-
-
-      player.loadVideoById(playList[0].id);
-      playList = playList.slice(1);
-      document.querySelector('.songInQue').remove();
-      myTimer = setInterval(playNextSong, 10000);
-    } catch {
-      myTimer = setInterval(playNextSong, 10000);
-    }
-  }
-  updateButtons();
 }
 
 document.querySelector("#skipEnd").addEventListener("click", playNextSongWithButton);
 
 
 
-function shuffleList() {
-  const shuffleButton = document.querySelector("#shuffle");
+// function shuffleList() {
+//   const shuffleButton = document.querySelector("#shuffle");
 
-  if (shuffleButton.className != "shuffleActive") {
-    shuffleButton.setAttribute("class", "shuffleActive");
-  } else {
-    shuffleButton.setAttribute("class", "shuffleInactive");
-  }
-}
+//   if (shuffleButton.className != "shuffleActive") {
+//     shuffleButton.setAttribute("class", "shuffleActive");
+//   } else {
+//     shuffleButton.setAttribute("class", "shuffleInactive");
+//   }
+// }
 
-document.querySelector("#shuffle").addEventListener("click", shuffleList);
+// document.querySelector("#shuffle").addEventListener("click", shuffleList);
 
 
 function repeatSong() {
