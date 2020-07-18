@@ -4164,7 +4164,7 @@ const originalList =
     {
       number: 592,
       artist: "Nightwish",
-      title: "Phhantom Of The Opera",
+      title: "Phantom Of The Opera",
       link: "https://www.youtube.com/watch?v=8VgLKXD-BoY",
     },
 

@@ -1710,7 +1710,7 @@ const listInUse =
     },
 
     {
-      number: 592, artist: "Nightwish", "title": "Phhantom Of The Opera", link: "https://www.youtube.com/watch?v=8VgLKXD-BoY"
+      number: 592, artist: "Nightwish", "title": "Phantom Of The Opera", link: "https://www.youtube.com/watch?v=8VgLKXD-BoY"
     },
 
     {
