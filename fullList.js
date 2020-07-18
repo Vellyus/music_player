@@ -515,7 +515,7 @@ function playNextSong() {
     if (player.getCurrentTime() === player.getDuration()) {
       if (playList.length === 0) {
         player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
-        playingNow = todaysSong;
+        playingNow = new defaultVideo(todaysSong.link);
         player.stopVideo();
         document.querySelector("h2").innerText = "Today's song";
         document.querySelector(".title").innerText = todaysSong.title;
@@ -568,7 +568,7 @@ function playNextSongWithButton() {
 
     if (playList.length === 0) {
       player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
-      playingNow = todaysSong;
+      playingNow = new defaultVideo(todaysSong.link);
       player.stopVideo();
       document.querySelector("h2").innerText = "Today's song";
       document.querySelector(".title").innerText = todaysSong.title;
