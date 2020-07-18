@@ -618,7 +618,7 @@ const listInUse =
     },
 
     {
-      number: 152, artist: "Helloween", "title": "live Now!", link: "https://www.youtube.com/watch?v=nN_MzG2coNs"
+      number: 152, artist: "Helloween", "title": "Live Now!", link: "https://www.youtube.com/watch?v=nN_MzG2coNs"
     },
 
     {

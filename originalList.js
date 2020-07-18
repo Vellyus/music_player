@@ -1067,7 +1067,7 @@ const originalList =
     {
       number: 152,
       artist: "Helloween",
-      title: "live Now!",
+      title: "Live Now!",
       link: "https://www.youtube.com/watch?v=nN_MzG2coNs",
     },
 
