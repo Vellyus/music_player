@@ -77,9 +77,9 @@ iframe {
 #player {
   margin-top: 1em;
   box-sizing: content-box;
-  box-shadow: 
-  5px 5px 11px 2px rgba(0, 0, 0, 1),
-  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
+  box-shadow:
+    5px 5px 11px 2px rgba(0, 0, 0, 1),
+    -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
 }
 
 .message {
@@ -105,18 +105,18 @@ iframe {
   color: #222;
   border: none;
   border-radius: 3em;
-  box-shadow: 
-  5px 5px 11px 2px rgba(0, 0, 0, 1),
-  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
+  box-shadow:
+    5px 5px 11px 2px rgba(0, 0, 0, 1),
+    -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
   font-size: 0.8em;
   font-family: 'Fondamento', cursive;
   transition: all 0.3s ease-in-out;
 }
 
 .input:focus {
-  box-shadow: 
-  10px 10px 11px 2px rgba(0, 0, 0, 1),
-  -6px -6px 11px 0 rgba(90, 90, 90, 0.4);
+  box-shadow:
+    10px 10px 11px 2px rgba(0, 0, 0, 1),
+    -6px -6px 11px 0 rgba(90, 90, 90, 0.4);
   outline: none;
   transform: scale(1.02);
 }
@@ -165,9 +165,9 @@ button {
   border: none;
   border-radius: 3em;
   padding: 1em;
-  box-shadow: 
-  5px 5px 11px 2px rgba(0, 0, 0, 1),
-  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
+  box-shadow:
+    5px 5px 11px 2px rgba(0, 0, 0, 1),
+    -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
   transition: all 0.3s ease-in-out;
   font-size: 0.8em;
   font-family: 'Gloria Hallelujah', cursive;
@@ -176,17 +176,17 @@ button {
   text-shadow: 3px 3px 7px rgba(0, 0, 0, 1);
 }
 
-.hideList:hover{
+.hideList:hover {
   letter-spacing: 1px;
-  box-shadow: 
-  -9px -9px 29px 9px rgba(90, 90, 90, 0.4),
-  5px 5px 9px 9px rgba(0, 0, 0, 1);
+  box-shadow:
+    -9px -9px 29px 9px rgba(90, 90, 90, 0.4),
+    5px 5px 9px 9px rgba(0, 0, 0, 1);
 }
 
 .hideList:active {
-  box-shadow: 
-  5px 5px 11px 2px rgba(255, 255, 255, 0.2),
-  -3px -3px 11px 0 rgba(0, 0, 0, 1);
+  box-shadow:
+    5px 5px 11px 2px rgba(255, 255, 255, 0.2),
+    -3px -3px 11px 0 rgba(0, 0, 0, 1);
   outline: none;
   transition: 0.1s ease-in-out;
 }
@@ -195,7 +195,37 @@ button {
   outline: none;
 }
 
-.songInQue, .songInList {
+.songsInQue {
+  display: none;
+  position: fixed;
+  top: 0;
+  overflow-y: auto;
+  height: 100%;
+  margin-bottom: 5em;
+  background-color: #181818;
+  padding-bottom: 6em;
+  width: 100%;
+  z-index: 1;
+}
+
+
+/* .songsInQue {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  overflow-y: auto;
+  height: 100%;
+  margin-bottom: 5em;
+  background-color: #181818;
+  padding-bottom: 6em;
+  width: 35em;
+  border-radius: 3em;
+  z-index: 1;
+} */
+
+.songInQue,
+.songInList {
   width: 330px;
   height: 5em;
   margin: auto;
@@ -207,13 +237,14 @@ button {
   border-top-right-radius: 10px;
   border-top-left-radius: 20px;
   -webkit-transform: skew(-10deg);
-  box-shadow: 
-  5px 5px 11px 2px rgba(0, 0, 0, 1),
-  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
+  box-shadow:
+    5px 5px 11px 2px rgba(0, 0, 0, 1),
+    -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
   margin-top: 2.5em;
 }
 
-.songInQue p, .songInList p{
+.songInQue p,
+.songInList p {
   margin-left: .5em;
 }
 
@@ -237,13 +268,15 @@ button {
 }
 
 
-.navButtons, .playButtons {
+.navButtons,
+.playButtons {
   position: absolute;
   bottom: 0;
   right: 0.5em;
 }
 
-.navButtons img, .playButtons img {
+.navButtons img,
+.playButtons img {
   margin: .5em;
   width: 1.3em;
   cursor: pointer;
@@ -273,6 +306,7 @@ footer {
   margin-top: 3em;
   /* padding: 1em; */
   line-height: 1.6;
+  z-index: 2;
 }
 
 .footerInfo {
@@ -327,7 +361,14 @@ footer {
   border-radius: 3px;
   padding: .1em;
 }
+
 .shuffleActive {
+  border: solid 2px #eee;
+  border-radius: 3px;
+  padding: .1em;
+}
+
+.listActive {
   border: solid 2px #eee;
   border-radius: 3px;
   padding: .1em;
@@ -340,12 +381,14 @@ footer {
   font-size: 1em;
 }
 
-.fullList, .checkboxContainer {
+.fullList,
+.checkboxContainer {
   display: block;
   margin: auto;
 }
 
-.fullList, .checkbox {
+.fullList,
+.checkbox {
   margin-top: 2em;
   margin-bottom: 2em;
 }
@@ -366,41 +409,41 @@ footer {
 }
 
 .checkbox {
-	display: none;
+  display: none;
 }
 
 .label {
-	background-color: #111;
-	border-radius: 50px;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 5px;
-	position: relative;
-	height: 26px;
-	width: 50px;
+  background-color: #111;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  height: 26px;
+  width: 50px;
   /* transform: scale(1.5); */
   margin: auto;
-  box-shadow: 
-  5px 5px 11px 2px rgba(0, 0, 0, 1),
-  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
+  box-shadow:
+    5px 5px 11px 2px rgba(0, 0, 0, 1),
+    -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
 }
 
 .label .ball {
-	background-color: #fff;
-	border-radius: 50%;
-	position: absolute;
-	top: 2px;
-	left: 2px;
-	height: 22px;
-	width: 22px;
-	transform: translateX(0px);
-	transition: transform 0.2s linear;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 22px;
+  width: 22px;
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
 }
 
-.checkbox:checked + .label .ball {
-	transform: translateX(24px);
+.checkbox:checked+.label .ball {
+  transform: translateX(24px);
 }
 
 /* LIGHT MODE */
@@ -415,9 +458,9 @@ body.light .label .ball {
 
 body.light .label {
   background-color: #222;
-  box-shadow: 
-  7px 7px 11px 0 rgba(0, 0, 0, .8),
-  -3px -3px 11px 2px rgba(255, 255, 255, .8);
+  box-shadow:
+    7px 7px 11px 0 rgba(0, 0, 0, .8),
+    -3px -3px 11px 2px rgba(255, 255, 255, .8);
 }
 
 body.light {
@@ -445,23 +488,23 @@ body.light .by {
 }
 
 body.light #player {
-  box-shadow: 
-  7px 7px 11px 0 rgba(0, 0, 0, .8),
-  -3px -3px 11px 2px rgba(255, 255, 255, .8);
+  box-shadow:
+    7px 7px 11px 0 rgba(0, 0, 0, .8),
+    -3px -3px 11px 2px rgba(255, 255, 255, .8);
 }
 
 body.light input {
   background-color: #eee;
   color: #222;
-  box-shadow: 
-  7px 7px 11px 0 rgba(0, 0, 0, .8),
-  -3px -3px 11px 2px rgba(255, 255, 255, .8);
+  box-shadow:
+    7px 7px 11px 0 rgba(0, 0, 0, .8),
+    -3px -3px 11px 2px rgba(255, 255, 255, .8);
 }
 
 body.light input:focus {
-  box-shadow: 
-  10px 10px 11px 0 rgba(0, 0, 0, .8),
-  -6px -6px 11px 2px rgba(255, 255, 255, .8);
+  box-shadow:
+    10px 10px 11px 0 rgba(0, 0, 0, .8),
+    -6px -6px 11px 2px rgba(255, 255, 255, .8);
 }
 
 body.light hr {
@@ -472,29 +515,33 @@ body.light hr {
 body.light .hideList {
   background-color: #eee;
   color: #222;
-  box-shadow: 
-  7px 7px 11px 0 rgba(0, 0, 0, .8),
-  -3px -3px 11px 2px rgba(255, 255, 255, .8);
+  box-shadow:
+    7px 7px 11px 0 rgba(0, 0, 0, .8),
+    -3px -3px 11px 2px rgba(255, 255, 255, .8);
   text-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
 }
 
-body.light .hideList:hover{
-  box-shadow: 
-  10px 10px 11px 0 rgba(0, 0, 0, .8),
-  -6px -6px 11px 2px rgba(255, 255, 255, .8);
+body.light .hideList:hover {
+  box-shadow:
+    10px 10px 11px 0 rgba(0, 0, 0, .8),
+    -6px -6px 11px 2px rgba(255, 255, 255, .8);
 }
 
 body.light .hideList:active {
-  box-shadow: 
-  5px 5px 11px 2px rgba(255, 255, 255, 0.2),
-  -3px -3px 11px 0 rgba(0, 0, 0, 1);
+  box-shadow:
+    5px 5px 11px 2px rgba(255, 255, 255, 0.2),
+    -3px -3px 11px 0 rgba(0, 0, 0, 1);
+}
+
+body.light .songsInQue {
+  background-color: #e4e4e4;
 }
 
 body.light .songInQue,
 body.light .songInList {
-  box-shadow: 
-  5px 5px 11px 0 rgba(0, 0, 0, .8),
-  -3px -3px 11px 2px rgba(255, 255, 255, .8);
+  box-shadow:
+    5px 5px 11px 0 rgba(0, 0, 0, .8),
+    -3px -3px 11px 2px rgba(255, 255, 255, .8);
 }
 
 body.light .songData {
@@ -522,7 +569,8 @@ body.light .footerInfo {
     font-size: 1.6em;
   }
 
-  .title, .artist {
+  .title,
+  .artist {
     font-size: 1.1em;
   }
 
@@ -543,7 +591,7 @@ body.light .footerInfo {
     font-size: 1em;
   }
 
-  .hideList{
+  .hideList {
     font-size: .9em;
   }
 
@@ -567,27 +615,29 @@ body.light .footerInfo {
     width: 1.4em;
     margin-left: .6em;
     margin-right: .6em;
-  }  
+  }
 
   #skipEnd {
     margin-right: 2.6em;
   }
-  
+
   #skipStart {
     margin-left: 2.6em;
-  }  
+  }
 
-  .songInQue p, .songInList p {
+  .songInQue p,
+  .songInList p {
     margin-left: .7em;
   }
-  
-.SongDescription {
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
 
-  .songInQue, .songInList {
+  .SongDescription {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .songInQue,
+  .songInList {
     width: 500px;
     height: 5.2em;
   }
@@ -596,10 +646,10 @@ body.light .footerInfo {
     width: 520px;
   }
 
-iframe {
+  iframe {
     width: 431.9808px;
     height: 242.3808px;
-    }
+  }
 }
 
 @media(min-width: 57.7125em) {
@@ -612,7 +662,8 @@ iframe {
     font-size: 1.7em;
   }
 
-  .title, .artist {
+  .title,
+  .artist {
     font-size: 1.2em;
   }
 
@@ -633,8 +684,25 @@ iframe {
     font-size: 1.1em;
   }
 
-  .hideList{
+  .hideList {
     font-size: 1em;
+  }
+
+  .songsInQue {
+    position: fixed;
+    right: 0;
+    top: 0;
+    overflow-y: auto;
+    height: 100%;
+    margin-bottom: 5em;
+    background-color: #181818;
+    padding-bottom: 6em;
+    width: 21em;
+    border-radius: 3em;
+  }
+
+  .songInQue {
+    width: 19em;
   }
 
   .songData {
@@ -657,17 +725,18 @@ iframe {
     width: 1.5em;
     margin-left: .7em;
     margin-right: .7em;
-  }  
+  }
 
   #skipEnd {
     margin-right: 2.7em;
   }
-  
+
   #skipStart {
     margin-left: 2.7em;
-  }  
+  }
 
-  .songInQue p, .songInList p {
+  .songInQue p,
+  .songInList p {
     margin-left: .9em;
   }
 
@@ -695,7 +764,8 @@ iframe {
     font-size: 1.8em;
   }
 
-  .title, .artist {
+  .title,
+  .artist {
     font-size: 1.3em;
   }
 
@@ -716,8 +786,16 @@ iframe {
     font-size: 1.2em;
   }
 
-.hideList{
+  .hideList {
     font-size: 1.1em;
+  }
+
+  .songsInQue {
+    width: 35em;
+  }
+
+  .songInQue {
+    width: 30em;
   }
 
   .songData {
@@ -735,22 +813,23 @@ iframe {
   .footerInfo {
     font-size: 1.1em;
   }
-  
+
   .container2 img {
     width: 1.6em;
     margin-left: .8em;
     margin-right: .8em;
-  }  
+  }
 
   #skipEnd {
     margin-right: 2.8em;
   }
-  
+
   #skipStart {
     margin-left: 2.8em;
-  }  
+  }
 
-  .songInQue p, .songInList p {
+  .songInQue p,
+  .songInList p {
     margin-left: 1.2em;
   }
 
@@ -766,5 +845,5 @@ iframe {
   iframe {
     width: 719.968px;
     height: 403.968px;
-    }
+  }
 }

@@ -555,7 +555,7 @@ function playNextSong() {
             document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorDark;
             document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
             } else {
-            document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorDark;
+            document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorLight;
             document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
             }
         
@@ -820,6 +820,22 @@ function playPreviousSongWithButton() {
 }
 
 document.querySelector("#skipStart").addEventListener("click", playPreviousSongWithButton);
+
+
+function showHideList() {
+  const musicNoteList = document.querySelector("#musicNoteList");
+
+  if (musicNoteList.className != "listActive") {
+    musicNoteList.setAttribute("class", "listActive");
+    document.querySelector(".songsInQue").style.display = "block";
+  } else {
+    musicNoteList.setAttribute("class", "listInactive");
+    document.querySelector(".songsInQue").style.display = "none";
+  }
+}
+
+document.querySelector("#musicNoteList").addEventListener("click", showHideList);
+
 
 
 
