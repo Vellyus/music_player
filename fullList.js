@@ -64,6 +64,12 @@ function updatePlayList() {
     }
   }
   playList = newPlayList;
+
+  for (let i = 0; i < listUl.length; i++) {
+    if (listUl[i].firstElementChild.style.color === "red") {
+      playlistPosition = i;
+    }
+  }
 }
 
 
@@ -124,6 +130,7 @@ let title;
 let duration;
 let video = {};
 let serialNr = 0;
+let playlistPosition = -1;
 
 function checkStatus(response) {
   if (response.ok) {
@@ -368,6 +375,7 @@ function updateButtons() {
   }
   firstUpButton[0].style.visibility = 'hidden';
   lastDownButton[0].style.visibility = 'hidden';
+  updatePlayList();
 }
 
 function addEventListeners() {
@@ -379,6 +387,41 @@ function addEventListeners() {
         let li = event.target.parentNode.parentNode;
         let ul = li.parentNode;
         ul.removeChild(li);
+
+        if (document.querySelectorAll('.songInQue')[playlistPosition]) {
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "red";
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
+
+        } else {
+          if (!playList[playlistPosition + 1]) {
+            player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
+            playingNow = new defaultVideo(todaysSong.link);
+            player.stopVideo();
+            document.querySelector("h2").innerText = "Today's song";
+            document.querySelector(".title").innerText = todaysSong.title;
+            document.querySelector(".artist").innerText = todaysSong.artist;
+            document.querySelector(".by").style.display = "block";
+            document.querySelector(".artist").style.display = "block";
+
+            if (document.querySelectorAll('.songInQue')[playlistPosition]
+            ) {
+              document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "#e0e7e9";
+              document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
+
+              // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
+
+            }
+
+            playlistPosition = -1;
+            clearInterval(myTimer);
+
+
+            document.querySelector('.footerInfo').innerText = `${todaysSong.title} - ${todaysSong.artist}`;
+
+
+          }
+        }
+
         updatePlayList();
         updateButtons();
       }
@@ -514,7 +557,7 @@ function playNextSong() {
   } else {
 
     if (player.getCurrentTime() === player.getDuration()) {
-      if (playList.length === 0) {
+      if (!playList[playlistPosition + 1]) {
         player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
         playingNow = new defaultVideo(todaysSong.link);
         player.stopVideo();
@@ -524,25 +567,55 @@ function playNextSong() {
         document.querySelector(".by").style.display = "block";
         document.querySelector(".artist").style.display = "block";
 
+        if (document.querySelectorAll('.songInQue')[playlistPosition]
+        ) {
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "#e0e7e9";
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
+
+          // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
+
+        }
+
+        playlistPosition = -1;
+        clearInterval(myTimer);
+
+
+
         document.querySelector('.footerInfo').innerText = `${todaysSong.title} - ${todaysSong.artist}`;
 
 
       } else {
         clearInterval(myTimer);
         try {
+          playlistPosition++;
+
           document.querySelector("h2").innerText = "Currently Playing";
-          document.querySelector(".title").innerText = playList[0].title;
+          document.querySelector(".title").innerText = playList[playlistPosition].title;
           // document.querySelector(".by").style.display = "none";
           // document.querySelector(".artist").style.display = "none";
-          document.querySelector(".artist").innerText = playList[0].artist;
+          document.querySelector(".artist").innerText = playList[playlistPosition].artist;
 
-          document.querySelector('.footerInfo').innerText = `${playList[0].title} - ${playList[0].artist}`;
+          document.querySelector('.footerInfo').innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`;
+
+          if (document.querySelectorAll('.songInQue')[playlistPosition - 1]
+          ) {
+            document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.color = "#e0e7e9";
+            document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.fontWeight = "400";
+
+            // document.querySelectorAll('.songInQue')[playlistPosition-1].setAttribute("id", "");
+
+          }
+
+          player.loadVideoById(playList[playlistPosition].id);
+          playingNow = playList[playlistPosition];
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "red";
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
+
+          // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "currentSong");
 
 
-          player.loadVideoById(playList[0].id);
-          playingNow = playList[0];
-          playList = playList.slice(1);
-          document.querySelector('.songInQue').remove();
+          // playList = playList.slice(1);
+          // document.querySelector('.songInQue').remove();
           myTimer = setInterval(playNextSong, 10000);
         } catch {
           myTimer = setInterval(playNextSong, 10000);
@@ -567,7 +640,7 @@ function playNextSongWithButton() {
     }
   } else {
 
-    if (playList.length === 0) {
+    if (!playList[playlistPosition + 1]) {
       player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
       playingNow = new defaultVideo(todaysSong.link);
       player.stopVideo();
@@ -577,25 +650,53 @@ function playNextSongWithButton() {
       document.querySelector(".by").style.display = "block";
       document.querySelector(".artist").style.display = "block";
 
+      if (document.querySelectorAll('.songInQue')[playlistPosition]
+      ) {
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "#e0e7e9";
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
+
+        // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
+
+      }
+
+      playlistPosition = -1;
+      clearInterval(myTimer);
+
+
       document.querySelector('.footerInfo').innerText = `${todaysSong.title} - ${todaysSong.artist}`;
 
 
     } else {
       clearInterval(myTimer);
       try {
+        playlistPosition++;
+
         document.querySelector("h2").innerText = "Currently Playing";
-        document.querySelector(".title").innerText = playList[0].title;
+        document.querySelector(".title").innerText = playList[playlistPosition].title;
         // document.querySelector(".by").style.display = "none";
         // document.querySelector(".artist").style.display = "none";
-        document.querySelector(".artist").innerText = playList[0].artist;
+        document.querySelector(".artist").innerText = playList[playlistPosition].artist;
 
-        document.querySelector('.footerInfo').innerText = `${playList[0].title} - ${playList[0].artist}`;
+        document.querySelector('.footerInfo').innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`;
 
+        if (document.querySelectorAll('.songInQue')[playlistPosition - 1]
+        ) {
+          document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.color = "#e0e7e9";
+          document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.fontWeight = "400";
 
-        player.loadVideoById(playList[0].id);
-        playingNow = playList[0];
-        playList = playList.slice(1);
-        document.querySelector('.songInQue').remove();
+          // document.querySelectorAll('.songInQue')[playlistPosition-1].setAttribute("id", "");
+
+        }
+
+        player.loadVideoById(playList[playlistPosition].id);
+        playingNow = playList[playlistPosition];
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "red";
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
+
+        // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "currentSong");
+
+        // playList = playList.slice(1);
+        // document.querySelector('.songInQue').remove();
         myTimer = setInterval(playNextSong, 10000);
       } catch {
         myTimer = setInterval(playNextSong, 10000);
@@ -606,6 +707,92 @@ function playNextSongWithButton() {
 }
 
 document.querySelector("#skipEnd").addEventListener("click", playNextSongWithButton);
+
+
+
+function playPreviousSongWithButton() {
+
+  const repeatButton = document.querySelector("#repeat");
+
+  if (repeatButton.className === "repeatActive") {
+    clearInterval(myTimer);
+    try {
+      player.loadVideoById(playingNow.id);
+      myTimer = setInterval(playNextSong, 10000);
+    } catch {
+      myTimer = setInterval(playNextSong, 10000);
+    }
+  } else {
+
+    if (!playList[playlistPosition - 1]) {
+      player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
+      playingNow = new defaultVideo(todaysSong.link);
+      player.stopVideo();
+      document.querySelector("h2").innerText = "Today's song";
+      document.querySelector(".title").innerText = todaysSong.title;
+      document.querySelector(".artist").innerText = todaysSong.artist;
+      document.querySelector(".by").style.display = "block";
+      document.querySelector(".artist").style.display = "block";
+
+      if (document.querySelectorAll('.songInQue')[playlistPosition]
+      ) {
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "#e0e7e9";
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
+
+        // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
+
+      }
+
+      playlistPosition = -1;
+      clearInterval(myTimer);
+
+
+      document.querySelector('.footerInfo').innerText = `${todaysSong.title} - ${todaysSong.artist}`;
+
+
+    } else {
+      clearInterval(myTimer);
+      try {
+        playlistPosition--;
+
+        document.querySelector("h2").innerText = "Currently Playing";
+        document.querySelector(".title").innerText = playList[playlistPosition].title;
+        // document.querySelector(".by").style.display = "none";
+        // document.querySelector(".artist").style.display = "none";
+        document.querySelector(".artist").innerText = playList[playlistPosition].artist;
+
+        document.querySelector('.footerInfo').innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`;
+
+        if (document.querySelectorAll('.songInQue')[playlistPosition + 1]
+        ) {
+          document.querySelectorAll('.songInQue')[playlistPosition + 1].firstElementChild.style.color = "#e0e7e9";
+          document.querySelectorAll('.songInQue')[playlistPosition + 1].firstElementChild.style.fontWeight = "400";
+
+          // document.querySelectorAll('.songInQue')[playlistPosition+1].setAttribute("id", "");
+
+        }
+
+        player.loadVideoById(playList[playlistPosition].id);
+        playingNow = playList[playlistPosition];
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "red";
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
+
+        // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "currentSong");
+
+
+        // playList = playList.slice(1);
+        // document.querySelector('.songInQue').remove();
+        myTimer = setInterval(playNextSong, 10000);
+      } catch {
+        myTimer = setInterval(playNextSong, 10000);
+      }
+    }
+    updateButtons();
+  }
+}
+
+document.querySelector("#skipStart").addEventListener("click", playPreviousSongWithButton);
+
 
 
 
