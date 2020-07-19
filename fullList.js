@@ -490,7 +490,7 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
   event.target.playVideo();
   invisiblePlayer.mute();
-
+  player.stopVideo();
 }
 
 // 5. The API calls this function when the player's state changes.
@@ -1114,7 +1114,5 @@ function addSortedSongs() {
 }
 
 addSortedSongs();
-
-
-
+window.onload(player.stopVideo());
 
