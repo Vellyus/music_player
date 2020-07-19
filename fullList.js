@@ -21,6 +21,11 @@ add a clear list button too!
 
 */
 
+let colorLight = "#e0e7e9";
+let colorDark = "#222";
+let colorRed = "red";
+let colorBlue = "blue";
+
 const chk = document.getElementById('chk');
 
 chk.addEventListener('change', () => {
@@ -38,6 +43,10 @@ chk.addEventListener('change', () => {
     downButtons.forEach(e => e.src = "assets/triangle-fill.svg");
     removeButtons.forEach(e => e.src = "assets/x.svg");
     addToPlayListButtons.forEach(e => e.src = "assets/triangle-fill.svg");
+
+    document.querySelectorAll(".songInQue").forEach(e =>  e.firstElementChild.style.color = colorDark);
+    document.querySelectorAll(".songInQue")[playlistPosition].firstElementChild.style.color = colorBlue;
+
   } else {
     let upButtons = document.querySelectorAll('.up');
     let downButtons = document.querySelectorAll('.down');
@@ -47,6 +56,10 @@ chk.addEventListener('change', () => {
     downButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
     removeButtons.forEach(e => e.src = "assets/x-light.svg");
     addToPlayListButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
+
+    document.querySelectorAll(".songInQue").forEach(e =>  e.firstElementChild.style.color = colorLight);
+    document.querySelectorAll(".songInQue")[playlistPosition].firstElementChild.style.color = colorRed;
+
   }
 });
 
@@ -538,8 +551,14 @@ function playNextSong() {
 
         if (document.querySelectorAll('.songInQue')[playlistPosition]
         ) {
-          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "#e0e7e9";
-          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
+          if (chk.checked === true) {
+            document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorDark;
+            document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
+            } else {
+            document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorDark;
+            document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
+            }
+        
 
           // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
 
@@ -568,18 +587,27 @@ function playNextSong() {
 
           if (document.querySelectorAll('.songInQue')[playlistPosition - 1]
           ) {
-            document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.color = "#e0e7e9";
+            if (chk.checked === true) {
+              document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.color = colorDark;
+              document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.fontWeight = "400";
+            } else {
+            document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.color = colorLight;
             document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.fontWeight = "400";
 
             // document.querySelectorAll('.songInQue')[playlistPosition-1].setAttribute("id", "");
-
           }
-
+          }
+          if (chk.checked === true) {
+            player.loadVideoById(playList[playlistPosition].id);
+            playingNow = playList[playlistPosition];
+            document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorRed;
+            document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
+          } else {  
           player.loadVideoById(playList[playlistPosition].id);
           playingNow = playList[playlistPosition];
-          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "red";
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorBlue;
           document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
-
+          }
           // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "currentSong");
 
 
@@ -621,11 +649,15 @@ function playNextSongWithButton() {
 
       if (document.querySelectorAll('.songInQue')[playlistPosition]
       ) {
-        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "#e0e7e9";
+        if (chk.checked === true) {
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorDark;
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
+        } else {  
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorLight;
         document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
 
         // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
-
+        }
       }
 
       playlistPosition = -1;
@@ -650,20 +682,28 @@ function playNextSongWithButton() {
 
         if (document.querySelectorAll('.songInQue')[playlistPosition - 1]
         ) {
-          document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.color = "#e0e7e9";
+          if (chk.checked === true) {
+            document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.color = colorDark;
+            document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.fontWeight = "400";
+          } else {  
+          document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.color = colorLight;
           document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.fontWeight = "400";
 
           // document.querySelectorAll('.songInQue')[playlistPosition-1].setAttribute("id", "");
-
+          }
         }
 
         player.loadVideoById(playList[playlistPosition].id);
         playingNow = playList[playlistPosition];
-        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "red";
+        if (chk.checked === true) {
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorBlue;
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
+        } else {  
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorRed;
         document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
 
         // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "currentSong");
-
+        }
         // playList = playList.slice(1);
         // document.querySelector('.songInQue').remove();
         myTimer = setInterval(playNextSong, 10000);
@@ -705,8 +745,15 @@ function playPreviousSongWithButton() {
 
       if (document.querySelectorAll('.songInQue')[playlistPosition]
       ) {
-        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "#e0e7e9";
+        if (chk.checked === true) {
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorDark;
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
+        } else {  
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorLight;
         document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
+
+        // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
+        }
 
         // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
 
@@ -734,8 +781,15 @@ function playPreviousSongWithButton() {
 
         if (document.querySelectorAll('.songInQue')[playlistPosition + 1]
         ) {
-          document.querySelectorAll('.songInQue')[playlistPosition + 1].firstElementChild.style.color = "#e0e7e9";
+          if (chk.checked === true) {
+            document.querySelectorAll('.songInQue')[playlistPosition + 1].firstElementChild.style.color = colorDark;
+            document.querySelectorAll('.songInQue')[playlistPosition + 1].firstElementChild.style.fontWeight = "400";
+          } else {  
+          document.querySelectorAll('.songInQue')[playlistPosition + 1].firstElementChild.style.color = colorLight;
           document.querySelectorAll('.songInQue')[playlistPosition + 1].firstElementChild.style.fontWeight = "400";
+
+          // document.querySelectorAll('.songInQue')[playlistPosition-1].setAttribute("id", "");
+          }
 
           // document.querySelectorAll('.songInQue')[playlistPosition+1].setAttribute("id", "");
 
@@ -743,10 +797,15 @@ function playPreviousSongWithButton() {
 
         player.loadVideoById(playList[playlistPosition].id);
         playingNow = playList[playlistPosition];
-        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "red";
+        if (chk.checked === true) {
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorBlue;
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
+        } else {  
+        document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorRed;
         document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
 
-        // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "currentSong");
+        // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
+        }
 
 
         // playList = playList.slice(1);

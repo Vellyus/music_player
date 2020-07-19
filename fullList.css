@@ -431,6 +431,7 @@ body.light .inProgress {
 }
 
 body.light h2 {
+  color: blue;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
 }
 
