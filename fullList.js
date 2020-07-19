@@ -389,8 +389,10 @@ function addEventListeners() {
         ul.removeChild(li);
 
         if (document.querySelectorAll('.songInQue')[playlistPosition]) {
-          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "red";
-          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
+
+          playNextSongWithButton();
+          // document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "red";
+          // document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
 
         } else {
           if (!playList[playlistPosition + 1]) {
