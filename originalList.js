@@ -5188,8 +5188,85 @@ const originalList =
       artist: "Disturbed",
       title: "Asylum",
       link: "https://www.youtube.com/watch?v=1K9jBL2syJ8",
-    }
+    },
+
+    {
+      number: 739,
+      artist: "Rev Theory",
+      title: "Hell Yeah",
+      link: "https://www.youtube.com/watch?v=7LuSP4QaXiQ",
+    },
     
+    {
+      number: 740,
+      artist: "Meg Myers",
+      title: "Desire",
+      link: "https://www.youtube.com/watch?v=bR5u9jb0PJE",
+    },
+
+    {
+      number: 741,
+      artist: "Meg Myers",
+      title: "Feather",
+      link: "https://www.youtube.com/watch?v=mBN-0azz3X4",
+    },
+
+    {
+      number: 742,
+      artist: "Escape the Fate",
+      title: "You're Insane",
+      link: "https://www.youtube.com/watch?v=KAgHj2y_TDk",
+    },
+
+    {
+      number: 743,
+      artist: "Slipknot ",
+      title: "XIX",
+      link: "https://www.youtube.com/watch?v=2fsGyFjoyR0",
+    },
+
+    {
+      number: 744,
+      artist: "Apey ",
+      title: "Personal Demon",
+      link: "https://www.youtube.com/watch?v=u7YPm6859Ao",
+    },
+
+    {
+      number: 745,
+      artist: "Metallica ",
+      title: "Dyers Eve",
+      link: "https://www.youtube.com/watch?v=v6kb5fvv6_A",
+    },
+
+    {
+      number: 746,
+      artist: "Palaye Royale ",
+      title: "Dying in A Hot Tub (Acoustic)",
+      link: "https://www.youtube.com/watch?v=OGiEN__72c4",
+    },
+
+    {
+      number: 747,
+      artist: "Five Finger Death Punch",
+      title: "The Pride",
+      link: "https://www.youtube.com/watch?v=zuQGx1H1Qh8",
+    },
+
+    {
+      number: 748,
+      artist: "Alestorm",
+      title: "Drink",
+      link: "https://www.youtube.com/watch?v=f55CqLc6IR0",
+    },
+
+    {
+      number: 749,
+      artist: "Alestorm",
+      title: "Mexico",
+      link: "https://www.youtube.com/watch?v=-r8jlHDBMsw",
+    },
+
   ]
 
 const specialSongs = [
