@@ -600,12 +600,12 @@ function playNextSong() {
           if (chk.checked === true) {
             player.loadVideoById(playList[playlistPosition].id);
             playingNow = playList[playlistPosition];
-            document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorRed;
+            document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorBlue;
             document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
           } else {  
           player.loadVideoById(playList[playlistPosition].id);
           playingNow = playList[playlistPosition];
-          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorBlue;
+          document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorRed;
           document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
           }
           // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "currentSong");
