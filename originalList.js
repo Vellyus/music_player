@@ -4891,7 +4891,7 @@ const originalList =
 
     {
       number: 696,
-      artist: "Black Veil brides",
+      artist: "Black Veil Brides",
       title: "Heart Of Fire",
       link: "https://www.youtube.com/watch?v=RZxhWqxwsBQ",
     },
