@@ -79,7 +79,7 @@ function updatePlayList() {
   playList = newPlayList;
 
   for (let i = 0; i < listUl.length; i++) {
-    if (listUl[i].firstElementChild.style.color === "red") {
+    if (listUl[i].firstElementChild.style.color === "red" || listUl[i].firstElementChild.style.color === "blue") {
       playlistPosition = i;
     }
   }
@@ -400,7 +400,7 @@ function addEventListeners() {
         let li = event.target.parentNode.parentNode;
         let ul = li.parentNode;
 
-        if (event.target.parentNode.parentNode.firstElementChild.style.color === "red") {
+        if (event.target.parentNode.parentNode.firstElementChild.style.color === "red" || event.target.parentNode.parentNode.firstElementChild.style.color === "blue") {
           playNextSongWithButton();
         }
 
