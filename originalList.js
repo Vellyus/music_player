@@ -2004,28 +2004,28 @@ const originalList =
 
     {
       number: 286,
-      artist: "Playe Royale",
+      artist: "Palaye Royale",
       title: "Mr. Doctor Man",
       link: "https://www.youtube.com/watch?v=nzM134EhSFQ",
     },
 
     {
       number: 287,
-      artist: "Playe Royale",
+      artist: "Palaye Royale",
       title: "Don't Feel Quite Right",
       link: "https://www.youtube.com/watch?v=GVGtWngq3Yk",
     },
 
     {
       number: 288,
-      artist: "Playe Royale",
+      artist: "Palaye Royale",
       title: "Lonely",
       link: "https://www.youtube.com/watch?v=f5Nc4kiBaIs",
     },
 
     {
       number: 289,
-      artist: "Playe Royale",
+      artist: "Palaye Royale",
       title: "Little Bastards",
       link: "https://www.youtube.com/watch?v=KGXwPPTF_nI",
     },
