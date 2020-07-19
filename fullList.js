@@ -386,44 +386,12 @@ function addEventListeners() {
       if (event.target.className == 'remove') {
         let li = event.target.parentNode.parentNode;
         let ul = li.parentNode;
-        ul.removeChild(li);
 
-        if (document.querySelectorAll('.songInQue')[playlistPosition]) {
-
+        if (event.target.parentNode.parentNode.firstElementChild.style.color === "red") {
           playNextSongWithButton();
-          // document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "red";
-          // document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
-
-        } else {
-          if (!playList[playlistPosition + 1]) {
-            player.loadVideoById(urlToID2(urlToID(todaysSong.link)));
-            playingNow = new defaultVideo(todaysSong.link);
-            player.stopVideo();
-            document.querySelector("h2").innerText = "Today's song";
-            document.querySelector(".title").innerText = todaysSong.title;
-            document.querySelector(".artist").innerText = todaysSong.artist;
-            document.querySelector(".by").style.display = "block";
-            document.querySelector(".artist").style.display = "block";
-
-            if (document.querySelectorAll('.songInQue')[playlistPosition]
-            ) {
-              document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = "#e0e7e9";
-              document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
-
-              // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
-
-            }
-
-            playlistPosition = -1;
-            clearInterval(myTimer);
-
-
-            document.querySelector('.footerInfo').innerText = `${todaysSong.title} - ${todaysSong.artist}`;
-
-
-          }
         }
 
+        ul.removeChild(li);
         updatePlayList();
         updateButtons();
       }
@@ -451,7 +419,6 @@ function addEventListeners() {
   }
   )
 };
-
 function hidePlayList() {
   const playList = document.querySelector(".playList");
   if (playList.style.display === "block" || playList.style.display === "") {
