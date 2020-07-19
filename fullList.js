@@ -11,7 +11,8 @@ PRIO 1 !!!
 DONE BUGFIX: somehow the app freezes when you change a few song positions, maybe the updateButtons function or something else is not efficent enough... out of memory error message
 - maybe add a fixed footer with PREVIOUS PLAY/PAUSE NEXT buttons + currently playing title + artist
     - also make the playlist step forward when a song is over - this way you dont lose history
-    - maybe add the hide list and to top buttons here too
+    - currentSong id fot the element, make it red and bold
+    DONE maybe add the hide list and to top buttons here too
 MAKE IT LIKE ON GROOVESHARK - PICTURE IN THIS DIR. !!!  OR SOUNDCLOUD
 add a clear list button too!
 (current playlist floats in from side)
@@ -702,7 +703,7 @@ function compareByArtist(a, b) {
   return comparison;
 }
 
-const sortedSongs = listInUse.sort(compareByArtist);
+const sortedSongs = originalList.sort(compareByArtist);
 
 function addSortedSongs() {
 
