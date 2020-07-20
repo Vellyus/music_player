@@ -430,30 +430,30 @@ function addEventListeners() {
         updateButtons();
       }
     }
-    if (event.target.className == "songInQueTitle") {
-      playlistPosition = parseInt(event.target.parentNode.parentNode.id) - 1;
-      playNextSongWithButton();
+    // if (event.target.className == "songInQueTitle") {
+    //   playlistPosition = parseInt(event.target.parentNode.parentNode.id) - 1;
+    //   playNextSongWithButton();
 
-      if (chk.checked === true) {
-        document.querySelectorAll(".songInQue .songData").forEach(e => {
-          e.style.color = colorDark;
-          e.style.fontWeight = 400;
-          event.target.parentNode.style.color = colorBlue;
-          event.target.parentNode.style.fontWeight = 800;
-        })
-      } else {
-        document.querySelectorAll(".songInQue .songData").forEach(e => {
-          e.style.color = colorLight;
-          e.style.fontWeight = 400;
-          event.target.parentNode.style.color = colorRed;
-          event.target.parentNode.style.fontWeight = 800;
-        })
+    //   if (chk.checked === true) {
+    //     document.querySelectorAll(".songInQue .songData").forEach(e => {
+    //       e.style.color = colorDark;
+    //       e.style.fontWeight = 400;
+    //       event.target.parentNode.style.color = colorBlue;
+    //       event.target.parentNode.style.fontWeight = 800;
+    //     })
+    //   } else {
+    //     document.querySelectorAll(".songInQue .songData").forEach(e => {
+    //       e.style.color = colorLight;
+    //       e.style.fontWeight = 400;
+    //       event.target.parentNode.style.color = colorRed;
+    //       event.target.parentNode.style.fontWeight = 800;
+    //     })
 
-      }
-      updatePlayList();
-      updateButtons();
+    //   }
+    //   updatePlayList();
+    //   updateButtons();
 
-    }
+    // }
   })
 }
 
