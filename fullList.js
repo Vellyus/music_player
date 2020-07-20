@@ -1140,7 +1140,7 @@ window.onload(player.stopVideo());
 
 
 
-function searchList() {
+async function searchList() {
   const searchField = document.querySelector(".input");
   const input = searchField.value.toUpperCase();
 
