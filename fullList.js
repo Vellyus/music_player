@@ -450,6 +450,8 @@ function addEventListeners() {
         })
 
       }
+      updatePlayList();
+      updateButtons();
 
     }
   })
