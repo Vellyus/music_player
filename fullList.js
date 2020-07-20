@@ -432,19 +432,19 @@ function addEventListeners() {
   }
   )
 };
-function hidePlayList() {
-  const playList = document.querySelector(".playList");
-  if (playList.style.display === "block" || playList.style.display === "") {
-    playList.style.display = "none";
-    document.querySelector('.hideList').innerText = "Show List";
-  } else {
-    playList.style.display = "block";
-    document.querySelector('.hideList').innerText = "Hide List";
-  }
-}
+// function hidePlayList() {
+//   const playList = document.querySelector(".playList");
+//   if (playList.style.display === "block" || playList.style.display === "") {
+//     playList.style.display = "none";
+//     document.querySelector('.hideList').innerText = "Show List";
+//   } else {
+//     playList.style.display = "block";
+//     document.querySelector('.hideList').innerText = "Hide List";
+//   }
+// }
 
-const addButton = document.querySelector('.hideList');
-addButton.addEventListener('click', hidePlayList);
+// const addButton = document.querySelector('.hideList');
+// addButton.addEventListener('click', hidePlayList);
 
 
 
@@ -898,6 +898,9 @@ let myTimer3 = setInterval(muteInvisiblePlayer, 200);
 
 let myTimer = setInterval(playNextSong, 10000);
 
+let myTimer4 = setInterval(searchList, 1000);
+
+
 // EXPERIMENT
 
 
@@ -1131,4 +1134,31 @@ function addSortedSongs() {
 
 addSortedSongs();
 window.onload(player.stopVideo());
+
+
+
+
+
+
+function searchList() {
+  const searchField = document.querySelector(".input");
+  const input = searchField.value.toUpperCase();
+
+  document.querySelectorAll(".songInList").forEach(e => {
+    e.style.display = "flex";
+  });
+
+  if (input === "") {
+    return;
+    }
+  
+  console.log(input);
+  document.querySelectorAll(".songInList").forEach(e => {
+    if (e.firstElementChild.firstElementChild.innerText.toUpperCase().search(input) === -1 && e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase().search(input) === -1) {
+      e.style.display = "none";
+    } else {
+    }
+  });
+
+}
 
