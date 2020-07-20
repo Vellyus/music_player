@@ -1137,6 +1137,9 @@ window.onload(player.stopVideo());
 
 
 
+function every(array, test) {
+  return !array.some(element => !test(element));
+}
 
 
 
@@ -1151,14 +1154,46 @@ async function searchList() {
     });
   }
 
-  console.log(input);
   document.querySelectorAll(".songInList").forEach(e => {
-    if (e.firstElementChild.firstElementChild.innerText.toUpperCase().search(input) === -1 && e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase().search(input) === -1) {
-      e.style.display = "none";
-    } else {
+    if ((e.firstElementChild.firstElementChild.innerText.toUpperCase() + " " + e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase()).search(input) > -1 || (e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase() + " " + e.firstElementChild.firstElementChild.innerText.toUpperCase()).search(input) > -1) {
       e.style.display = "flex";
+    } else {
+      e.style.display = "none";
     }
   });
 
 }
 
+
+  // document.querySelectorAll(".songInList").forEach(e => {
+  //   if (e.firstElementChild.firstElementChild.innerText.toUpperCase().search(input) === -1 && e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase().search(input) === -1) {
+  //     e.style.display = "none";
+  //   } else {
+  //     e.style.display = "flex";
+  //   }
+  // });
+
+  // async function searchList() {
+  //   const searchField = document.querySelector(".input");
+  //   const input = searchField.value.toUpperCase().split(" ");
+  
+  //   if (input === "") {
+  //     document.querySelectorAll(".songInList").forEach(e => {
+  //       e.style.display = "flex";
+  //     });
+  //   }
+  
+  
+  //   document.querySelectorAll(".songInList").forEach(e => {
+  //     for (let i = 0; i < input.length; i++) {
+  //       if (e.firstElementChild.firstElementChild.innerText.toUpperCase().search(input[i]) > -1 || e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase().search(input[i]) > -1) {
+  //         e.style.display = "flex";
+  //       } else {
+  //         e.style.display = "none";
+  //       }
+  //     }
+    
+  //     });
+  
+  // }
+  
