@@ -208,6 +208,14 @@ button {
   z-index: 1;
 }
 
+.songInQueTitle {
+
+}
+.songInQueTitle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 
 /* .songsInQue {
   display: none;

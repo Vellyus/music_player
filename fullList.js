@@ -393,6 +393,7 @@ function updateButtons() {
 
 function addEventListeners() {
   let listUl = document.querySelector(".songsInQue").lastChild;
+  document.querySelectorAll(".songData").forEach(e => e.firstElementChild.className = "songInQueTitle");
 
   listUl.addEventListener('click', (event) => {
     if (event.target.tagName == 'IMG') {
@@ -429,9 +430,31 @@ function addEventListeners() {
         updateButtons();
       }
     }
-  }
-  )
-};
+    if (event.target.className == "songInQueTitle") {
+      playlistPosition = parseInt(event.target.parentNode.parentNode.id) - 1;
+      playNextSongWithButton();
+
+      if (chk.checked === true) {
+        document.querySelectorAll(".songInQue .songData").forEach(e => {
+          e.style.color = colorDark;
+          e.style.fontWeight = 400;
+          event.target.parentNode.style.color = colorBlue;
+          event.target.parentNode.style.fontWeight = 800;
+        })
+      } else {
+        document.querySelectorAll(".songInQue .songData").forEach(e => {
+          e.style.color = colorLight;
+          e.style.fontWeight = 400;
+          event.target.parentNode.style.color = colorRed;
+          event.target.parentNode.style.fontWeight = 800;
+        })
+
+      }
+
+    }
+  })
+}
+
 // function hidePlayList() {
 //   const playList = document.querySelector(".playList");
 //   if (playList.style.display === "block" || playList.style.display === "") {
@@ -1164,36 +1187,3 @@ async function searchList() {
 
 }
 
-
-  // document.querySelectorAll(".songInList").forEach(e => {
-  //   if (e.firstElementChild.firstElementChild.innerText.toUpperCase().search(input) === -1 && e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase().search(input) === -1) {
-  //     e.style.display = "none";
-  //   } else {
-  //     e.style.display = "flex";
-  //   }
-  // });
-
-  // async function searchList() {
-  //   const searchField = document.querySelector(".input");
-  //   const input = searchField.value.toUpperCase().split(" ");
-  
-  //   if (input === "") {
-  //     document.querySelectorAll(".songInList").forEach(e => {
-  //       e.style.display = "flex";
-  //     });
-  //   }
-  
-  
-  //   document.querySelectorAll(".songInList").forEach(e => {
-  //     for (let i = 0; i < input.length; i++) {
-  //       if (e.firstElementChild.firstElementChild.innerText.toUpperCase().search(input[i]) > -1 || e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase().search(input[i]) > -1) {
-  //         e.style.display = "flex";
-  //       } else {
-  //         e.style.display = "none";
-  //       }
-  //     }
-    
-  //     });
-  
-  // }
-  
