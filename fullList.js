@@ -898,7 +898,7 @@ let myTimer3 = setInterval(muteInvisiblePlayer, 200);
 
 let myTimer = setInterval(playNextSong, 10000);
 
-let myTimer4 = setInterval(searchList, 1000);
+let myTimer4 = setInterval(searchList, 2000);
 
 
 // EXPERIMENT
