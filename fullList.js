@@ -393,7 +393,7 @@ function updateButtons() {
 
 function addEventListeners() {
   let listUl = document.querySelector(".songsInQue").lastChild;
-  document.querySelectorAll(".songData").forEach(e => e.firstElementChild.className = "songInQueTitle");
+  document.querySelectorAll(".songInQue .songData").forEach(e => e.firstElementChild.className = "songInQueTitle");
 
   listUl.addEventListener('click', (event) => {
     if (event.target.tagName == 'IMG') {
