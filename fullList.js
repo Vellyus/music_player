@@ -870,7 +870,7 @@ function playPause() {
   if (player.getPlayerState() === 1) {
     player.pauseVideo();
   }
-  if (player.getPlayerState() === 2) {
+  if (player.getPlayerState() === 2 || player.getPlayerState() === 5) {
     player.playVideo();
   }
 }
