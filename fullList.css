@@ -278,7 +278,7 @@ button {
 .navButtons img,
 .playButtons img {
   margin: .5em;
-  width: 1.3em;
+  width: 1em;
   cursor: pointer;
 }
 
@@ -603,6 +603,11 @@ body.light .footerInfo {
     font-size: 1.1em;
   }
 
+  .navButtons img,
+.playButtons img {
+  width: 1.1em;
+}
+
   .checkboxContainer p {
     font-size: 1.1em;
   }
@@ -713,6 +718,11 @@ body.light .footerInfo {
     font-size: 1.2em;
   }
 
+  .navButtons img,
+  .playButtons img {
+    width: 1.2em;
+  }  
+
   .checkboxContainer p {
     font-size: 1.2em;
   }
@@ -805,6 +815,11 @@ body.light .footerInfo {
   .fullList {
     font-size: 1.3em;
   }
+
+  .navButtons img,
+  .playButtons img {
+    width: 1.3em;
+  }  
 
   .checkboxContainer p {
     font-size: 1.3em;
