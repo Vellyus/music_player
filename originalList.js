@@ -3245,7 +3245,7 @@ const originalList =
     {
       number: 463,
       artist: "Disturbed",
-      title: "Decanence",
+      title: "Decadence",
       link: "https://www.youtube.com/watch?v=sqLdyZBjZeo",
     },
 

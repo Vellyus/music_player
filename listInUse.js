@@ -1958,7 +1958,7 @@ const listInUse =
     },
 
     {
-      number: 463, artist: "Disturbed", "title": "Decanence", link: "https://www.youtube.com/watch?v=sqLdyZBjZeo"
+      number: 463, artist: "Disturbed", "title": "Decadence", link: "https://www.youtube.com/watch?v=sqLdyZBjZeo"
     },
 
     {
