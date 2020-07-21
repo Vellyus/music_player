@@ -5267,6 +5267,27 @@ const originalList =
       link: "https://www.youtube.com/watch?v=-r8jlHDBMsw",
     },
 
+    {
+      number: 750,
+      artist: "Elefánt",
+      title: "Hinta",
+      link: "https://www.youtube.com/watch?v=tZMRdiSAHi8",
+    },
+
+    {
+      number: 751,
+      artist: "Elefánt",
+      title: "Plüss",
+      link: "https://www.youtube.com/watch?v=4yzJFyjK-54",
+    },
+
+    {
+      number: 752,
+      artist: "Blind Myself",
+      title: "Tudod, hogy nincs bocsánat",
+      link: "https://www.youtube.com/watch?v=8syxaoCfhkI",
+    },
+
   ]
 
 const specialSongs = [
