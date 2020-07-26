@@ -916,7 +916,7 @@ body.light .clearListButton:active {
 
   iframe {
     width: 647.9712px;
-    height: 363.5712.968px;
+    height: 363.5712px;
   }
 }
 
@@ -993,4 +993,13 @@ body.light .clearListButton:active {
   .songInQue {
     width: 28em;
   }
+
+}
+
+@media(min-width: 110em) {
+  iframe {
+    width: 712.7683px;
+    height: 399.9283px;
+  }
+
 }
