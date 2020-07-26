@@ -2,22 +2,20 @@
 
 PRIO 1 !!!
   DONE pass on the title and the artist from my list to the actual playlist and to the player
-  - maybe add a toTop Button instead of the shuffle button ???
+  DONE maybe add a toTop Button instead of the shuffle button ???
     ICON: "Shift fill" in icons dir
-  - change the list play buttons to "Plus circle fill" in icons dir
-  - move te shuffle button to the new playlist area
+  DONE change the list play buttons to "Plus circle fill" in icons dir
 
-- add search feature: try real time search while typing, if that doesnt work do a simple one with a search button
+DONE add search feature: try real time search while typing, if that doesnt work do a simple one with a search button
 DONE BUGFIX: somehow the app freezes when you change a few song positions, maybe the updateButtons function or something else is not efficent enough... out of memory error message
-- maybe add a fixed footer with PREVIOUS PLAY/PAUSE NEXT buttons + currently playing title + artist
-    - also make the playlist step forward when a song is over - this way you dont lose history
-    - currentSong id fot the element, make it red and bold
+DONE maybe add a fixed footer with PREVIOUS PLAY/PAUSE NEXT buttons + currently playing title + artist
+    DONE also make the playlist step forward when a song is over - this way you dont lose history
+    DONE currentSong id for the element, make it red and bold
     DONE maybe add the hide list and to top buttons here too
 MAKE IT LIKE ON GROOVESHARK - PICTURE IN THIS DIR. !!!  OR SOUNDCLOUD
 add a clear list button too!
 (current playlist floats in from side)
-- add play all in random order feature
-- add the special songs at the bottom in a separate section
+DONE add the special songs at the bottom in a separate section
 
 */
 
@@ -1064,50 +1062,67 @@ function addSortedSongs() {
     url.innerText = video.id;
     url.style.display = "none";
 
-
-
-
-
-
-    // let newImgUp = document.createElement("img");
-    // if (chk.checked === true) {
-    //   newImgUp.src = "assets/triangle-fill.svg";
-    // } else {
-    //   newImgUp.src = "assets/triangle-fill-light.svg";
-    // }
-    // newImgUp.setAttribute("class", "up");
-    // navButtons.appendChild(newImgUp);
-
-    // let newImgDown = document.createElement("img");
-    // if (chk.checked === true) {
-    //   newImgDown.src = "assets/triangle-fill.svg";
-    // } else {
-    //   newImgDown.src = "assets/triangle-fill-light.svg";
-    // }
-    // newImgDown.setAttribute("class", "down");
-    // newImgDown.style.transform = "rotate(180deg)";
-    // navButtons.appendChild(newImgDown);
-
-
-
-    // let newImgX = document.createElement("img");
-    // if (chk.checked === true) {
-    //   newImgX.src = "assets/x.svg";
-    // } else {
-    //   newImgX.src = "assets/x-light.svg";
-    // }
-    // newImgX.setAttribute("class", "remove");
-    // navButtons.appendChild(newImgX);
-
-
-
-    // addEventListeners();
-    // updateButtons();
-
-    // playList.push(video);
-    // serialNr++;
-
   }
+
+let specialSongsTitle = document.createElement("h2");
+document.querySelector(".playList").appendChild(specialSongsTitle);
+specialSongsTitle.innerHTML = "Special Songs";
+specialSongsTitle.style.marginTop = "2em";
+
+
+
+for (let i = 0; i < specialSongs.length; i++) {
+
+
+
+  video = new SortedVideo(specialSongs[i]);
+
+  const newSongInList = document.createElement('li');
+  newSongInList.setAttribute("id", serialNr);
+  document.querySelector('.playList').appendChild(newSongInList);
+  newSongInList.className = "songInList";
+
+  const newSongData = document.createElement('div');
+  newSongInList.appendChild(newSongData);
+  newSongData.className = "songData";
+
+
+  let songTitle = document.createElement("p");
+  songTitle.innerText = video.title;
+  newSongData.appendChild(songTitle);
+
+  let songDuration = document.createElement("p");
+  songDuration.setAttribute("class", "duration");
+  songDuration.innerText = video.artist;
+  newSongData.appendChild(songDuration);
+
+
+
+  let playButtons = document.createElement("div");
+  newSongInList.appendChild(playButtons);
+  playButtons.setAttribute("class", "playButtons");
+
+
+  let newImgDown = document.createElement("img");
+  if (chk.checked === true) {
+    newImgDown.src = "assets/plus-circle-fill.svg";
+  } else {
+    newImgDown.src = "assets/plus-circle-fill-light.svg";
+  }
+  newImgDown.setAttribute("class", "addToPlaylistButton");
+  // newImgDown.style.transform = "skew(10deg)";
+  playButtons.appendChild(newImgDown);
+
+  let url = document.createElement("p");
+  url.setAttribute("class", "url");
+  newImgDown.appendChild(url);
+  url.innerText = video.id;
+  url.style.display = "none";
+
+}
+
+
+
   document.querySelectorAll(".addToPlaylistButton").forEach(e => e.addEventListener("click", (event) => {
     invisiblePlayer.loadVideoById(event.target.firstElementChild.innerText);
 
@@ -1217,7 +1232,7 @@ function every(array, test) {
 
 
 
-async function searchList() {
+function searchList() {
   const searchField = document.querySelector(".input");
   const input = searchField.value.toUpperCase();
 
