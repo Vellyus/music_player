@@ -863,15 +863,15 @@ body.light .clearListButton:active {
   }
 
   .songsInQueWrapper {
-    width: 35em;
+    width: 21em;
   }
 
   .songInQue {
-    width: 30em;
+    width: 18em;
   }
 
   .songData {
-    font-size: 1.1em;
+    font-size: .9em;
   }
 
   .fullList {
@@ -915,7 +915,82 @@ body.light .clearListButton:active {
   }
 
   iframe {
-    width: 719.968px;
-    height: 403.968px;
+    width: 647.9712px;
+    height: 363.5712.968px;
+  }
+}
+
+@media(min-width: 88em) {
+  .songsInQueWrapper {
+    width: 22em;
+  }
+
+  .songInQue {
+    width: 19em;
+  }
+}
+
+@media(min-width: 92em) {
+  .songsInQueWrapper {
+    width: 24em;
+  }
+
+  .songInQue {
+    width: 21em;
+  }
+}
+
+@media(min-width: 94em) {
+  .songsInQueWrapper {
+    width: 25em;
+  }
+
+  .songInQue {
+    width: 22em;
+  }
+}
+
+@media(min-width: 96em) {
+  .songsInQueWrapper {
+    width: 26em;
+  }
+
+  .songInQue {
+    width: 23em;
+  }
+}
+
+@media(min-width: 100em) {
+  .songsInQueWrapper {
+    width: 28em;
+  }
+
+  .songInQue {
+    width: 25em;
+  }
+}
+
+@media(min-width: 104em) {
+  .songsInQueWrapper {
+    width: 30em;
+  }
+
+  .songInQue {
+    width: 27em;
+  }
+
+  .songData {
+    font-size: 1em;
+  }
+
+}
+
+@media(min-width: 106em) {
+  .songsInQueWrapper {
+    width: 31em;
+  }
+
+  .songInQue {
+    width: 28em;
   }
 }
