@@ -1,29 +1,10 @@
-/* PLAN
+const colorLight = "#e0e7e9";
+const colorDark = "#222";
+const colorRed = "red";
+const colorBlue = "blue";
 
-PRIO 1 !!!
-  DONE pass on the title and the artist from my list to the actual playlist and to the player
-  DONE maybe add a toTop Button instead of the shuffle button ???
-    ICON: "Shift fill" in icons dir
-  DONE change the list play buttons to "Plus circle fill" in icons dir
 
-DONE add search feature: try real time search while typing, if that doesnt work do a simple one with a search button
-DONE BUGFIX: somehow the app freezes when you change a few song positions, maybe the updateButtons function or something else is not efficent enough... out of memory error message
-DONE maybe add a fixed footer with PREVIOUS PLAY/PAUSE NEXT buttons + currently playing title + artist
-    DONE also make the playlist step forward when a song is over - this way you dont lose history
-    DONE currentSong id for the element, make it red and bold
-    DONE maybe add the hide list and to top buttons here too
-MAKE IT LIKE ON GROOVESHARK - PICTURE IN THIS DIR. !!!  OR SOUNDCLOUD
-add a clear list button too!
-(current playlist floats in from side)
-DONE add the special songs at the bottom in a separate section
-
-*/
-
-let colorLight = "#e0e7e9";
-let colorDark = "#222";
-let colorRed = "red";
-let colorBlue = "blue";
-
+// LIGHT MODE
 const chk = document.getElementById('chk');
 
 chk.addEventListener('change', () => {
@@ -63,28 +44,6 @@ chk.addEventListener('change', () => {
 
 
 
-function updatePlayList() {
-  let listUl = document.querySelectorAll(".songInQue");
-  let newPlayList = [];
-
-  for (let i = 0; i < listUl.length; i++) {
-    for (let j = 0; j < playList.length; j++) {
-      if (parseInt(listUl[i].id) === playList[j].serialNr) {
-        newPlayList.push(playList[j]);
-      }
-    }
-  }
-  playList = newPlayList;
-
-  for (let i = 0; i < listUl.length; i++) {
-    if (listUl[i].firstElementChild.style.color === "red" || listUl[i].firstElementChild.style.color === "blue") {
-      playlistPosition = i;
-    }
-  }
-}
-
-
-
 
 
 const now = new Date;
@@ -103,7 +62,6 @@ const startingTimeMs = startingTime.getTime();
 const nowMs = now.getTime();
 
 const numberOfSong = Math.floor((nowMs - startingTimeMs) / 1000 / 60 / 60 / 24);
-console.log(numberOfSong);
 
 
 function urlToEmbed(input) {
@@ -112,7 +70,7 @@ function urlToEmbed(input) {
 }
 
 const iframe = document.querySelector("#player");
-const todaysSong = listInUse[numberOfSong];
+let todaysSong = listInUse[numberOfSong];
 
 document.querySelector(".title").innerText = listInUse[numberOfSong].title;
 document.querySelector(".artist").innerText = listInUse[numberOfSong].artist;
@@ -125,6 +83,7 @@ for (let i = 0; i < specialSongs.length; i++) {
     let message = document.querySelector(".message");
     message.innerText = specialSongs[i].message;
     message.style.display = "block";
+    todaysSong = specialSongs[i];
 
 
     document.querySelector(".title").innerText = specialSongs[i].title;
@@ -135,28 +94,13 @@ for (let i = 0; i < specialSongs.length; i++) {
 }
 
 
-// Get video info from url
 
+let playList = [];
 let title;
 let duration;
 let video = {};
 let serialNr = 0;
 let playlistPosition = -1;
-
-function checkStatus(response) {
-  if (response.ok) {
-    return Promise.resolve(response);
-  } else {
-    return Promise.reject(new Error(response.statusText));
-  }
-}
-
-function fetchData(url) {
-  return fetch(url)
-    .then(checkStatus)
-    .then(res => res.json())
-    .catch(error => console.log('Looks like there was a problem!', error))
-}
 
 
 function urlToID(input) {
@@ -372,6 +316,35 @@ function addToPlaylist() {
 }
 
 
+
+function updatePlayList() {
+  let listUl = document.querySelectorAll(".songInQue");
+  let newPlayList = [];
+
+  for (let i = 0; i < listUl.length; i++) {
+    for (let j = 0; j < playList.length; j++) {
+      if (parseInt(listUl[i].id) === playList[j].serialNr) {
+        newPlayList.push(playList[j]);
+      }
+    }
+  }
+  playList = newPlayList;
+
+  for (let i = 0; i < listUl.length; i++) {
+    if (listUl[i].firstElementChild.style.color === "red" || listUl[i].firstElementChild.style.color === "blue") {
+      playlistPosition = i;
+    }
+  }
+
+  if (playlistPosition != -1) {
+    document.querySelector(".message").style.display = "none";
+  } else {
+    document.querySelector(".message").style.display = "block";
+  }
+}
+
+
+
 function updateButtons() {
   let listUl = document.querySelector(".songsInQue");
 
@@ -404,7 +377,6 @@ function addEventListeners() {
         }
 
         ul.removeChild(li);
-        updatePlayList();
         updateButtons();
       }
     }
@@ -414,7 +386,6 @@ function addEventListeners() {
       let ul = li.parentNode;
       if (prevLi) {
         ul.insertBefore(li, prevLi);
-        updatePlayList();
         updateButtons();
       }
     }
@@ -424,7 +395,6 @@ function addEventListeners() {
       let ul = li.parentNode;
       if (nextLi) {
         ul.insertBefore(nextLi, li);
-        updatePlayList();
         updateButtons();
       }
     }
@@ -491,31 +461,16 @@ function addEventListeners() {
 
       }
 
-      updatePlayList();
       updateButtons();
 
     }
   })
 }
 
-// function hidePlayList() {
-//   const playList = document.querySelector(".playList");
-//   if (playList.style.display === "block" || playList.style.display === "") {
-//     playList.style.display = "none";
-//     document.querySelector('.hideList').innerText = "Show List";
-//   } else {
-//     playList.style.display = "block";
-//     document.querySelector('.hideList').innerText = "Hide List";
-//   }
-// }
-
-// const addButton = document.querySelector('.hideList');
-// addButton.addEventListener('click', hidePlayList);
 
 
 
 
-let playList = [];
 
 
 // PLAYER + INVISIBLE_PLAYER
