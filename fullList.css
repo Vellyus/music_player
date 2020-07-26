@@ -195,7 +195,45 @@ button {
   outline: none;
 }
 
-.songsInQue {
+.clearListButton {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: .3em;
+  padding-left: .8em;
+  padding-right: .8em;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-style: italic;
+  text-transform: capitalize;
+  border: none;
+  box-shadow:
+  5px 5px 11px 2px rgba(0, 0, 0, 1),
+  -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
+  background-color: #181818;
+  color: red;
+  font-weight: 800;
+  border-radius: 3em;
+}
+
+.clearListButton:hover {
+  letter-spacing: 1px;
+  box-shadow:
+    -9px -9px 29px 9px rgba(90, 90, 90, 0.4),
+    5px 5px 9px 9px rgba(0, 0, 0, 1);
+}
+
+.clearListButton:active {
+  box-shadow:
+    5px 5px 11px 2px rgba(255, 255, 255, 0.2),
+    -3px -3px 11px 0 rgba(0, 0, 0, 1);
+  outline: none;
+  transition: 0.1s ease-in-out;
+}
+
+.clearListButton:focus {
+  outline: none;
+}
+
+.songsInQueWrapper {
   display: none;
   position: fixed;
   top: 0;
@@ -214,7 +252,7 @@ button {
 }
 
 
-/* .songsInQue {
+/* .songsInQueWrapper {
   display: none;
   position: fixed;
   right: 0;
@@ -253,6 +291,12 @@ button {
   margin-left: .5em;
 }
 
+.addToPlaylistButton {
+  width: 1.6em;
+  margin: .5em;
+  cursor: pointer;
+}
+
 .songData {
   color: #e0e7e9;
   opacity: 0.95;
@@ -272,7 +316,6 @@ button {
   letter-spacing: .15em;
 }
 
-
 .navButtons,
 .playButtons {
   position: absolute;
@@ -280,8 +323,7 @@ button {
   right: 0.5em;
 }
 
-.navButtons img,
-.playButtons img {
+.navButtons img {
   margin: .5em;
   width: 1.3em;
   cursor: pointer;
@@ -482,7 +524,7 @@ body.light .inProgress {
 
 body.light h2 {
   color: blue;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
 }
 
 body.light .title,
@@ -540,7 +582,7 @@ body.light .searchButton:active {
     -3px -3px 11px 0 rgba(0, 0, 0, 1);
 }
 
-body.light .songsInQue {
+body.light .songsInQueWrapper {
   background-color: #e4e4e4;
 }
 
@@ -563,6 +605,29 @@ body.light .checkboxContainer p {
 body.light .footerInfo {
   color: #e0e7e9;
 }
+
+body.light .clearListButton {
+  background-color: #eee;
+  color: blue;
+  box-shadow: 
+  7px 7px 11px 0 rgba(0, 0, 0, .8),
+  -3px -3px 11px 2px rgba(255, 255, 255, .8);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+body.light .clearListButton:hover{
+  box-shadow: 
+  10px 10px 11px 0 rgba(0, 0, 0, .8),
+  -6px -6px 11px 2px rgba(255, 255, 255, .8);
+}
+
+body.light .clearListButton:active {
+  box-shadow: 
+  5px 5px 11px 2px rgba(255, 255, 255, 0.2),
+  -3px -3px 11px 0 rgba(0, 0, 0, 1);
+}
+
 
 /* MEDIA QUERIES */
 
@@ -695,7 +760,7 @@ body.light .footerInfo {
     font-size: 1em;
   }
 
-  .songsInQue {
+  .songsInQueWrapper {
     position: fixed;
     right: 0;
     top: 0;
@@ -797,7 +862,7 @@ body.light .footerInfo {
     font-size: 1.1em;
   }
 
-  .songsInQue {
+  .songsInQueWrapper {
     width: 35em;
   }
 

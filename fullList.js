@@ -38,11 +38,11 @@ chk.addEventListener('change', () => {
     let upButtons = document.querySelectorAll('.up');
     let downButtons = document.querySelectorAll('.down');
     let removeButtons = document.querySelectorAll('.remove');
-    let addToPlayListButtons = document.querySelectorAll(".addToPlaylist");
+    let addToPlayListButtons = document.querySelectorAll(".addToPlaylistButton");
     upButtons.forEach(e => e.src = "assets/triangle-fill.svg");
     downButtons.forEach(e => e.src = "assets/triangle-fill.svg");
     removeButtons.forEach(e => e.src = "assets/x.svg");
-    addToPlayListButtons.forEach(e => e.src = "assets/triangle-fill.svg");
+    addToPlayListButtons.forEach(e => e.src = "assets/plus-circle-fill.svg");
 
     document.querySelectorAll(".songInQue").forEach(e => e.firstElementChild.style.color = colorDark);
     document.querySelectorAll(".songInQue")[playlistPosition].firstElementChild.style.color = colorBlue;
@@ -51,11 +51,11 @@ chk.addEventListener('change', () => {
     let upButtons = document.querySelectorAll('.up');
     let downButtons = document.querySelectorAll('.down');
     let removeButtons = document.querySelectorAll('.remove');
-    let addToPlayListButtons = document.querySelectorAll(".addToPlaylist");
+    let addToPlayListButtons = document.querySelectorAll(".addToPlaylistButton");
     upButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
     downButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
     removeButtons.forEach(e => e.src = "assets/x-light.svg");
-    addToPlayListButtons.forEach(e => e.src = "assets/triangle-fill-light.svg");
+    addToPlayListButtons.forEach(e => e.src = "assets/plus-circle-fill-light.svg");
 
     document.querySelectorAll(".songInQue").forEach(e => e.firstElementChild.style.color = colorLight);
     document.querySelectorAll(".songInQue")[playlistPosition].firstElementChild.style.color = colorRed;
@@ -432,30 +432,67 @@ function addEventListeners() {
     }
     if (event.target.className == "songInQueTitle") {
 
-      for (let i = 0; i < playList.length; i++) {
-        if (playList[i].serialNr == event.target.parentNode.parentNode.id) {
-          playlistPosition = i - 1;
+      const repeatButton = document.querySelector("#repeat");
+
+      if (repeatButton.className == "repeatActive") {
+        repeatButton.setAttribute("class", "repeatInactive");
+
+        for (let i = 0; i < playList.length; i++) {
+          if (playList[i].serialNr == event.target.parentNode.parentNode.id) {
+            playlistPosition = i - 1;
+          }
+
+        }
+        playNextSongWithButton();
+
+        if (chk.checked === true) {
+          document.querySelectorAll(".songInQue .songData").forEach(e => {
+            e.style.color = colorDark;
+            e.style.fontWeight = 400;
+            event.target.parentNode.style.color = colorBlue;
+            event.target.parentNode.style.fontWeight = 800;
+          })
+
+        } else {
+          document.querySelectorAll(".songInQue .songData").forEach(e => {
+            e.style.color = colorLight;
+            e.style.fontWeight = 400;
+            event.target.parentNode.style.color = colorRed;
+            event.target.parentNode.style.fontWeight = 800;
+          })
+
+        }
+
+        repeatButton.setAttribute("class", "repeatActive");
+
+      } else {
+        for (let i = 0; i < playList.length; i++) {
+          if (playList[i].serialNr == event.target.parentNode.parentNode.id) {
+            playlistPosition = i - 1;
+          }
+
+        }
+        playNextSongWithButton();
+
+        if (chk.checked === true) {
+          document.querySelectorAll(".songInQue .songData").forEach(e => {
+            e.style.color = colorDark;
+            e.style.fontWeight = 400;
+            event.target.parentNode.style.color = colorBlue;
+            event.target.parentNode.style.fontWeight = 800;
+          })
+        } else {
+          document.querySelectorAll(".songInQue .songData").forEach(e => {
+            e.style.color = colorLight;
+            e.style.fontWeight = 400;
+            event.target.parentNode.style.color = colorRed;
+            event.target.parentNode.style.fontWeight = 800;
+          })
+
         }
 
       }
-      playNextSongWithButton();
 
-      if (chk.checked === true) {
-        document.querySelectorAll(".songInQue .songData").forEach(e => {
-          e.style.color = colorDark;
-          e.style.fontWeight = 400;
-          event.target.parentNode.style.color = colorBlue;
-          event.target.parentNode.style.fontWeight = 800;
-        })
-      } else {
-        document.querySelectorAll(".songInQue .songData").forEach(e => {
-          e.style.color = colorLight;
-          e.style.fontWeight = 400;
-          event.target.parentNode.style.color = colorRed;
-          event.target.parentNode.style.fontWeight = 800;
-        })
-
-      }
       updatePlayList();
       updateButtons();
 
@@ -858,10 +895,10 @@ function showHideList() {
 
   if (musicNoteList.className != "listActive") {
     musicNoteList.setAttribute("class", "listActive");
-    document.querySelector(".songsInQue").style.display = "block";
+    document.querySelector(".songsInQueWrapper").style.display = "block";
   } else {
     musicNoteList.setAttribute("class", "listInactive");
-    document.querySelector(".songsInQue").style.display = "none";
+    document.querySelector(".songsInQueWrapper").style.display = "none";
   }
 }
 
@@ -945,7 +982,13 @@ let myTimer4 = setInterval(searchList, 1000);
 //   return input.replace(re, "");
 // }
 
+function clearPlaylist() {
+  document.querySelectorAll('.songInQue').forEach(e => e.remove());
+  updatePlayList();
+  playNextSongWithButton();
+}
 
+document.querySelector(".clearListButton").addEventListener("click", clearPlaylist);
 
 
 
@@ -1007,12 +1050,12 @@ function addSortedSongs() {
 
     let newImgDown = document.createElement("img");
     if (chk.checked === true) {
-      newImgDown.src = "assets/triangle-fill.svg";
+      newImgDown.src = "assets/plus-circle-fill.svg";
     } else {
-      newImgDown.src = "assets/triangle-fill-light.svg";
+      newImgDown.src = "assets/plus-circle-fill-light.svg";
     }
-    newImgDown.setAttribute("class", "addToPlaylist");
-    newImgDown.style.transform = "rotate(90deg)";
+    newImgDown.setAttribute("class", "addToPlaylistButton");
+    newImgDown.style.transform = "skew(10deg)";
     playButtons.appendChild(newImgDown);
 
     let url = document.createElement("p");
@@ -1065,7 +1108,7 @@ function addSortedSongs() {
     // serialNr++;
 
   }
-  document.querySelectorAll(".addToPlaylist").forEach(e => e.addEventListener("click", (event) => {
+  document.querySelectorAll(".addToPlaylistButton").forEach(e => e.addEventListener("click", (event) => {
     invisiblePlayer.loadVideoById(event.target.firstElementChild.innerText);
 
 
