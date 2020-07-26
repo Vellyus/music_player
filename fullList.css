@@ -292,9 +292,10 @@ button {
 }
 
 .addToPlaylistButton {
-  width: 1.6em;
+  width: 1.3em;
   margin: .5em;
   cursor: pointer;
+  -webkit-transform: skew(10deg);
 }
 
 .songData {
@@ -713,6 +714,10 @@ body.light .clearListButton:active {
     width: 500px;
     height: 5.2em;
   }
+
+  .addToPlaylistButton {
+    width: 1.6em;
+  }  
 
   .container {
     width: 520px;

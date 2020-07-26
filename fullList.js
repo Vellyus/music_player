@@ -1055,7 +1055,7 @@ function addSortedSongs() {
       newImgDown.src = "assets/plus-circle-fill-light.svg";
     }
     newImgDown.setAttribute("class", "addToPlaylistButton");
-    newImgDown.style.transform = "skew(10deg)";
+    // newImgDown.style.transform = "skew(10deg)";
     playButtons.appendChild(newImgDown);
 
     let url = document.createElement("p");

@@ -257,13 +257,12 @@ footer {
   font-family: 'Gloria Hallelujah', cursive;
 font-style: italic;
 color: red;
-
+text-decoration: underline;
 }
 
 .fullList:hover {
   cursor: pointer;
   color: white;
-  text-decoration: underline;
   transition: all 0.5s ease-in-out;
 }
 
