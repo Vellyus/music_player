@@ -658,7 +658,7 @@ body.light .clearListButton:active {
 
   .songsInQueWrapper {
     width: 21em;
-    border-radius: 3em;
+    border-top-left-radius: 3em;
   }  
 
   .songInQue {
