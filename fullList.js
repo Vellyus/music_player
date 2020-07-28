@@ -820,19 +820,31 @@ function playPreviousSongWithButton() {
 document.querySelector("#skipStart").addEventListener("click", playPreviousSongWithButton);
 
 
-function showHideList() {
-  const musicNoteList = document.querySelector("#musicNoteList");
+// function showHideList() {
+//   const musicNoteList = document.querySelector("#musicNoteList");
 
-  if (musicNoteList.className != "listActive") {
-    musicNoteList.setAttribute("class", "listActive");
-    document.querySelector(".songsInQueWrapper").style.display = "block";
+//   if (musicNoteList.className != "listActive") {
+//     musicNoteList.setAttribute("class", "listActive");
+//     document.querySelector(".songsInQueWrapper").style.display = "block";
+//   } else {
+//     musicNoteList.setAttribute("class", "listInactive");
+//     document.querySelector(".songsInQueWrapper").style.display = "none";
+//   }
+// }
+
+const musicNoteList = document.querySelector("#musicNoteList");
+let listOpen = false;
+musicNoteList.addEventListener("click", () => {
+  if (!listOpen) {
+    document.querySelector("body").classList.add("listActive");
+    listOpen = true;
   } else {
-    musicNoteList.setAttribute("class", "listInactive");
-    document.querySelector(".songsInQueWrapper").style.display = "none";
+    document.querySelector("body").classList.remove("listActive");
+    listOpen = false;
   }
-}
+});
 
-document.querySelector("#musicNoteList").addEventListener("click", showHideList);
+// document.querySelector("#musicNoteList").addEventListener("click", showHideList);
 
 
 
@@ -967,61 +979,61 @@ function addSortedSongs() {
 
   }
 
-let specialSongsTitle = document.createElement("h2");
-document.querySelector(".playList").appendChild(specialSongsTitle);
-specialSongsTitle.innerHTML = "Special Songs";
-specialSongsTitle.style.marginTop = "2em";
+  let specialSongsTitle = document.createElement("h2");
+  document.querySelector(".playList").appendChild(specialSongsTitle);
+  specialSongsTitle.innerHTML = "Special Songs";
+  specialSongsTitle.style.marginTop = "2em";
 
 
 
-for (let i = 0; i < specialSongs.length; i++) {
+  for (let i = 0; i < specialSongs.length; i++) {
 
 
 
-  video = new SortedVideo(specialSongs[i]);
+    video = new SortedVideo(specialSongs[i]);
 
-  const newSongInList = document.createElement('li');
-  newSongInList.setAttribute("id", serialNr);
-  document.querySelector('.playList').appendChild(newSongInList);
-  newSongInList.className = "songInList";
+    const newSongInList = document.createElement('li');
+    newSongInList.setAttribute("id", serialNr);
+    document.querySelector('.playList').appendChild(newSongInList);
+    newSongInList.className = "songInList";
 
-  const newSongData = document.createElement('div');
-  newSongInList.appendChild(newSongData);
-  newSongData.className = "songData";
-
-
-  let songTitle = document.createElement("p");
-  songTitle.innerText = video.title;
-  newSongData.appendChild(songTitle);
-
-  let songDuration = document.createElement("p");
-  songDuration.setAttribute("class", "duration");
-  songDuration.innerText = video.artist;
-  newSongData.appendChild(songDuration);
+    const newSongData = document.createElement('div');
+    newSongInList.appendChild(newSongData);
+    newSongData.className = "songData";
 
 
+    let songTitle = document.createElement("p");
+    songTitle.innerText = video.title;
+    newSongData.appendChild(songTitle);
 
-  let playButtons = document.createElement("div");
-  newSongInList.appendChild(playButtons);
-  playButtons.setAttribute("class", "playButtons");
+    let songDuration = document.createElement("p");
+    songDuration.setAttribute("class", "duration");
+    songDuration.innerText = video.artist;
+    newSongData.appendChild(songDuration);
 
 
-  let newImgDown = document.createElement("img");
-  if (chk.checked === true) {
-    newImgDown.src = "assets/plus-circle-fill.svg";
-  } else {
-    newImgDown.src = "assets/plus-circle-fill-light.svg";
+
+    let playButtons = document.createElement("div");
+    newSongInList.appendChild(playButtons);
+    playButtons.setAttribute("class", "playButtons");
+
+
+    let newImgDown = document.createElement("img");
+    if (chk.checked === true) {
+      newImgDown.src = "assets/plus-circle-fill.svg";
+    } else {
+      newImgDown.src = "assets/plus-circle-fill-light.svg";
+    }
+    newImgDown.setAttribute("class", "addToPlaylistButton");
+    playButtons.appendChild(newImgDown);
+
+    let url = document.createElement("p");
+    url.setAttribute("class", "url");
+    newImgDown.appendChild(url);
+    url.innerText = video.id;
+    url.style.display = "none";
+
   }
-  newImgDown.setAttribute("class", "addToPlaylistButton");
-  playButtons.appendChild(newImgDown);
-
-  let url = document.createElement("p");
-  url.setAttribute("class", "url");
-  newImgDown.appendChild(url);
-  url.innerText = video.id;
-  url.style.display = "none";
-
-}
 
 
 

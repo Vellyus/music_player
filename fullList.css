@@ -13,7 +13,7 @@ body {
   background: #222;
   color: white;
   text-shadow: 3px 3px 7px rgba(0, 0, 0, 1);
-  transition: all 0.5s ease;
+  /* transition: all 0.5s ease; */
 }
 
 a {
@@ -167,9 +167,9 @@ iframe {
 }
 
 .songsInQueWrapper {
-  display: none;
   position: fixed;
   top: 0;
+  left: 100%;
   overflow-y: auto;
   height: 100%;
   margin-bottom: 5em;
@@ -177,6 +177,11 @@ iframe {
   padding-bottom: 6em;
   width: 100%;
   z-index: 1;
+  transition: all .5s linear;
+}
+
+body.listActive .songsInQueWrapper{
+  transform: translateX(-100%);
 }
 
 .songInQueTitle:hover {
@@ -309,7 +314,7 @@ footer img:hover {
   padding: .1em;
 }
 
-.listActive {
+body.listActive #musicNoteList {
   border: solid 2px #eee;
   border-radius: 3px;
   padding: .1em;
@@ -652,17 +657,9 @@ body.light .clearListButton:active {
   }
 
   .songsInQueWrapper {
-    position: fixed;
-    right: 0;
-    top: 0;
-    overflow-y: auto;
-    height: 100%;
-    margin-bottom: 5em;
-    background-color: #181818;
-    padding-bottom: 6em;
     width: 21em;
     border-radius: 3em;
-  }
+  }  
 
   .songInQue {
     width: 19em;
