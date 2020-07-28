@@ -581,7 +581,6 @@ function playNextSong() {
           }
 
 
-          // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
 
         }
 
@@ -600,8 +599,6 @@ function playNextSong() {
 
           document.querySelector("h2").innerText = "Currently Playing";
           document.querySelector(".title").innerText = playList[playlistPosition].title;
-          // document.querySelector(".by").style.display = "none";
-          // document.querySelector(".artist").style.display = "none";
           document.querySelector(".artist").innerText = playList[playlistPosition].artist;
 
           document.querySelector('.footerInfo').innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`;
@@ -615,7 +612,6 @@ function playNextSong() {
               document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.color = colorLight;
               document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.fontWeight = "400";
 
-              // document.querySelectorAll('.songInQue')[playlistPosition-1].setAttribute("id", "");
             }
           }
           if (chk.checked === true) {
@@ -629,11 +625,8 @@ function playNextSong() {
             document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorRed;
             document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
           }
-          // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "currentSong");
 
 
-          // playList = playList.slice(1);
-          // document.querySelector('.songInQue').remove();
           myTimer = setInterval(playNextSong, 10000);
         } catch {
           myTimer = setInterval(playNextSong, 10000);
@@ -677,7 +670,6 @@ function playNextSongWithButton() {
           document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorLight;
           document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
 
-          // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
         }
       }
 
@@ -695,8 +687,6 @@ function playNextSongWithButton() {
 
         document.querySelector("h2").innerText = "Currently Playing";
         document.querySelector(".title").innerText = playList[playlistPosition].title;
-        // document.querySelector(".by").style.display = "none";
-        // document.querySelector(".artist").style.display = "none";
         document.querySelector(".artist").innerText = playList[playlistPosition].artist;
 
         document.querySelector('.footerInfo').innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`;
@@ -710,7 +700,6 @@ function playNextSongWithButton() {
             document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.color = colorLight;
             document.querySelectorAll('.songInQue')[playlistPosition - 1].firstElementChild.style.fontWeight = "400";
 
-            // document.querySelectorAll('.songInQue')[playlistPosition-1].setAttribute("id", "");
           }
         }
 
@@ -723,10 +712,7 @@ function playNextSongWithButton() {
           document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorRed;
           document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
 
-          // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "currentSong");
         }
-        // playList = playList.slice(1);
-        // document.querySelector('.songInQue').remove();
         myTimer = setInterval(playNextSong, 10000);
       } catch {
         myTimer = setInterval(playNextSong, 10000);
@@ -773,10 +759,8 @@ function playPreviousSongWithButton() {
           document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorLight;
           document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "400";
 
-          // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
         }
 
-        // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
 
       }
 
@@ -794,8 +778,6 @@ function playPreviousSongWithButton() {
 
         document.querySelector("h2").innerText = "Currently Playing";
         document.querySelector(".title").innerText = playList[playlistPosition].title;
-        // document.querySelector(".by").style.display = "none";
-        // document.querySelector(".artist").style.display = "none";
         document.querySelector(".artist").innerText = playList[playlistPosition].artist;
 
         document.querySelector('.footerInfo').innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`;
@@ -809,10 +791,8 @@ function playPreviousSongWithButton() {
             document.querySelectorAll('.songInQue')[playlistPosition + 1].firstElementChild.style.color = colorLight;
             document.querySelectorAll('.songInQue')[playlistPosition + 1].firstElementChild.style.fontWeight = "400";
 
-            // document.querySelectorAll('.songInQue')[playlistPosition-1].setAttribute("id", "");
           }
 
-          // document.querySelectorAll('.songInQue')[playlistPosition+1].setAttribute("id", "");
 
         }
 
@@ -825,12 +805,9 @@ function playPreviousSongWithButton() {
           document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.color = colorRed;
           document.querySelectorAll('.songInQue')[playlistPosition].firstElementChild.style.fontWeight = "800";
 
-          // document.querySelectorAll('.songInQue')[playlistPosition].setAttribute("id", "");
         }
 
 
-        // playList = playList.slice(1);
-        // document.querySelector('.songInQue').remove();
         myTimer = setInterval(playNextSong, 10000);
       } catch {
         myTimer = setInterval(playNextSong, 10000);
@@ -858,20 +835,6 @@ function showHideList() {
 document.querySelector("#musicNoteList").addEventListener("click", showHideList);
 
 
-
-
-
-// function shuffleList() {
-//   const shuffleButton = document.querySelector("#shuffle");
-
-//   if (shuffleButton.className != "shuffleActive") {
-//     shuffleButton.setAttribute("class", "shuffleActive");
-//   } else {
-//     shuffleButton.setAttribute("class", "shuffleInactive");
-//   }
-// }
-
-// document.querySelector("#shuffle").addEventListener("click", shuffleList);
 
 
 function repeatSong() {
@@ -922,18 +885,6 @@ let myTimer = setInterval(playNextSong, 10000);
 let myTimer4 = setInterval(searchList, 1000);
 
 
-// EXPERIMENT
-
-
-// function urlToID3(input) {
-//   let re = /https:\/\/www.youtube.com\/watch\?v=|https:\/\/youtu.be\/|https:\/\/m.youtube.com\/watch\?v=/g;
-//   return input.replace(re, "");
-// }
-
-// function urlToID4(input) {
-//   let re = /&.+|\?list.+/g;
-//   return input.replace(re, "");
-// }
 
 function clearPlaylist() {
   document.querySelectorAll('.songInQue').forEach(e => e.remove());
@@ -942,8 +893,6 @@ function clearPlaylist() {
 }
 
 document.querySelector(".clearListButton").addEventListener("click", clearPlaylist);
-
-
 
 
 
@@ -1008,7 +957,6 @@ function addSortedSongs() {
       newImgDown.src = "assets/plus-circle-fill-light.svg";
     }
     newImgDown.setAttribute("class", "addToPlaylistButton");
-    // newImgDown.style.transform = "skew(10deg)";
     playButtons.appendChild(newImgDown);
 
     let url = document.createElement("p");
@@ -1065,7 +1013,6 @@ for (let i = 0; i < specialSongs.length; i++) {
     newImgDown.src = "assets/plus-circle-fill-light.svg";
   }
   newImgDown.setAttribute("class", "addToPlaylistButton");
-  // newImgDown.style.transform = "skew(10deg)";
   playButtons.appendChild(newImgDown);
 
   let url = document.createElement("p");
@@ -1082,15 +1029,6 @@ for (let i = 0; i < specialSongs.length; i++) {
     invisiblePlayer.loadVideoById(event.target.firstElementChild.innerText);
 
 
-
-    // const input = document.querySelector('input');
-
-
-    // if (input.value === "" || urlToID2(urlToID(input.value)).length != 11) {
-    //   document.querySelector(".errorMessage").style.display = "block";
-    //   return;
-    // }
-    // document.querySelector(".errorMessage").style.display = "none";
 
 
     myTimer3 = setInterval(muteInvisiblePlayer, 200);

@@ -29,14 +29,6 @@ h1 {
   text-transform: capitalize;
 }
 
-.inProgress {
-  color: red;
-  font-style: italic;
-  font-size: 1.3em;
-  font-family: 'Gloria Hallelujah', cursive;
-  line-height: 1.6;
-}
-
 h2 {
   margin-top: 1.2em;
   font-size: 1.5em;
@@ -121,17 +113,6 @@ iframe {
   transform: scale(1.02);
 }
 
-hr {
-  display: block;
-  margin: auto;
-  margin-top: 2em;
-  width: 20em;
-  padding: 1px;
-  border-radius: 50%;
-  border: none;
-  background-color: #e0e7e9;
-}
-
 .playList {
   display: block;
 }
@@ -144,55 +125,6 @@ hr {
   margin-top: 1.5em;
   font-weight: 800;
   letter-spacing: 0.1em;
-}
-
-button {
-  display: block;
-  margin: auto;
-  margin-top: 1em;
-  margin-bottom: 2.5em;
-  padding: 0.5em;
-}
-
-.searchButton:hover {
-  cursor: pointer;
-}
-
-.searchButton {
-  margin-top: 2.5em;
-  background-color: #222;
-  color: #e0e7e9;
-  border: none;
-  border-radius: 3em;
-  padding: .5em;
-  box-shadow:
-    5px 5px 11px 2px rgba(0, 0, 0, 1),
-    -3px -3px 11px 0 rgba(90, 90, 90, 0.4);
-  transition: all 0.3s ease-in-out;
-  font-size: 0.8em;
-  font-family: 'Gloria Hallelujah', cursive;
-  font-weight: 800;
-  text-transform: uppercase;
-  text-shadow: 3px 3px 7px rgba(0, 0, 0, 1);
-}
-
-.searchButton:hover {
-  letter-spacing: 1px;
-  box-shadow:
-    -9px -9px 29px 9px rgba(90, 90, 90, 0.4),
-    5px 5px 9px 9px rgba(0, 0, 0, 1);
-}
-
-.searchButton:active {
-  box-shadow:
-    5px 5px 11px 2px rgba(255, 255, 255, 0.2),
-    -3px -3px 11px 0 rgba(0, 0, 0, 1);
-  outline: none;
-  transition: 0.1s ease-in-out;
-}
-
-.searchButton:focus {
-  outline: none;
 }
 
 .clearListButton {
@@ -212,6 +144,7 @@ button {
   color: red;
   font-weight: 800;
   border-radius: 3em;
+  cursor: pointer;
 }
 
 .clearListButton:hover {
@@ -250,22 +183,6 @@ button {
   cursor: pointer;
   text-decoration: underline;
 }
-
-
-/* .songsInQueWrapper {
-  display: none;
-  position: fixed;
-  right: 0;
-  top: 0;
-  overflow-y: auto;
-  height: 100%;
-  margin-bottom: 5em;
-  background-color: #181818;
-  padding-bottom: 6em;
-  width: 35em;
-  border-radius: 3em;
-  z-index: 1;
-} */
 
 .songInQue,
 .songInList {
@@ -335,13 +252,6 @@ button {
   vertical-align: bottom;
 }
 
-.flex-wrapper {
-  display: flex;
-  min-height: 100%;
-  flex-direction: column;
-  justify-content: space-between
-}
-
 main {
   margin-bottom: 6em;
 }
@@ -352,7 +262,6 @@ footer {
   width: 100%;
   background-color: #1a1a1a;
   margin-top: 3em;
-  /* padding: 1em; */
   line-height: 1.6;
   z-index: 2;
 }
@@ -362,7 +271,6 @@ footer {
   font-size: .8em;
 }
 
-
 .container {
   display: flex;
   flex-direction: row;
@@ -370,31 +278,16 @@ footer {
   margin: auto;
 }
 
-.container2 {
-  display: flex;
-  flex-direction: row;
-  justify-items: center;
-  display: block;
-  margin: auto;
-}
-
-
-.container2 img {
+footer img {
   width: 1.3em;
   margin-top: 1em;
   margin-left: .5em;
   margin-right: .5em;
 }
 
-.container2 img:hover {
+footer img:hover {
   cursor: pointer;
 }
-
-.container3 {
-  display: block;
-  margin: auto;
-}
-
 
 #skipEnd {
   margin-right: 2.5em;
@@ -422,7 +315,6 @@ footer {
   padding: .1em;
 }
 
-
 .fullList {
   font-size: 1em;
 }
@@ -435,19 +327,16 @@ footer {
 
 .checkboxContainer {
   margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .fullList,
 .checkbox {
   margin-top: 2em;
   margin-bottom: 2em;
-}
-
-.checkboxContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .checkboxContainer p {
@@ -473,7 +362,6 @@ footer {
   position: relative;
   height: 26px;
   width: 50px;
-  /* transform: scale(1.5); */
   margin: auto;
   box-shadow:
     5px 5px 11px 2px rgba(0, 0, 0, 1),
@@ -561,7 +449,6 @@ body.light hr {
   background-color: #222;
 }
 
-
 body.light .searchButton {
   background-color: #eee;
   color: #222;
@@ -601,7 +488,6 @@ body.light .songData {
 body.light .checkboxContainer p {
   color: #222;
 }
-
 
 body.light .footerInfo {
   color: #e0e7e9;
@@ -684,7 +570,7 @@ body.light .clearListButton:active {
     font-size: .9em;
   }
 
-  .container2 img {
+  footer img {
     width: 1.4em;
     margin-left: .6em;
     margin-right: .6em;
@@ -798,7 +684,7 @@ body.light .clearListButton:active {
     font-size: 1em;
   }
 
-  .container2 img {
+  footer img {
     width: 1.5em;
     margin-left: .7em;
     margin-right: .7em;
@@ -816,11 +702,6 @@ body.light .clearListButton:active {
   .songInList p {
     margin-left: .9em;
   }
-
-  /* .songInQue, .songInList {
-    width: 600px;
-    height: 5.3em;
-  } */
 
   .container {
     width: 620px;
@@ -891,7 +772,7 @@ body.light .clearListButton:active {
     font-size: 1.1em;
   }
 
-  .container2 img {
+  footer img {
     width: 1.6em;
     margin-left: .8em;
     margin-right: .8em;
@@ -909,11 +790,6 @@ body.light .clearListButton:active {
   .songInList p {
     margin-left: 1.2em;
   }
-
-  /* .songInQue, .songInList {
-    width: 770px;
-    height: 5.4em;
-  } */
 
   .container {
     width: 790px;

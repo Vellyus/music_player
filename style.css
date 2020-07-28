@@ -25,13 +25,6 @@ h1 {
   text-transform: capitalize;
 }
 
-.inProgress {
-  color: red;
-  font-style: italic;
-  font-size: 1.3em;
-  font-family: 'Gloria Hallelujah', cursive;
-}
-
 h2 {
   margin-top: 1.2em;
   font-size: 1.5em;
@@ -306,7 +299,6 @@ text-decoration: underline;
 	position: relative;
 	height: 26px;
 	width: 50px;
-  /* transform: scale(1.5); */
   margin: auto;
 }
 

@@ -1,59 +1,4 @@
-/* PLAN
-
-DONE set starting time (start of the year)
-DONE get now
-DONE Math.floor (now - startingTime (in days) /1000 /60 /60 /24) = number of the song
-DONE create playlist
-DONE play the song of the day (Randomization - notes on my phone!)
-DONE create a new randomized list each year (like the start-now -> same solution)
-DONE add messages for special dates
-DONE get the special date messages on screen
-DONE make the UI responsive
- Playlist:
-    DONE if you enter a link and lick the button add it to the playlist
-    DONE if a song is over play the first element from the list
-    DONE if there are no more songs to play go back to today's song
-    DONE  delete the list elements that are finished playing
-    DONE Clear the interval when the playlist is empty (animal sounds)
-    DONE wait of both promises with promise.All when adding a song to the playlist, throw an error message if it fails
-    DONE cut down everything after the id (lists)
-    https://www.youtube.com/watch?v=6A-IoOEPbUs&list=RD6A-IoOEPbUs&start_radio=1
-    DONE make the links to work on mobile too
-    DONE add buttons for navigation or try drag & drop
-    https://shopify.github.io/draggable/examples/simple-list.html
-    DONE Make the navigation also change the songList
-    DONE BUGFIX: player doenst play the next song if you added something after the last song was over
-    DONE BUGFIX: if you dont enter a valid link (for example an empty input) the next song gets added twice
-    DONE Fix Duration display (it should be just like on youtube)
-      0:31 / 3:58 / 3:22:08
-      
-DONE make the UI pretty
-  DONE input font family?
-  DONE adjust font sizes
-  DONE make light mode (with a switch?)
-  DONE special messages design (maybe red like the dev. in progress thing with the same font family???)
-  DONE remove the container div
-  DONE Today's Song title, by, and artist should appear in one line on bigger screens
-  
-- create patreon for full list
-- delete unused code and comments and refactor the rest
-- upload everything to the GitHub repo
-
-
-DONE FOR GETTING AROUND THE 403 ERROR
-
-  DONE Make a second video player and hide it + stop the playing
-  DONE Get the data from that second player:
-      DONE Title: player.getVideoData().title
-      DONE Duration player.getDuration()
-
-
-
-
-link to GitHub Pages: https://vellyus.github.io/music_player/
-
-Wallpaper? :
-https://www.pexels.com/hu-hu/foto/4k-hatterkep-elektromos-gitar-fa-fokusz-1266821/
+/* PROJECT INFO FOR API IF NEEDED
 
 PROJECT NAME: moonlit-conduit-280617
 APP NAME: moonlit-conduit
@@ -61,6 +6,8 @@ API KEY: AIzaSyDZlS3XRm3Uw5Wa8YFPgTT3cMQqkTPo5Zw
 API CLIENT ID: 688278274189-rvosqpj4gfatp0c3sie6g333o4s75kv2.apps.googleusercontent.com
 API CLIENT SECRET: vv1LuueEwRRU8jkBKUijJsPB
 */
+
+
 
 /* DO THIS AT EVERY NEW YEAR !!!
 
@@ -86,6 +33,8 @@ console.log(newList);
 
 */
 
+
+// LIGHT MODE
 const chk = document.getElementById('chk');
 
 chk.addEventListener('change', () => {
@@ -157,14 +106,15 @@ function urlToEmbed(input) {
 }
 
 const iframe = document.querySelector("#player");
-const todaysSong = listInUse[numberOfSong].link;
+let todaysSong = listInUse[numberOfSong].link;
 
 document.querySelector(".title").innerText = listInUse[numberOfSong].title;
 document.querySelector(".artist").innerText = listInUse[numberOfSong].artist;
 
 for (let i = 0; i < specialSongs.length; i++) {
   if (month === specialSongs[i].month && date === specialSongs[i].date) {
-    iframe.src = urlToEmbed(specialSongs[i].link);
+    todaysSong = specialSongs[i].link;
+    iframe.src = (urlToID2(urlToID(todaysSong)));
     let message = document.querySelector(".message");
     message.innerText = specialSongs[i].message;
     message.style.display = "block";
@@ -183,22 +133,6 @@ let duration;
 let video = {};
 let serialNr = 0;
 
-function checkStatus(response) {
-  if (response.ok) {
-    return Promise.resolve(response);
-  } else {
-    return Promise.reject(new Error(response.statusText));
-  }
-}
-
-function fetchData(url) {
-  return fetch(url)
-    .then(checkStatus)
-    .then(res => res.json())
-    .catch(error => console.log('Looks like there was a problem!', error))
-}
-
-
 function urlToID(input) {
   let re = /https:\/\/www.youtube.com\/watch\?v=|https:\/\/youtu.be\/|https:\/\/m.youtube.com\/watch\?v=/g;
   return input.replace(re, "");
@@ -208,7 +142,6 @@ function urlToID2(input) {
   let re = /&.+|\?list.+/g;
   return input.replace(re, "");
 }
-
 
 function convertDuration(input) {
   let duration = parseInt(input);
@@ -251,13 +184,13 @@ function convertDuration(input) {
   seconds = seconds.toString();
 
 
-
   if (hours === "00") {
     return `${minutes}:${seconds}`;
   }
 
   return `${hours}:${minutes}:${seconds}`;
 }
+
 
 
 class Video {
@@ -284,13 +217,10 @@ class SortedVideo {
 }
 
 
-
 function muteInvisiblePlayer() {
   invisiblePlayer.mute();
   setTimeout(clearInterval, 10000, myTimer3);
 }
-
-
 
 function addToPlaylist() {
 
@@ -524,6 +454,7 @@ function playNextSong() {
       document.querySelector(".artist").innerText = listInUse[numberOfSong].artist;
       document.querySelector(".by").style.display = "block";
       document.querySelector(".artist").style.display = "block";
+      document.querySelector(".message").style.display = "block";
 
     } else {
       clearInterval(myTimer);
@@ -532,6 +463,8 @@ function playNextSong() {
         document.querySelector(".title").innerText = playList[0].title;
         document.querySelector(".by").style.display = "none";
         document.querySelector(".artist").style.display = "none";
+        document.querySelector(".message").style.display = "none";
+
 
         player.loadVideoById(playList[0].id);
         playList = playList.slice(1);
