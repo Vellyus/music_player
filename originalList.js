@@ -5288,6 +5288,14 @@ const originalList =
       link: "https://www.youtube.com/watch?v=8syxaoCfhkI",
     },
 
+    {
+      number: 753,
+      artist: "Bring Me The Horizon",
+      title: "True Friends",
+      link: "https://www.youtube.com/watch?v=BpmJh2CjSIA",
+    },
+
+
   ]
 
 const specialSongs = [
