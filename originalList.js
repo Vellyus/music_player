@@ -5220,28 +5220,28 @@ const originalList =
 
     {
       number: 743,
-      artist: "Slipknot ",
+      artist: "Slipknot",
       title: "XIX",
       link: "https://www.youtube.com/watch?v=2fsGyFjoyR0",
     },
 
     {
       number: 744,
-      artist: "Apey ",
+      artist: "Apey",
       title: "Personal Demon",
       link: "https://www.youtube.com/watch?v=u7YPm6859Ao",
     },
 
     {
       number: 745,
-      artist: "Metallica ",
+      artist: "Metallica",
       title: "Dyers Eve",
       link: "https://www.youtube.com/watch?v=v6kb5fvv6_A",
     },
 
     {
       number: 746,
-      artist: "Palaye Royale ",
+      artist: "Palaye Royale",
       title: "Dying in A Hot Tub (Acoustic)",
       link: "https://www.youtube.com/watch?v=OGiEN__72c4",
     },

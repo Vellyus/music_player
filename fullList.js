@@ -916,13 +916,28 @@ function compareByArtist(a, b) {
   const bandA = a.artist;
   const bandB = b.artist;
 
-  let comparison = 0;
-  if (bandA > bandB) {
-    comparison = 1;
-  } else if (bandA < bandB) {
-    comparison = -1;
+  if (bandA != bandB) {
+    let comparison = 0;
+    if (bandA > bandB) {
+      comparison = 1;
+    } else if (bandA < bandB) {
+      comparison = -1;
+    }
+    return comparison;
+  } else {
+
+    const titleA = a.title;
+    const titleB = b.title;
+  
+    let comparison = 0;
+    if (titleA > titleB) {
+      comparison = 1;
+    } else if (titleA < titleB) {
+      comparison = -1;
+    }
+    return comparison;
+
   }
-  return comparison;
 }
 
 const sortedSongs = originalList.sort(compareByArtist);
