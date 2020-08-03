@@ -5256,43 +5256,64 @@ const originalList =
     {
       number: 748,
       artist: "Alestorm",
+      title: "Alestorm",
+      link: "https://www.youtube.com/watch?v=hJ_eVIZkjZE",
+    },
+
+    {
+      number: 749,
+      artist: "Alestorm",
       title: "Drink",
       link: "https://www.youtube.com/watch?v=f55CqLc6IR0",
     },
 
     {
-      number: 749,
+      number: 750,
       artist: "Alestorm",
       title: "Mexico",
       link: "https://www.youtube.com/watch?v=-r8jlHDBMsw",
     },
 
     {
-      number: 750,
+      number: 751,
       artist: "Elefánt",
       title: "Hinta",
       link: "https://www.youtube.com/watch?v=tZMRdiSAHi8",
     },
 
     {
-      number: 751,
+      number: 752,
       artist: "Elefánt",
       title: "Plüss",
       link: "https://www.youtube.com/watch?v=4yzJFyjK-54",
     },
 
     {
-      number: 752,
+      number: 753,
       artist: "Blind Myself",
       title: "Tudod, hogy nincs bocsánat",
       link: "https://www.youtube.com/watch?v=8syxaoCfhkI",
     },
 
     {
-      number: 753,
+      number: 754,
       artist: "Bring Me The Horizon",
       title: "True Friends",
       link: "https://www.youtube.com/watch?v=BpmJh2CjSIA",
+    },
+
+    {
+      number: 755,
+      artist: "ONE OK ROCK",
+      title: "Answer Is Near",
+      link: "https://www.youtube.com/watch?v=UlmhKXA77ro",
+    },
+
+    {
+      number: 756,
+      artist: "ONE OK ROCK",
+      title: "The Beginning",
+      link: "https://www.youtube.com/watch?v=Hh9yZWeTmVM",
     },
 
 
