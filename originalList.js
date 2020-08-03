@@ -5316,6 +5316,13 @@ const originalList =
       link: "https://www.youtube.com/watch?v=Hh9yZWeTmVM",
     },
 
+    {
+      number: 757,
+      artist: "Sonic Syndicate",
+      title: "Aftermath",
+      link: "https://www.youtube.com/watch?v=1SQ6YIPVJ_0",
+    },
+
 
   ]
 
