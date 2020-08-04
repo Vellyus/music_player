@@ -912,7 +912,7 @@ document.querySelector(".clearListButton").addEventListener("click", clearPlayli
 
 
 
-function compareByArtist(a, b) {
+function compare(a, b) {
   const bandA = a.artist;
   const bandB = b.artist;
 
@@ -940,7 +940,7 @@ function compareByArtist(a, b) {
   }
 }
 
-const sortedSongs = originalList.sort(compareByArtist);
+const sortedSongs = originalList.sort(compare);
 
 function addSortedSongs() {
 
@@ -1000,12 +1000,14 @@ function addSortedSongs() {
   specialSongsTitle.style.marginTop = "2em";
 
 
-
-  for (let i = 0; i < specialSongs.length; i++) {
-
+  const sortedSpecialSongs = specialSongs.sort(compare);
 
 
-    video = new SortedVideo(specialSongs[i]);
+  for (let i = 0; i < sortedSpecialSongs.length; i++) {
+
+
+
+    video = new SortedVideo(sortedSpecialSongs[i]);
 
     const newSongInList = document.createElement('li');
     newSongInList.setAttribute("id", serialNr);
