@@ -170,10 +170,10 @@ function urlToID(input)
 
 function convertDuration(input)
 {
-  let duration = parseInt(input)
-  let hours = 0
-  let minutes = 0
-  let seconds = 0
+  let duration = parseInt(input),
+    hours = 0,
+    minutes = 0,
+    seconds = 0
 
   for (let i = 1; i; i++)
   {
@@ -272,13 +272,12 @@ function updatePlayList()
 
 function updateButtons()
 {
-  const listUl = document.querySelector(".songsInQue")
-
-  const firstListItem = listUl.firstElementChild
-  const lastListItem = listUl.lastElementChild
-  const liButtons = document.querySelectorAll('.navButtons img')
-  const firstUpButton = firstListItem.getElementsByClassName('up')
-  const lastDownButton = lastListItem.getElementsByClassName('down')
+  const listUl = document.querySelector(".songsInQue"),
+    firstListItem = listUl.firstElementChild,
+    lastListItem = listUl.lastElementChild,
+    liButtons = document.querySelectorAll('.navButtons img'),
+    firstUpButton = firstListItem.getElementsByClassName('up'),
+    lastDownButton = lastListItem.getElementsByClassName('down')
 
   for (let i = 0; i < liButtons.length; i++)
   {
@@ -315,9 +314,10 @@ function addEventListeners()
     }
     if (event.target.className == 'up')
     {
-      const li = event.target.parentNode.parentNode
-      const prevLi = li.previousElementSibling
-      const ul = li.parentNode
+      const li = event.target.parentNode.parentNode,
+        prevLi = li.previousElementSibling,
+        ul = li.parentNode
+
       if (prevLi)
       {
         ul.insertBefore(li, prevLi)
@@ -326,9 +326,10 @@ function addEventListeners()
     }
     if (event.target.className == 'down')
     {
-      const li = event.target.parentNode.parentNode
-      const nextLi = li.nextElementSibling
-      const ul = li.parentNode
+      const li = event.target.parentNode.parentNode,
+        nextLi = li.nextElementSibling,
+        ul = li.parentNode
+
       if (nextLi)
       {
         ul.insertBefore(nextLi, li)
