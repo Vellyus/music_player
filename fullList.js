@@ -19,12 +19,12 @@ const startingTimeMs = startingTime.getTime(),
   numberOfSong = Math.floor((nowMs - startingTimeMs) / 1000 / 60 / 60 / 24),
   iframe = document.querySelector("#player")
 
-let playList = []
-let title
-let duration
-let video = {}
-let serialNr = 0
-let playlistPosition = -1
+let playList = [],
+  title,
+  duration,
+  video = {},
+  serialNr = 0,
+  playlistPosition = -1
 
 const h2Element = document.querySelector("h2"),
   titleElement = document.querySelector(".title"),
@@ -60,7 +60,7 @@ class VideoFromList
 }
 
 
-class defaultVideo
+class DefaultVideo
 {
   constructor(url)
   {
@@ -85,7 +85,7 @@ class SortedVideo
 
 // SET TODAY'S SONG
 let todaysSong = listInUse[numberOfSong]
-let playingNow = new defaultVideo(todaysSong.link)
+let playingNow = new DefaultVideo(todaysSong.link)
 
 
 titleElement.innerText = listInUse[numberOfSong].title
@@ -520,7 +520,7 @@ function playNextSong()
       if (!playList[playlistPosition + 1])
       {
         player.loadVideoById(urlToID(todaysSong.link))
-        playingNow = new defaultVideo(todaysSong.link)
+        playingNow = new DefaultVideo(todaysSong.link)
         player.stopVideo()
         h2Element.innerText = "Today's song"
         titleElement.innerText = todaysSong.title
@@ -625,7 +625,7 @@ function playNextSongWithButton()
     if (!playList[playlistPosition + 1])
     {
       player.loadVideoById(urlToID(todaysSong.link))
-      playingNow = new defaultVideo(todaysSong.link)
+      playingNow = new DefaultVideo(todaysSong.link)
       player.stopVideo()
       h2Element.innerText = "Today's song"
       titleElement.innerText = todaysSong.title
@@ -728,7 +728,7 @@ function playPreviousSongWithButton()
     if (!playList[playlistPosition - 1])
     {
       player.loadVideoById(urlToID(todaysSong.link))
-      playingNow = new defaultVideo(todaysSong.link)
+      playingNow = new DefaultVideo(todaysSong.link)
       player.stopVideo()
       h2Element.innerText = "Today's song"
       titleElement.innerText = todaysSong.title
@@ -1063,7 +1063,6 @@ function addSortedSongs()
         newSongInQue.appendChild(newSongData)
         newSongData.className = "songData"
 
-
         const songTitle = document.createElement("p")
 
         songTitle.innerText = video.display
@@ -1074,14 +1073,9 @@ function addSortedSongs()
         songDuration.innerText = `${convertDuration(video.duration)}`
         newSongData.appendChild(songDuration)
 
-
-
-
-
         const navButtons = document.createElement("div")
         newSongInQue.appendChild(navButtons)
         navButtons.setAttribute("class", "navButtons")
-
 
         const newImgUp = document.createElement("img")
 
