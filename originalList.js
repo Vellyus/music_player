@@ -5196,7 +5196,7 @@ const originalList =
       title: "Hell Yeah",
       link: "https://www.youtube.com/watch?v=7LuSP4QaXiQ",
     },
-    
+
     {
       number: 740,
       artist: "Meg Myers",
@@ -5330,6 +5330,13 @@ const originalList =
       link: "https://www.youtube.com/watch?v=jVO8sUrs-Pw",
     },
 
+    {
+      number: 759,
+      artist: "Sonic Syndicate",
+      title: "Crowned In Despair",
+      link: "https://www.youtube.com/watch?v=wW4PLkYmFr4",
+    },
+
 
   ]
 
@@ -5399,14 +5406,17 @@ const specialSongs = [
 
 ]
 
-function compare(a, b) {
+function compare(a, b)
+{
   const bandA = a.number;
   const bandB = b.number;
 
   let comparison = 0;
-  if (bandA > bandB) {
+  if (bandA > bandB)
+  {
     comparison = 1;
-  } else if (bandA < bandB) {
+  } else if (bandA < bandB)
+  {
     comparison = -1;
   }
   return comparison;
