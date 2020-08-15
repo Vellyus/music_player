@@ -617,9 +617,15 @@ function playNextSongWithButton()
     {
       player.loadVideoById(playingNow.id)
       myTimer = setInterval(playNextSong, 10000)
-    } catch {
+    }
+    catch
+    {
       myTimer = setInterval(playNextSong, 10000)
     }
+    // finally
+    // {
+    //   myTimer = setInterval(playNextSong, 10000)
+    // }
   }
   else
   {
