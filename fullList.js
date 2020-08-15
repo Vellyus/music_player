@@ -622,10 +622,10 @@ function playNextSongWithButton()
     {
       myTimer = setInterval(playNextSong, 10000)
     }
-    // finally
-    // {
-    //   myTimer = setInterval(playNextSong, 10000)
-    // }
+    finally
+    {
+      myTimer = setInterval(playNextSong, 10000)
+    }
   }
   else
   {
@@ -970,21 +970,21 @@ function addSortedSongs()
     newSongInList.appendChild(playButtons)
     playButtons.setAttribute("class", "playButtons")
 
-    const newImgDown = document.createElement("img")
+    const newImgPlus = document.createElement("img")
     if (chk.checked === true)
     {
-      newImgDown.src = "assets/plus-circle-fill.svg"
+      newImgPlus.src = "assets/plus-circle-fill.svg"
     }
     else
     {
-      newImgDown.src = "assets/plus-circle-fill-light.svg"
+      newImgPlus.src = "assets/plus-circle-fill-light.svg"
     }
-    newImgDown.setAttribute("class", "addToPlaylistButton")
-    playButtons.appendChild(newImgDown)
+    newImgPlus.setAttribute("class", "addToPlaylistButton")
+    playButtons.appendChild(newImgPlus)
 
     const url = document.createElement("p")
     url.setAttribute("class", "url")
-    newImgDown.appendChild(url)
+    newImgPlus.appendChild(url)
     url.innerText = video.id
     url.style.display = "none"
 
