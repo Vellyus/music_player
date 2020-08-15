@@ -556,7 +556,7 @@ function playNextSong()
       {
         try
         {
-          clearInterval(myTimer)
+          // clearInterval(myTimer)
 
           playlistPosition++
 
