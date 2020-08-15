@@ -1,7 +1,7 @@
 const colorLight = "#e0e7e9",
   colorDark = "#222",
-  colorRed = "red",
-  colorBlue = "blue"
+  colorRed = "#ff7315",
+  colorBlue = "#006a71"
 
 const now = new Date,
   thisYear = now.getFullYear(),
