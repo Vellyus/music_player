@@ -554,9 +554,11 @@ function playNextSong()
       }
       else
       {
+
+        clearInterval(myTimer)
+
         try
         {
-          // clearInterval(myTimer)
 
           playlistPosition++
 
@@ -603,11 +605,6 @@ function playNextSong()
         {
           myTimer = setInterval(playNextSong, 10000)
         }
-        finally
-        {
-          myTimer = setInterval(playNextSong, 10000)
-        }
-
       }
     }
     updateButtons()
