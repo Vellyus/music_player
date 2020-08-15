@@ -554,9 +554,10 @@ function playNextSong()
       }
       else
       {
-        clearInterval(myTimer)
         try
         {
+          clearInterval(myTimer)
+
           playlistPosition++
 
           h2Element.innerText = "Currently Playing"
