@@ -1053,9 +1053,11 @@ function addSortedSongs()
   {
     invisiblePlayer.loadVideoById(event.target.firstElementChild.innerText)
 
+    myTimer = setInterval(playNextSong, 10000)
     myTimer3 = setInterval(muteInvisiblePlayer, 200)
 
     let myTimer2 = setInterval(addSongFromList, 1000)
+
 
 
     function addSongFromList()
