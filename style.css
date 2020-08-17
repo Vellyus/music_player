@@ -484,8 +484,7 @@ body.light .searchButton:active {
 }
 
 body.light .songsInQueWrapper {
-  background-color: #eee;
-  /* background-color: #e4e4e4; */
+  background-color: #e4e4e4;
   box-shadow:
     5px 5px 11px 0 rgba(0, 0, 0, .8),
     -3px -3px 11px 2px rgba(255, 255, 255, .8);
