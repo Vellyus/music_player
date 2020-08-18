@@ -557,11 +557,16 @@ function playNextSong()
 
         if (playList[playlistPosition].artist === undefined)
         {
-          artistElement.innerText = playList[playlistPosition].artist
+          byElement.style.display = "none"
+          artistElement.style.display = "none"
           footerInfoElement.innerText = `${playList[playlistPosition].title}`
         }
-        else 
+        else
         {
+          byElement.style.display = "block"
+          artistElement.style.display = "block"
+          artistElement.innerText = playList[playlistPosition].artist
+
           footerInfoElement.innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`
         }
 
@@ -659,11 +664,16 @@ function playNextSongWithButton()
 
       if (playList[playlistPosition].artist === undefined)
       {
-        artistElement.innerText = playList[playlistPosition].artist
+        byElement.style.display = "none"
+        artistElement.style.display = "none"
         footerInfoElement.innerText = `${playList[playlistPosition].title}`
       }
-      else 
+      else
       {
+        byElement.style.display = "block"
+        artistElement.style.display = "block"
+        artistElement.innerText = playList[playlistPosition].artist
+
         footerInfoElement.innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`
       }
 
@@ -759,11 +769,16 @@ function playPreviousSongWithButton()
 
       if (playList[playlistPosition].artist === undefined)
       {
-        artistElement.innerText = playList[playlistPosition].artist
+        byElement.style.display = "none"
+        artistElement.style.display = "none"
         footerInfoElement.innerText = `${playList[playlistPosition].title}`
       }
-      else 
+      else
       {
+        byElement.style.display = "block"
+        artistElement.style.display = "block"
+        artistElement.innerText = playList[playlistPosition].artist
+
         footerInfoElement.innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`
       }
 
