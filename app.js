@@ -554,10 +554,10 @@ function playNextSong()
 
         h2Element.innerText = "Currently Playing"
         titleElement.innerText = playList[playlistPosition].title
-        artistElement.innerText = playList[playlistPosition].artist
 
         if (playList[playlistPosition].artist === undefined)
         {
+          artistElement.innerText = playList[playlistPosition].artist
           footerInfoElement.innerText = `${playList[playlistPosition].title}`
         }
         else 
@@ -656,10 +656,10 @@ function playNextSongWithButton()
 
       h2Element.innerText = "Currently Playing"
       titleElement.innerText = playList[playlistPosition].title
-      artistElement.innerText = playList[playlistPosition].artist
 
       if (playList[playlistPosition].artist === undefined)
       {
+        artistElement.innerText = playList[playlistPosition].artist
         footerInfoElement.innerText = `${playList[playlistPosition].title}`
       }
       else 
@@ -756,10 +756,10 @@ function playPreviousSongWithButton()
 
       h2Element.innerText = "Currently Playing"
       titleElement.innerText = playList[playlistPosition].title
-      artistElement.innerText = playList[playlistPosition].artist
 
       if (playList[playlistPosition].artist === undefined)
       {
+        artistElement.innerText = playList[playlistPosition].artist
         footerInfoElement.innerText = `${playList[playlistPosition].title}`
       }
       else 
