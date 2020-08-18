@@ -890,7 +890,7 @@ function clearPlaylist()
   let songInQueElements = document.querySelectorAll('.songInQue')
   songInQueElements.forEach(e => e.remove())
   updatePlayList()
-  playNextSongWithButton()
+  // playNextSongWithButton()
 }
 
 
