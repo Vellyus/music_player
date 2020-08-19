@@ -2228,14 +2228,14 @@ const originalList =
 
     {
       number: 318,
-      artist: "Sleeping With Sirends",
+      artist: "Sleeping With Sirens",
       title: "Heroine",
       link: "https://www.youtube.com/watch?v=-G1dkQHvNCQ",
     },
 
     {
       number: 319,
-      artist: "Sleeping With Sirends",
+      artist: "Sleeping With Sirens",
       title: "Alone",
       link: "https://www.youtube.com/watch?v=dol_B35er_M",
     },
