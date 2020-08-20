@@ -5337,6 +5337,13 @@ const originalList =
       link: "https://www.youtube.com/watch?v=wW4PLkYmFr4",
     },
 
+    {
+      number: 760,
+      artist: "Paddy And The Rats",
+      title: "Castaway",
+      link: "https://www.youtube.com/watch?v=6GcxdOmD9CM",
+    },
+
 
   ]
 
