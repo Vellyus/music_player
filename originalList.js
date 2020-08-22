@@ -5344,6 +5344,20 @@ const originalList =
       link: "https://www.youtube.com/watch?v=6GcxdOmD9CM",
     },
 
+    {
+      number: 761,
+      artist: "Thousand Foot Krutch",
+      title: "Courtesy Call",
+      link: "https://www.youtube.com/watch?v=ocpDEOXABWg",
+    },
+
+    {
+      number: 762,
+      artist: "Thousand Foot Krutch",
+      title: "Let The Sparks Fly",
+      link: "https://www.youtube.com/watch?v=uNeat23LU0M",
+    },
+
 
   ]
 
@@ -5412,21 +5426,3 @@ const specialSongs = [
   }
 
 ]
-
-function compare(a, b)
-{
-  const bandA = a.number;
-  const bandB = b.number;
-
-  let comparison = 0;
-  if (bandA > bandB)
-  {
-    comparison = 1;
-  } else if (bandA < bandB)
-  {
-    comparison = -1;
-  }
-  return comparison;
-}
-
-// console.log(listInUse.sort(compare));
