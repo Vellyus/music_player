@@ -2083,7 +2083,7 @@ const originalList =
       number: 297,
       artist: "EH!DE & Funk4Mation",
       title: "Osiris",
-      link: "https://www.youtube.com/watch?v=7QhIazzfaVk",
+      link: "https://www.youtube.com/watch?v=BRXXE-6QynE",
     },
 
     {
