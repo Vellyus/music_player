@@ -5358,6 +5358,20 @@ const originalList =
       link: "https://www.youtube.com/watch?v=uNeat23LU0M",
     },
 
+    {
+      number: 763,
+      artist: "Norther",
+      title: "Last Breath",
+      link: "https://www.youtube.com/watch?v=khe-bIlNTb8",
+    },
+
+    {
+      number: 764,
+      artist: "Illnath",
+      title: "And There Was Light",
+      link: "https://www.youtube.com/watch?v=T1q9xD7of_Y",
+    },
+
 
   ]
 
