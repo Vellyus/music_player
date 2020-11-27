@@ -5372,6 +5372,20 @@ const originalList =
       link: "https://www.youtube.com/watch?v=T1q9xD7of_Y",
     },
 
+    {
+      number: 765,
+      artist: "Live",
+      title: "I Alone",
+      link: "https://www.youtube.com/watch?v=FNrQOUtXYOo&ab",
+    },
+
+    {
+      number: 766,
+      artist: "Snow Patrol",
+      title: "Chasing Cars",
+      link: "https://www.youtube.com/watch?v=GemKqzILV4w",
+    },
+
 
   ]
 
