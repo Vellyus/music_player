@@ -5387,13 +5387,18 @@ const originalList =
     },
 
     {
-      number: 766,
+      number: 767,
       artist: "In Flames",
       title: "Stay With Me",
       link: "https://www.youtube.com/watch?v=__7K3FNiWeo",
     },
 
-
+    {
+      number: 768,
+      artist: "SUPERDEATHFLAME ",
+      title: "Never Forgotten Justice",
+      link: "https://www.youtube.com/watch?v=hLzZJXOBkns",
+    },
 
   ]
 
