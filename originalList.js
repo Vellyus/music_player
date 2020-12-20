@@ -5400,6 +5400,12 @@ const originalList =
       link: "https://www.youtube.com/watch?v=hLzZJXOBkns",
     },
 
+    {
+      number: 769,
+      artist: "Linkin Park",
+      title: "Somewhere I Belong",
+      link: "https://www.youtube.com/watch?v=zsCD5XCu6CM",
+    },
   ]
 
 const specialSongs = [
