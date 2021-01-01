@@ -1,3 +1,26 @@
+/* DO THIS AT EVERY NEW YEAR !!!
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1))
+    var temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+  return array
+}
+let newList = shuffleArray(originalList)
+newList = JSON.stringify(newList)
+console.log(newList)
+// Go to console! "Copy" button at the end of the log!
+// Paste it to listInUse!
+// "keys" -> keys (with replace all in VSCode)
+// ("number" -> number, "artist" -> artist, etc.)
+// { -> shift+enter { shift+enter
+// }, -> shift+enter }, shift+enter
+// , + space -> , + shift+enter
+// and then correct strings with commas
+*/
+
 const colorLight = "#e0e7e9",
   colorDark = "#222",
   colorRed = "rgb(255, 115, 21)", // "#ff7315",
