@@ -5406,6 +5406,19 @@ const originalList =
       title: "Somewhere I Belong",
       link: "https://www.youtube.com/watch?v=zsCD5XCu6CM",
     },
+    {
+      number: 770,
+      artist: "Eve To Adam",
+      title: "Immortal",
+      link: "https://www.youtube.com/watch?v=WTPJSMvFBig&ab_channel=EVETOADAM",
+    },
+    {
+      number: 771,
+      artist: "Deuce",
+      title: "Look at Me Now",
+      link: "https://www.youtube.com/watch?v=kudLWlkuh8Q&ab_channel=BetterNoiseMusic",
+    },
+
   ]
 
 const specialSongs = [
