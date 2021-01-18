@@ -4305,7 +4305,7 @@ const originalList =
       number: 612,
       artist: "Ozzy Osbourne",
       title: "I Don't Know",
-      link: "https://www.youtube.com/watch?v=772NKQjj1u4",
+      link: "https://www.youtube.com/watch?v=JNm6bucMPmY&ab_channel=OzzyOsbourne-Topic",
     },
 
     {
