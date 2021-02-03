@@ -536,7 +536,7 @@ const originalList =
       number: 76,
       artist: "Ghost",
       title: "Faith",
-      link: "https://www.youtube.com/watch?v=qvZKwvpQAUc",
+      link: "https://www.youtube.com/watch?v=k72ytAFMCI0&ab_channel=Ghost",
     },
 
     {
