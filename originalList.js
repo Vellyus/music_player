@@ -3315,8 +3315,8 @@ const originalList =
     {
       number: 473,
       artist: "Dope",
-      title: "Die Motherfucker",
-      link: "https://www.youtube.com/watch?v=Xw-m4jEY-Ns",
+      title: "Die Motherfucker Die",
+      link: "https://www.youtube.com/watch?v=25DC6v8oPxo&ab_channel=Gravegirl94",
     },
 
     {
