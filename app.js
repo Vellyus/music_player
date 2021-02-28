@@ -31,11 +31,11 @@ const now = new Date,
   startingTime = new Date(`January 1, ${thisYear} 00:00:00 GMT+200`)
 
 /* Special Message Test */
-// const month = 1
-// const date = 26
+const month = 1
+const date = 26
 
-const month = now.getMonth()
-const date = now.getDate()
+// const month = now.getMonth()
+// const date = now.getDate()
 
 const startingTimeMs = startingTime.getTime(),
   nowMs = now.getTime(),
@@ -640,7 +640,8 @@ function playNextSongWithButton()
   if (repeatButton.className === "repeatActive")
   {
     clearInterval(myTimer)
-    player.loadVideoById(playingNow.id)
+    if (!playList.length) player.loadVideoById(todaysSong)
+    else player.loadVideoById(playingNow.id)
     myTimer = setInterval(playNextSong, 10000)
   }
   else
