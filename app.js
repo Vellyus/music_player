@@ -640,8 +640,7 @@ function playNextSongWithButton()
   if (repeatButton.className === "repeatActive")
   {
     clearInterval(myTimer)
-    if (!playList.length) player.loadVideoById(todaysSong)
-    else player.loadVideoById(playingNow.id)
+    player.loadVideoById(playingNow.id)
     myTimer = setInterval(playNextSong, 10000)
   }
   else
