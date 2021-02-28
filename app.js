@@ -127,7 +127,7 @@ const checkForSpecialDate = function ()
       message.innerText = song.message
       message.style.display = "block"
       todaysSong = song
-      new DefaultVideo(todaysSong.link)
+      playingNow = new DefaultVideo(todaysSong.link)
 
       titleElement.innerText = song.title
       artistElement.innerText = song.artist
