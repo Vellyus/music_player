@@ -1935,7 +1935,7 @@ const listInUse = [
     number: 768,
     artist: "SUPERDEATHFLAME ",
     title: "Never Forgotten Justice",
-    link: "https://www.youtube.com/watch?v=hLzZJXOBkns"
+    link: "https://www.youtube.com/watch?v=QesN8EYwGQc&ab_channel=Superdeathflame-Topic"
   },
 
   {
