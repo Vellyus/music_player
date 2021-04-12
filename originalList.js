@@ -5415,9 +5415,47 @@ const originalList =
     {
       number: 771,
       artist: "Deuce",
-      title: "Look at Me Now",
+      title: "Look At Me Now",
       link: "https://www.youtube.com/watch?v=kudLWlkuh8Q&ab_channel=BetterNoiseMusic",
     },
+    {
+      number: 772,
+      artist: "Citizen Soldier",
+      title: "If These Scars Could Speak",
+      link: "https://www.youtube.com/watch?v=hbtDPxKcijY&ab_channel=CitizenSoldier",
+    },
+    {
+      number: 773,
+      artist: "America",
+      title: "A Horse With No Name",
+      link: "https://www.youtube.com/watch?v=zSAJ0l4OBHM&ab_channel=badgarin",
+    },
+    {
+      number: 774,
+      artist: "Fail Emotions",
+      title: "Reborn",
+      link: "https://www.youtube.com/watch?v=jwwp_th7IxM&ab_channel=FailEmotions",
+    },
+    {
+      number: 775,
+      artist: "Art Of Dying",
+      title: "Tear Down The Wall",
+      link: "https://www.youtube.com/watch?v=BY6bFKIjhOA&ab_channel=BetterNoiseMusic",
+    },
+    {
+      number: 776,
+      artist: "Five Finger Death Punch",
+      title: "You're Not My Kind",
+      link: "https://www.youtube.com/watch?v=nEG2OCnNvoE&ab_channel=5FDPVEVO",
+    },
+    {
+      number: 777,
+      artist: "Three Days Grace",
+      title: "The End Is Not The Answer",
+      link: "https://www.youtube.com/watch?v=6gUcNoC_EAA&ab_channel=ThreeDaysGraceVEVO",
+    },
+
+
 
   ]
 
