@@ -5080,7 +5080,7 @@ const originalList =
 
     {
       number: 723,
-      artist: "Marilyn Manson feat Tyler Bates",
+      artist: "Marilyn Manson",
       title: "Killing Strangers",
       link: "https://www.youtube.com/watch?v=eNTjM3_0N80&ab_channel=ThePaleEmperordiscThePaleEmperordisc",
     },
