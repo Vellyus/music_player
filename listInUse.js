@@ -171,7 +171,7 @@ const listInUse = [
     number: 51,
     artist: "Linkin Park",
     title: "Headstrong (Trapt Cover)",
-    link: "https://www.youtube.com/watch?v=o1qgJEFXMh8"
+    link: "https://www.youtube.com/watch?v=LTAkXxRt5Ic&ab_channel=aleee18ify"
   },
 
   {
