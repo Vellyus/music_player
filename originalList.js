@@ -5454,6 +5454,12 @@ const originalList =
       title: "The End Is Not The Answer",
       link: "https://www.youtube.com/watch?v=6gUcNoC_EAA&ab_channel=ThreeDaysGraceVEVO",
     },
+    {
+      number: 778,
+      artist: "Bad Omens",
+      title: "Exit Wounds",
+      link: "https://www.youtube.com/watch?v=MaE5gEnZm_c&ab_channel=SumerianRecordsSumerianRecords",
+    },
 
 
 
