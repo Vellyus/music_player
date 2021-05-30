@@ -2004,7 +2004,7 @@ const listInUse = [
   {
     number: 305,
     artist: "In This Moment",
-    title: "Half Good Half Devil",
+    title: "Half God Half Devil",
     link: "https://www.youtube.com/watch?v=iwzaIEmaW0s"
   },
 
