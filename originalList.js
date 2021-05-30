@@ -1306,7 +1306,7 @@ const originalList =
       number: 186,
       artist: "Slipknot",
       title: "The Negative One",
-      link: "https://www.youtube.com/watch?v=sgA7KIwKlOE",
+      link: "https://www.youtube.com/watch?v=VcnB8z0J80I&ab_channel=SlipknotSlipknotHivatalosel%C5%91ad%C3%B3icsatorna",
     },
 
     {
