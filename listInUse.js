@@ -1326,7 +1326,7 @@ const listInUse = [
     number: 100,
     artist: "Helloween",
     title: "Guardians",
-    link: "https://www.youtube.com/watch?v=ZRNen8RLmb4"
+    link: "https://www.youtube.com/watch?v=9ofHhS-3zdQ&ab_channel=nnxzm"
   },
 
   {
@@ -3097,7 +3097,7 @@ const listInUse = [
     number: 99,
     artist: "Helloween",
     title: "Reptile",
-    link: "https://www.youtube.com/watch?v=8nsd9dNXoN8"
+    link: "https://www.youtube.com/watch?v=U2iMKZf6T-g&ab_channel=HelloweenWeb"
   },
 
   {

@@ -56,10 +56,8 @@ const h2Element = document.querySelector("h2"),
   footerInfoElement = document.querySelector('.footerInfo')
 
 
-class Video
-{
-  constructor(url)
-  {
+class Video {
+  constructor(url) {
     this.url = url
     this.id = urlToID(this.url)
     this.title = invisiblePlayer.getVideoData().title
@@ -69,10 +67,8 @@ class Video
 }
 
 
-class VideoFromList
-{
-  constructor(element)
-  {
+class VideoFromList {
+  constructor(element) {
     this.id = element.innerText
     this.title = element.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.innerText
     this.artist = element.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling.innerText
@@ -83,20 +79,16 @@ class VideoFromList
 }
 
 
-class DefaultVideo
-{
-  constructor(url)
-  {
+class DefaultVideo {
+  constructor(url) {
     this.url = url
     this.id = urlToID(this.url)
   }
 }
 
 
-class SortedVideo
-{
-  constructor(e)
-  {
+class SortedVideo {
+  constructor(e) {
     this.url = e.link
     this.id = urlToID(this.url)
     this.title = e.title
@@ -116,12 +108,9 @@ artistElement.innerText = listInUse[numberOfSong].artist
 
 footerInfoElement.innerText = `${listInUse[numberOfSong].title} - ${listInUse[numberOfSong].artist}`
 
-const checkForSpecialDate = function ()
-{
-  for (let song of specialSongs)
-  {
-    if (month === song.month && date === song.date)
-    {
+const checkForSpecialDate = function () {
+  for (let song of specialSongs) {
+    if (month === song.month && date === song.date) {
       iframe.src = urlToEmbed(song.link)
       let message = document.querySelector(".message")
       message.innerText = song.message
@@ -140,16 +129,14 @@ const checkForSpecialDate = function ()
 // LIGHT MODE
 const chk = document.getElementById('chk')
 
-chk.addEventListener('change', () =>
-{
+chk.addEventListener('change', () => {
 
   const upButtons = document.querySelectorAll('.up')
   const downButtons = document.querySelectorAll('.down')
   const removeButtons = document.querySelectorAll('.remove')
   const addToPlayListButtons = document.querySelectorAll(".addToPlaylistButton")
 
-  if (chk.checked === true)
-  {
+  if (chk.checked === true) {
     document.body.classList.add("light")
 
     upButtons.forEach(e => e.src = "assets/triangle-fill.svg")
@@ -161,8 +148,7 @@ chk.addEventListener('change', () =>
     document.querySelectorAll(".songInQue")[playlistPosition].firstElementChild.style.color = colorBlue
 
   }
-  else
-  {
+  else {
     document.body.classList.remove("light")
 
     upButtons.forEach(e => e.src = "assets/triangle-fill-light.svg")
@@ -176,32 +162,27 @@ chk.addEventListener('change', () =>
 })
 // END OF LIGHT MODE -
 
-function urlToEmbed(input)
-{
+function urlToEmbed(input) {
   const re = /watch\?v=/g
   return input.replace(re, "embed/")
 }
 
 
-function urlToID(input)
-{
+function urlToID(input) {
   const re = /https:\/\/www.youtube.com\/watch\?v=|https:\/\/youtu.be\/|https:\/\/m.youtube.com\/watch\?v=/g
   const re2 = /&.+|\?list.+/g
   return input.replace(re, "").replace(re2, "")
 }
 
 
-function convertDuration(input)
-{
+function convertDuration(input) {
   let duration = parseInt(input),
     hours = 0,
     minutes = 0,
     seconds = 0
 
-  for (let i = 1; i; i++)
-  {
-    if ((duration / (3600 * i)) < 1)
-    {
+  for (let i = 1; i; i++) {
+    if ((duration / (3600 * i)) < 1) {
       hours = i - 1
       duration = duration - (3600 * (i - 1))
       break
@@ -209,39 +190,32 @@ function convertDuration(input)
 
   }
 
-  for (let i = 1; i; i++)
-  {
-    if ((duration / (60 * i)) < 1)
-    {
+  for (let i = 1; i; i++) {
+    if ((duration / (60 * i)) < 1) {
       minutes = i - 1
       seconds = duration - 60 * (i - 1)
       break
     }
   }
 
-  if (hours < 10)
-  {
+  if (hours < 10) {
     hours = "0" + hours.toString()
   }
 
-  if (hours != "00" && minutes > 10)
-  {
-    if (minutes < 10)
-    {
+  if (hours != "00" && minutes > 10) {
+    if (minutes < 10) {
       minutes = "0" + minutes.toString()
     }
   }
 
-  if (seconds < 10)
-  {
+  if (seconds < 10) {
     seconds = "0" + seconds.toString()
   }
 
   minutes = minutes.toString()
   seconds = seconds.toString()
 
-  if (hours === "00")
-  {
+  if (hours === "00") {
     return `${minutes}:${seconds}`
   }
 
@@ -249,24 +223,19 @@ function convertDuration(input)
 }
 
 
-function muteInvisiblePlayer()
-{
+function muteInvisiblePlayer() {
   invisiblePlayer.mute()
   setTimeout(clearInterval, 10000, myTimer3)
 }
 
 
-function updatePlayList()
-{
+function updatePlayList() {
   const listUl = document.querySelectorAll(".songInQue")
   let newPlayList = []
 
-  for (let element of listUl)
-  {
-    for (let song of playList)
-    {
-      if (parseInt(element.id) === song.serialNr)
-      {
+  for (let element of listUl) {
+    for (let song of playList) {
+      if (parseInt(element.id) === song.serialNr) {
         newPlayList.push(song)
       }
     }
@@ -274,27 +243,22 @@ function updatePlayList()
 
   playList = newPlayList
 
-  for (let i = 0; i < listUl.length; i++)
-  {
-    if (listUl[i].firstElementChild.style.color === colorRed || listUl[i].firstElementChild.style.color === colorBlue)
-    {
+  for (let i = 0; i < listUl.length; i++) {
+    if (listUl[i].firstElementChild.style.color === colorRed || listUl[i].firstElementChild.style.color === colorBlue) {
       playlistPosition = i
     }
   }
 
-  if (playlistPosition != -1)
-  {
+  if (playlistPosition != -1) {
     document.querySelector(".message").style.display = "none"
   }
-  else
-  {
+  else {
     document.querySelector(".message").style.display = "block"
   }
 }
 
 
-function updateButtons()
-{
+function updateButtons() {
   const listUl = document.querySelector(".songsInQue"),
     firstListItem = listUl.firstElementChild,
     lastListItem = listUl.lastElementChild,
@@ -302,8 +266,7 @@ function updateButtons()
     firstUpButton = firstListItem.getElementsByClassName('up'),
     lastDownButton = lastListItem.getElementsByClassName('down')
 
-  for (let i = 0; i < liButtons.length; i++)
-  {
+  for (let i = 0; i < liButtons.length; i++) {
     liButtons[i].style.visibility = 'visible'
   }
   firstUpButton[0].style.visibility = 'hidden'
@@ -312,22 +275,17 @@ function updateButtons()
 }
 
 
-function addEventListeners()
-{
+function addEventListeners() {
   const listUl = document.querySelector(".songsInQue").lastChild
   document.querySelectorAll(".songInQue .songData").forEach(e => e.firstElementChild.className = "songInQueTitle")
 
-  listUl.addEventListener('click', (event) =>
-  {
-    if (event.target.tagName == 'IMG')
-    {
-      if (event.target.className == 'remove')
-      {
+  listUl.addEventListener('click', (event) => {
+    if (event.target.tagName == 'IMG') {
+      if (event.target.className == 'remove') {
         const li = event.target.parentNode.parentNode
         const ul = li.parentNode
 
-        if (event.target.parentNode.parentNode.firstElementChild.style.color === colorRed || event.target.parentNode.parentNode.firstElementChild.style.color === colorBlue)
-        {
+        if (event.target.parentNode.parentNode.firstElementChild.style.color === colorRed || event.target.parentNode.parentNode.firstElementChild.style.color === colorBlue) {
           playNextSongWithButton()
         }
 
@@ -335,52 +293,42 @@ function addEventListeners()
         updateButtons()
       }
     }
-    if (event.target.className == 'up')
-    {
+    if (event.target.className == 'up') {
       const li = event.target.parentNode.parentNode,
         prevLi = li.previousElementSibling,
         ul = li.parentNode
 
-      if (prevLi)
-      {
+      if (prevLi) {
         ul.insertBefore(li, prevLi)
         updateButtons()
       }
     }
-    if (event.target.className == 'down')
-    {
+    if (event.target.className == 'down') {
       const li = event.target.parentNode.parentNode,
         nextLi = li.nextElementSibling,
         ul = li.parentNode
 
-      if (nextLi)
-      {
+      if (nextLi) {
         ul.insertBefore(nextLi, li)
         updateButtons()
       }
     }
-    if (event.target.className == "songInQueTitle")
-    {
+    if (event.target.className == "songInQueTitle") {
       const repeatButton = document.querySelector("#repeat")
 
-      if (repeatButton.className == "repeatActive")
-      {
+      if (repeatButton.className == "repeatActive") {
         repeatButton.setAttribute("class", "repeatInactive")
 
-        for (let i = 0; i < playList.length; i++)
-        {
-          if (playList[i].serialNr == event.target.parentNode.parentNode.id)
-          {
+        for (let i = 0; i < playList.length; i++) {
+          if (playList[i].serialNr == event.target.parentNode.parentNode.id) {
             playlistPosition = i - 1
           }
         }
 
         playNextSongWithButton()
 
-        if (chk.checked === true)
-        {
-          document.querySelectorAll(".songInQue .songData").forEach(e =>
-          {
+        if (chk.checked === true) {
+          document.querySelectorAll(".songInQue .songData").forEach(e => {
             e.style.color = colorDark
             e.style.fontWeight = 400
             event.target.parentNode.style.color = colorBlue
@@ -388,10 +336,8 @@ function addEventListeners()
           })
 
         }
-        else
-        {
-          document.querySelectorAll(".songInQue .songData").forEach(e =>
-          {
+        else {
+          document.querySelectorAll(".songInQue .songData").forEach(e => {
             e.style.color = colorLight
             e.style.fontWeight = 400
             event.target.parentNode.style.color = colorRed
@@ -402,32 +348,25 @@ function addEventListeners()
         repeatButton.setAttribute("class", "repeatActive")
 
       }
-      else
-      {
-        for (let i = 0; i < playList.length; i++)
-        {
-          if (playList[i].serialNr == event.target.parentNode.parentNode.id)
-          {
+      else {
+        for (let i = 0; i < playList.length; i++) {
+          if (playList[i].serialNr == event.target.parentNode.parentNode.id) {
             playlistPosition = i - 1
           }
 
         }
         playNextSongWithButton()
 
-        if (chk.checked === true)
-        {
-          document.querySelectorAll(".songInQue .songData").forEach(e =>
-          {
+        if (chk.checked === true) {
+          document.querySelectorAll(".songInQue .songData").forEach(e => {
             e.style.color = colorDark
             e.style.fontWeight = 400
             event.target.parentNode.style.color = colorBlue
             event.target.parentNode.style.fontWeight = 800
           })
         }
-        else
-        {
-          document.querySelectorAll(".songInQue .songData").forEach(e =>
-          {
+        else {
+          document.querySelectorAll(".songInQue .songData").forEach(e => {
             e.style.color = colorLight
             e.style.fontWeight = 400
             event.target.parentNode.style.color = colorRed
@@ -455,8 +394,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
 //    after the API code downloads.
 var player
 var invisiblePlayer
-function onYouTubeIframeAPIReady()
-{
+function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
     width: '640',
@@ -479,8 +417,7 @@ function onYouTubeIframeAPIReady()
 }
 
 // 4. The API will call this function when the video player is ready.
-function onPlayerReady(event)
-{
+function onPlayerReady(event) {
   event.target.playVideo()
   invisiblePlayer.mute()
   player.stopVideo()
@@ -490,24 +427,20 @@ function onPlayerReady(event)
 //    The function indicates that when playing a video (state=1),
 //    the player should play for six seconds and then stop.
 var done = false
-function onPlayerStateChange(event)
-{
+function onPlayerStateChange(event) {
   // if (event.data == !YT.PlayerState.PLAYING && !done) {
   //   setTimeout(stopVideo, 6000)
   //   done = true
   // }
-  if (player.getPlayerState() === 1)
-  {
+  if (player.getPlayerState() === 1) {
     document.querySelector("#playButton").setAttribute("src", "assets/pause-fill-light.svg")
   }
-  if (player.getPlayerState() === 2)
-  {
+  if (player.getPlayerState() === 2) {
     document.querySelector("#playButton").setAttribute("src", "assets/play-fill-light.svg")
   }
 
 }
-function stopVideo()
-{
+function stopVideo() {
   player.stopVideo()
 }
 
@@ -516,28 +449,22 @@ document.querySelector('#invisiblePlayer').style.display = "none"
 // END OF PLAYER + INVISIBLE_PLAYER -
 
 
-function playNextSong()
-{
+function playNextSong() {
 
   let songInQueElements = document.querySelectorAll('.songInQue')
   const repeatButton = document.querySelector("#repeat")
 
-  if (repeatButton.className === "repeatActive")
-  {
-    if (player.getCurrentTime() === player.getDuration())
-    {
+  if (repeatButton.className === "repeatActive") {
+    if (player.getCurrentTime() === player.getDuration()) {
       clearInterval(myTimer)
       player.loadVideoById(playingNow.id)
       myTimer = setInterval(playNextSong, 10000)
     }
   }
-  else
-  {
+  else {
 
-    if (player.getCurrentTime() > 0 && player.getCurrentTime() === player.getDuration())
-    {
-      if (!playList[playlistPosition + 1])
-      {
+    if (player.getCurrentTime() > 0 && player.getCurrentTime() === player.getDuration()) {
+      if (!playList[playlistPosition + 1]) {
         player.loadVideoById(urlToID(todaysSong.link))
         playingNow = new DefaultVideo(todaysSong.link)
         player.stopVideo()
@@ -548,15 +475,12 @@ function playNextSong()
         artistElement.style.display = "block"
 
         if (songInQueElements[playlistPosition]
-        )
-        {
-          if (chk.checked === true)
-          {
+        ) {
+          if (chk.checked === true) {
             songInQueElements[playlistPosition].firstElementChild.style.color = colorDark
             songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "400"
           }
-          else
-          {
+          else {
             songInQueElements[playlistPosition].firstElementChild.style.color = colorLight
             songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "400"
           }
@@ -568,8 +492,7 @@ function playNextSong()
         footerInfoElement.innerText = `${todaysSong.title} - ${todaysSong.artist}`
 
       }
-      else
-      {
+      else {
 
         clearInterval(myTimer)
 
@@ -578,14 +501,12 @@ function playNextSong()
         h2Element.innerText = "Currently Playing"
         titleElement.innerText = playList[playlistPosition].title
 
-        if (playList[playlistPosition].artist === undefined)
-        {
+        if (playList[playlistPosition].artist === undefined) {
           byElement.style.display = "none"
           artistElement.style.display = "none"
           footerInfoElement.innerText = `${playList[playlistPosition].title}`
         }
-        else
-        {
+        else {
           byElement.style.display = "block"
           artistElement.style.display = "block"
           artistElement.innerText = playList[playlistPosition].artist
@@ -594,15 +515,12 @@ function playNextSong()
         }
 
         if (songInQueElements[playlistPosition - 1]
-        )
-        {
-          if (chk.checked === true)
-          {
+        ) {
+          if (chk.checked === true) {
             songInQueElements[playlistPosition - 1].firstElementChild.style.color = colorDark
             songInQueElements[playlistPosition - 1].firstElementChild.style.fontWeight = "400"
           }
-          else
-          {
+          else {
             songInQueElements[playlistPosition - 1].firstElementChild.style.color = colorLight
             songInQueElements[playlistPosition - 1].firstElementChild.style.fontWeight = "400"
 
@@ -613,13 +531,11 @@ function playNextSong()
         playingNow = playList[playlistPosition]
 
 
-        if (chk.checked === true)
-        {
+        if (chk.checked === true) {
           songInQueElements[playlistPosition].firstElementChild.style.color = colorBlue
           songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "800"
         }
-        else
-        {
+        else {
           songInQueElements[playlistPosition].firstElementChild.style.color = colorRed
           songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "800"
         }
@@ -631,22 +547,18 @@ function playNextSong()
   }
 }
 
-function playNextSongWithButton()
-{
+function playNextSongWithButton() {
 
   let songInQueElements = document.querySelectorAll('.songInQue')
   const repeatButton = document.querySelector("#repeat")
 
-  if (repeatButton.className === "repeatActive")
-  {
+  if (repeatButton.className === "repeatActive") {
     clearInterval(myTimer)
     player.loadVideoById(playingNow.id)
     myTimer = setInterval(playNextSong, 10000)
   }
-  else
-  {
-    if (!playList[playlistPosition + 1])
-    {
+  else {
+    if (!playList[playlistPosition + 1]) {
       player.loadVideoById(urlToID(todaysSong.link))
       playingNow = new DefaultVideo(todaysSong.link)
       player.stopVideo()
@@ -657,15 +569,12 @@ function playNextSongWithButton()
       artistElement.style.display = "block"
 
       if (songInQueElements[playlistPosition]
-      )
-      {
-        if (chk.checked === true)
-        {
+      ) {
+        if (chk.checked === true) {
           songInQueElements[playlistPosition].firstElementChild.style.color = colorDark
           songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "400"
         }
-        else
-        {
+        else {
           songInQueElements[playlistPosition].firstElementChild.style.color = colorLight
           songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "400"
         }
@@ -677,22 +586,19 @@ function playNextSongWithButton()
       footerInfoElement.innerText = `${todaysSong.title} - ${todaysSong.artist}`
 
     }
-    else
-    {
+    else {
       clearInterval(myTimer)
       playlistPosition++
 
       h2Element.innerText = "Currently Playing"
       titleElement.innerText = playList[playlistPosition].title
 
-      if (playList[playlistPosition].artist === undefined)
-      {
+      if (playList[playlistPosition].artist === undefined) {
         byElement.style.display = "none"
         artistElement.style.display = "none"
         footerInfoElement.innerText = `${playList[playlistPosition].title}`
       }
-      else
-      {
+      else {
         byElement.style.display = "block"
         artistElement.style.display = "block"
         artistElement.innerText = playList[playlistPosition].artist
@@ -701,15 +607,12 @@ function playNextSongWithButton()
       }
 
       if (songInQueElements[playlistPosition - 1]
-      )
-      {
-        if (chk.checked === true)
-        {
+      ) {
+        if (chk.checked === true) {
           songInQueElements[playlistPosition - 1].firstElementChild.style.color = colorDark
           songInQueElements[playlistPosition - 1].firstElementChild.style.fontWeight = "400"
         }
-        else
-        {
+        else {
           songInQueElements[playlistPosition - 1].firstElementChild.style.color = colorLight
           songInQueElements[playlistPosition - 1].firstElementChild.style.fontWeight = "400"
         }
@@ -718,13 +621,11 @@ function playNextSongWithButton()
       player.loadVideoById(playList[playlistPosition].id)
       playingNow = playList[playlistPosition]
 
-      if (chk.checked === true)
-      {
+      if (chk.checked === true) {
         songInQueElements[playlistPosition].firstElementChild.style.color = colorBlue
         songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "800"
       }
-      else
-      {
+      else {
         songInQueElements[playlistPosition].firstElementChild.style.color = colorRed
         songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "800"
 
@@ -736,23 +637,19 @@ function playNextSongWithButton()
 }
 
 
-function playPreviousSongWithButton()
-{
+function playPreviousSongWithButton() {
 
   let songInQueElements = document.querySelectorAll('.songInQue')
   const repeatButton = document.querySelector("#repeat")
 
-  if (repeatButton.className === "repeatActive")
-  {
+  if (repeatButton.className === "repeatActive") {
     clearInterval(myTimer)
     player.loadVideoById(playingNow.id)
     myTimer = setInterval(playNextSong, 10000)
   }
-  else
-  {
+  else {
 
-    if (!playList[playlistPosition - 1])
-    {
+    if (!playList[playlistPosition - 1]) {
       player.loadVideoById(urlToID(todaysSong.link))
       playingNow = new DefaultVideo(todaysSong.link)
       player.stopVideo()
@@ -763,15 +660,12 @@ function playPreviousSongWithButton()
       artistElement.style.display = "block"
 
       if (songInQueElements[playlistPosition]
-      )
-      {
-        if (chk.checked === true)
-        {
+      ) {
+        if (chk.checked === true) {
           songInQueElements[playlistPosition].firstElementChild.style.color = colorDark
           songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "400"
         }
-        else
-        {
+        else {
           songInQueElements[playlistPosition].firstElementChild.style.color = colorLight
           songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "400"
         }
@@ -782,22 +676,19 @@ function playPreviousSongWithButton()
 
       footerInfoElement.innerText = `${todaysSong.title} - ${todaysSong.artist}`
     }
-    else
-    {
+    else {
       clearInterval(myTimer)
       playlistPosition--
 
       h2Element.innerText = "Currently Playing"
       titleElement.innerText = playList[playlistPosition].title
 
-      if (playList[playlistPosition].artist === undefined)
-      {
+      if (playList[playlistPosition].artist === undefined) {
         byElement.style.display = "none"
         artistElement.style.display = "none"
         footerInfoElement.innerText = `${playList[playlistPosition].title}`
       }
-      else
-      {
+      else {
         byElement.style.display = "block"
         artistElement.style.display = "block"
         artistElement.innerText = playList[playlistPosition].artist
@@ -806,15 +697,12 @@ function playPreviousSongWithButton()
       }
 
       if (songInQueElements[playlistPosition + 1]
-      )
-      {
-        if (chk.checked === true)
-        {
+      ) {
+        if (chk.checked === true) {
           songInQueElements[playlistPosition + 1].firstElementChild.style.color = colorDark
           songInQueElements[playlistPosition + 1].firstElementChild.style.fontWeight = "400"
         }
-        else
-        {
+        else {
           songInQueElements[playlistPosition + 1].firstElementChild.style.color = colorLight
           songInQueElements[playlistPosition + 1].firstElementChild.style.fontWeight = "400"
         }
@@ -822,13 +710,11 @@ function playPreviousSongWithButton()
 
       player.loadVideoById(playList[playlistPosition].id)
       playingNow = playList[playlistPosition]
-      if (chk.checked === true)
-      {
+      if (chk.checked === true) {
         songInQueElements[playlistPosition].firstElementChild.style.color = colorBlue
         songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "800"
       }
-      else
-      {
+      else {
         songInQueElements[playlistPosition].firstElementChild.style.color = colorRed
         songInQueElements[playlistPosition].firstElementChild.style.fontWeight = "800"
       }
@@ -852,64 +738,51 @@ const repeatButton = document.querySelector("#repeat"),
 
 
 let listOpen = false
-musicNoteListButton.addEventListener("click", () =>
-{
-  if (!listOpen)
-  {
+musicNoteListButton.addEventListener("click", () => {
+  if (!listOpen) {
     document.querySelector("body").classList.add("listActive")
     listOpen = true
   }
-  else
-  {
+  else {
     document.querySelector("body").classList.remove("listActive")
     listOpen = false
   }
 })
 
 
-function repeatSong()
-{
-  if (repeatButton.className != "repeatActive")
-  {
+function repeatSong() {
+  if (repeatButton.className != "repeatActive") {
     repeatButton.setAttribute("class", "repeatActive")
   }
-  else
-  {
+  else {
     repeatButton.setAttribute("class", "repeatInactive")
   }
 }
 
 
-function playPause()
-{
-  if (player.getPlayerState() === 1)
-  {
+function playPause() {
+  if (player.getPlayerState() === 1) {
     player.pauseVideo()
   }
-  if (player.getPlayerState() === 2 || player.getPlayerState() === 5)
-  {
+  if (player.getPlayerState() === 2 || player.getPlayerState() === 5) {
     player.playVideo()
   }
 }
 
 
-function muteUnmute()
-{
-  if (player.isMuted() === false)
-  {
+function muteUnmute() {
+  if (player.isMuted() === false) {
     player.mute()
     muteButton.setAttribute("src", "assets/volume-mute-fill-light.svg")
   }
-  if (player.isMuted() === true)
-  {
+  if (player.isMuted() === true) {
     player.unMute()
     muteButton.setAttribute("src", "assets/volume-up-fill-light.svg")
   }
 }
 
 
-function clearPlaylist()
-{
+function clearPlaylist() {
   let songInQueElements = document.querySelectorAll('.songInQue')
   songInQueElements.forEach(e => e.remove())
   updatePlayList()
@@ -925,38 +798,31 @@ clearListButton.addEventListener("click", clearPlaylist)
 // END OF FOOTER BUTTONS + CLEAR_PLAY_LIST_BUTTON -
 
 
-function compare(a, b)
-{
+function compare(a, b) {
   const bandA = a.artist
   const bandB = b.artist
 
-  if (bandA != bandB)
-  {
+  if (bandA != bandB) {
     let comparison = 0
 
-    if (bandA > bandB)
-    {
+    if (bandA > bandB) {
       comparison = 1
     }
-    else if (bandA < bandB)
-    {
+    else if (bandA < bandB) {
       comparison = -1
     }
     return comparison
   }
-  else
-  {
+  else {
     const titleA = a.title
     const titleB = b.title
 
     let comparison = 0
 
-    if (titleA > titleB)
-    {
+    if (titleA > titleB) {
       comparison = 1
     }
-    else if (titleA < titleB)
-    {
+    else if (titleA < titleB) {
       comparison = -1
     }
     return comparison
@@ -965,11 +831,9 @@ function compare(a, b)
 
 const sortedSongs = originalList.sort(compare)
 
-function addSortedSongs()
-{
+function addSortedSongs() {
 
-  for (let song of sortedSongs)
-  {
+  for (let song of sortedSongs) {
 
     video = new SortedVideo(song)
 
@@ -996,12 +860,10 @@ function addSortedSongs()
     playButtons.setAttribute("class", "playButtons")
 
     const newImgPlus = document.createElement("img")
-    if (chk.checked === true)
-    {
+    if (chk.checked === true) {
       newImgPlus.src = "assets/plus-circle-fill.svg"
     }
-    else
-    {
+    else {
       newImgPlus.src = "assets/plus-circle-fill-light.svg"
     }
     newImgPlus.setAttribute("class", "addToPlaylistButton")
@@ -1022,8 +884,7 @@ function addSortedSongs()
 
   specialSongs.sort(compare)
 
-  for (let song of specialSongs)
-  {
+  for (let song of specialSongs) {
 
     video = new SortedVideo(song)
 
@@ -1052,12 +913,10 @@ function addSortedSongs()
 
     const newImgDown = document.createElement("img")
 
-    if (chk.checked === true)
-    {
+    if (chk.checked === true) {
       newImgDown.src = "assets/plus-circle-fill.svg"
     }
-    else
-    {
+    else {
       newImgDown.src = "assets/plus-circle-fill-light.svg"
     }
     newImgDown.setAttribute("class", "addToPlaylistButton")
@@ -1071,8 +930,7 @@ function addSortedSongs()
   }
 
 
-  document.querySelectorAll(".addToPlaylistButton").forEach(e => e.addEventListener("click", (event) =>
-  {
+  document.querySelectorAll(".addToPlaylistButton").forEach(e => e.addEventListener("click", (event) => {
     invisiblePlayer.loadVideoById(event.target.firstElementChild.innerText)
 
     myTimer = setInterval(playNextSong, 10000)
@@ -1082,10 +940,8 @@ function addSortedSongs()
 
 
 
-    function addSongFromList()
-    {
-      if (invisiblePlayer.getCurrentTime() > 0)
-      {
+    function addSongFromList() {
+      if (invisiblePlayer.getCurrentTime() > 0) {
         video = new VideoFromList(event.target.firstElementChild)
 
         const newSongInQue = document.createElement('li')
@@ -1113,12 +969,10 @@ function addSortedSongs()
 
         const newImgUp = document.createElement("img")
 
-        if (chk.checked === true)
-        {
+        if (chk.checked === true) {
           newImgUp.src = "assets/triangle-fill.svg"
         }
-        else
-        {
+        else {
           newImgUp.src = "assets/triangle-fill-light.svg"
         }
         newImgUp.setAttribute("class", "up")
@@ -1126,12 +980,10 @@ function addSortedSongs()
 
         let newImgDown = document.createElement("img")
 
-        if (chk.checked === true)
-        {
+        if (chk.checked === true) {
           newImgDown.src = "assets/triangle-fill.svg"
         }
-        else
-        {
+        else {
           newImgDown.src = "assets/triangle-fill-light.svg"
         }
         newImgDown.setAttribute("class", "down")
@@ -1140,12 +992,10 @@ function addSortedSongs()
 
         const newImgX = document.createElement("img")
 
-        if (chk.checked === true)
-        {
+        if (chk.checked === true) {
           newImgX.src = "assets/x.svg"
         }
-        else
-        {
+        else {
           newImgX.src = "assets/x-light.svg"
         }
         newImgX.setAttribute("class", "remove")
@@ -1167,28 +1017,22 @@ function addSortedSongs()
 addSortedSongs()
 
 
-function searchList()
-{
+function searchList() {
   const searchField = document.querySelector(".input")
   const input = searchField.value.toUpperCase()
   const songsInList = document.querySelectorAll(".songInList")
 
-  if (input === "")
-  {
-    songsInList.forEach(e =>
-    {
+  if (input === "") {
+    songsInList.forEach(e => {
       e.style.display = "flex"
     })
   }
 
-  songsInList.forEach(e =>
-  {
-    if ((e.firstElementChild.firstElementChild.innerText.toUpperCase() + " " + e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase()).search(input) > -1 || (e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase() + " " + e.firstElementChild.firstElementChild.innerText.toUpperCase()).search(input) > -1)
-    {
+  songsInList.forEach(e => {
+    if ((e.firstElementChild.firstElementChild.innerText.toUpperCase() + " " + e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase()).search(input) > -1 || (e.firstElementChild.firstElementChild.nextElementSibling.innerText.toUpperCase() + " " + e.firstElementChild.firstElementChild.innerText.toUpperCase()).search(input) > -1) {
       e.style.display = "flex"
     }
-    else
-    {
+    else {
       e.style.display = "none"
     }
   })
@@ -1196,16 +1040,14 @@ function searchList()
 }
 
 
-function addToPlaylist()
-{
+function addToPlaylist() {
 
   const input = document.querySelector('input'),
     errorMessage = document.querySelector(".errorMessage")
 
   invisiblePlayer.loadVideoById(urlToID(input.value))
 
-  if (input.value === "" || urlToID(input.value).length != 11)
-  {
+  if (input.value === "" || urlToID(input.value).length != 11) {
     errorMessage.style.display = "block"
     return
   }
@@ -1217,10 +1059,8 @@ function addToPlaylist()
   let myTimer2 = setInterval(addSong, 1000)
 
 
-  function addSong()
-  {
-    if (invisiblePlayer.getCurrentTime() > 0)
-    {
+  function addSong() {
+    if (invisiblePlayer.getCurrentTime() > 0) {
       video = new Video(input.value)
 
       const newSongInQue = document.createElement('li')
@@ -1247,12 +1087,10 @@ function addToPlaylist()
 
       const newImgUp = document.createElement("img")
 
-      if (chk.checked === true)
-      {
+      if (chk.checked === true) {
         newImgUp.src = "assets/triangle-fill.svg"
       }
-      else
-      {
+      else {
         newImgUp.src = "assets/triangle-fill-light.svg"
       }
       newImgUp.setAttribute("class", "up")
@@ -1260,12 +1098,10 @@ function addToPlaylist()
 
       const newImgDown = document.createElement("img")
 
-      if (chk.checked === true)
-      {
+      if (chk.checked === true) {
         newImgDown.src = "assets/triangle-fill.svg"
       }
-      else
-      {
+      else {
         newImgDown.src = "assets/triangle-fill-light.svg"
       }
       newImgDown.setAttribute("class", "down")
@@ -1274,12 +1110,10 @@ function addToPlaylist()
 
       const newImgX = document.createElement("img")
 
-      if (chk.checked === true)
-      {
+      if (chk.checked === true) {
         newImgX.src = "assets/x.svg"
       }
-      else
-      {
+      else {
         newImgX.src = "assets/x-light.svg"
       }
 
@@ -1308,8 +1142,7 @@ let myTimer = setInterval(playNextSong, 10000)
 
 // 
 let timeout
-document.querySelector(".input").addEventListener("input", () =>
-{
+document.querySelector(".input").addEventListener("input", () => {
   clearTimeout(timeout)
   timeout = setTimeout(searchList, 1000)
 })
