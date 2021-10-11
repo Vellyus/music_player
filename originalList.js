@@ -2167,7 +2167,7 @@ const originalList =
       number: 309,
       artist: "Egypt Central",
       title: "Different",
-      link: "https://www.youtube.com/watch?v=7VIsaDB8w_M",
+      link: "https://www.youtube.com/watch?v=UL5QpKOUlp8",
     },
 
     {
