@@ -3393,7 +3393,7 @@ const originalList =
       number: 484,
       artist: "Egypt Central",
       title: "The Way",
-      link: "https://www.youtube.com/watch?v=NWhqsllKt5E",
+      link: "https://www.youtube.com/watch?v=NqSKWClyHrs",
     },
 
     {
