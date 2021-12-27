@@ -2153,7 +2153,7 @@ const originalList =
       number: 307,
       artist: "Egypt Central",
       title: "You Make Me Sick",
-      link: "https://www.youtube.com/watch?v=iNo7m6chEW0",
+      link: "https://www.youtube.com/watch?v=eycOSzDJP2U",
     },
 
     {
@@ -2174,7 +2174,7 @@ const originalList =
       number: 310,
       artist: "Egypt Central",
       title: "Push Away",
-      link: "https://www.youtube.com/watch?v=gAWpBGblwdQ",
+      link: "https://www.youtube.com/watch?v=Mh1ggQuWCYU",
     },
 
     {
@@ -3400,7 +3400,7 @@ const originalList =
       number: 485,
       artist: "Egypt Central",
       title: "Just Another Lie",
-      link: "https://www.youtube.com/watch?v=4GX_ZvjRuEA",
+      link: "https://www.youtube.com/watch?v=aoSPEVHPAE8",
     },
 
     {
@@ -3596,7 +3596,7 @@ const originalList =
       number: 513,
       artist: "Nickelback",
       title: "Burn It To The Ground",
-      link: "https://www.youtube.com/watch?v=xqBNw4WSBQU",
+      link: "https://www.youtube.com/watch?v=cLV5t3ed9WU",
     },
 
     {
