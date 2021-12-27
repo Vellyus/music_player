@@ -3596,7 +3596,7 @@ const originalList =
       number: 513,
       artist: "Nickelback",
       title: "Burn It To The Ground",
-      link: "https://www.youtube.com/watch?v=cLV5t3ed9WU",
+      link: "https://www.youtube.com/watch?v=q0HElo91a4s",
     },
 
     {
