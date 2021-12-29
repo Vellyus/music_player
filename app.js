@@ -26,9 +26,9 @@ const colorLight = "#e0e7e9",
   colorRed = "rgb(255, 115, 21)", // "#ff7315",
   colorBlue = "rgb(0, 106, 113)" // "#006a71"
 
-const now = new Date,
+const now = new Date(),
   thisYear = now.getFullYear(),
-  startingTime = new Date(`January 1, ${thisYear} 00:00:00 GMT+200`)
+  startingTime = new Date(`January 1, ${ thisYear } 00:00:00 GMT+100`)
 
 /* Special Message Test */
 // const month = 1
@@ -72,7 +72,7 @@ class VideoFromList {
     this.id = element.innerText
     this.title = element.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.innerText
     this.artist = element.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling.innerText
-    this.display = `${this.title} - ${this.artist}`
+    this.display = `${ this.title } - ${ this.artist }`
     this.duration = invisiblePlayer.getDuration()
     this.serialNr = serialNr
   }
@@ -106,7 +106,7 @@ let playingNow = new DefaultVideo(todaysSong.link)
 titleElement.innerText = listInUse[numberOfSong].title
 artistElement.innerText = listInUse[numberOfSong].artist
 
-footerInfoElement.innerText = `${listInUse[numberOfSong].title} - ${listInUse[numberOfSong].artist}`
+footerInfoElement.innerText = `${ listInUse[numberOfSong].title } - ${ listInUse[numberOfSong].artist }`
 
 const checkForSpecialDate = function () {
   for (let song of specialSongs) {
@@ -120,7 +120,7 @@ const checkForSpecialDate = function () {
 
       titleElement.innerText = song.title
       artistElement.innerText = song.artist
-      footerInfoElement.innerText = `${song.title} - ${song.artist}`
+      footerInfoElement.innerText = `${ song.title } - ${ song.artist }`
     }
   }
 }()
@@ -216,10 +216,10 @@ function convertDuration(input) {
   seconds = seconds.toString()
 
   if (hours === "00") {
-    return `${minutes}:${seconds}`
+    return `${ minutes }:${ seconds }`
   }
 
-  return `${hours}:${minutes}:${seconds}`
+  return `${ hours }:${ minutes }:${ seconds }`
 }
 
 
@@ -489,7 +489,7 @@ function playNextSong() {
         playlistPosition = -1
         clearInterval(myTimer)
 
-        footerInfoElement.innerText = `${todaysSong.title} - ${todaysSong.artist}`
+        footerInfoElement.innerText = `${ todaysSong.title } - ${ todaysSong.artist }`
 
       }
       else {
@@ -504,14 +504,14 @@ function playNextSong() {
         if (playList[playlistPosition].artist === undefined) {
           byElement.style.display = "none"
           artistElement.style.display = "none"
-          footerInfoElement.innerText = `${playList[playlistPosition].title}`
+          footerInfoElement.innerText = `${ playList[playlistPosition].title }`
         }
         else {
           byElement.style.display = "block"
           artistElement.style.display = "block"
           artistElement.innerText = playList[playlistPosition].artist
 
-          footerInfoElement.innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`
+          footerInfoElement.innerText = `${ playList[playlistPosition].title } - ${ playList[playlistPosition].artist }`
         }
 
         if (songInQueElements[playlistPosition - 1]
@@ -583,7 +583,7 @@ function playNextSongWithButton() {
       playlistPosition = -1
       clearInterval(myTimer)
 
-      footerInfoElement.innerText = `${todaysSong.title} - ${todaysSong.artist}`
+      footerInfoElement.innerText = `${ todaysSong.title } - ${ todaysSong.artist }`
 
     }
     else {
@@ -596,14 +596,14 @@ function playNextSongWithButton() {
       if (playList[playlistPosition].artist === undefined) {
         byElement.style.display = "none"
         artistElement.style.display = "none"
-        footerInfoElement.innerText = `${playList[playlistPosition].title}`
+        footerInfoElement.innerText = `${ playList[playlistPosition].title }`
       }
       else {
         byElement.style.display = "block"
         artistElement.style.display = "block"
         artistElement.innerText = playList[playlistPosition].artist
 
-        footerInfoElement.innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`
+        footerInfoElement.innerText = `${ playList[playlistPosition].title } - ${ playList[playlistPosition].artist }`
       }
 
       if (songInQueElements[playlistPosition - 1]
@@ -674,7 +674,7 @@ function playPreviousSongWithButton() {
       playlistPosition = -1
       clearInterval(myTimer)
 
-      footerInfoElement.innerText = `${todaysSong.title} - ${todaysSong.artist}`
+      footerInfoElement.innerText = `${ todaysSong.title } - ${ todaysSong.artist }`
     }
     else {
       clearInterval(myTimer)
@@ -686,14 +686,14 @@ function playPreviousSongWithButton() {
       if (playList[playlistPosition].artist === undefined) {
         byElement.style.display = "none"
         artistElement.style.display = "none"
-        footerInfoElement.innerText = `${playList[playlistPosition].title}`
+        footerInfoElement.innerText = `${ playList[playlistPosition].title }`
       }
       else {
         byElement.style.display = "block"
         artistElement.style.display = "block"
         artistElement.innerText = playList[playlistPosition].artist
 
-        footerInfoElement.innerText = `${playList[playlistPosition].title} - ${playList[playlistPosition].artist}`
+        footerInfoElement.innerText = `${ playList[playlistPosition].title } - ${ playList[playlistPosition].artist }`
       }
 
       if (songInQueElements[playlistPosition + 1]
@@ -960,7 +960,7 @@ function addSortedSongs() {
 
         const songDuration = document.createElement("p")
         songDuration.setAttribute("class", "duration")
-        songDuration.innerText = `${convertDuration(video.duration)}`
+        songDuration.innerText = `${ convertDuration(video.duration) }`
         newSongData.appendChild(songDuration)
 
         const navButtons = document.createElement("div")
@@ -1078,7 +1078,7 @@ function addToPlaylist() {
 
       const songDuration = document.createElement("p")
       songDuration.setAttribute("class", "duration")
-      songDuration.innerText = `${convertDuration(video.duration)}`
+      songDuration.innerText = `${ convertDuration(video.duration) }`
       newSongData.appendChild(songDuration)
 
       const navButtons = document.createElement("div")
