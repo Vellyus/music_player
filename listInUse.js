@@ -4287,7 +4287,7 @@ const listInUse = [
     number: 406,
     artist: "Blues Saraceno",
     title: "Evil Ways",
-    link: "https://www.youtube.com/watch?v=ce5zaDhvhm4&t=9s"
+    link: "https://www.youtube.com/watch?v=7lzZ-tGKKzU"
   },
 
   {
@@ -4931,7 +4931,7 @@ const listInUse = [
     number: 102,
     artist: "Helloween",
     title: "Metal Invaders",
-    link: "https://www.youtube.com/watch?v=StPtRhlRtDE"
+    link: "https://www.youtube.com/watch?v=vcvWf4UrQO8"
   },
 
   {
