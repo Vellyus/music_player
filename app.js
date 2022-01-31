@@ -793,6 +793,12 @@ repeatButton.addEventListener("click", repeatSong)
 muteButton.addEventListener("click", muteUnmute)
 skipEndButton.addEventListener("click", playNextSongWithButton)
 playButton.addEventListener("click", playPause)
+document.addEventListener("keydown", function (e) {
+  if (e.key === " ") {
+    e.preventDefault()
+    playPause()
+  }
+})
 skipStartButton.addEventListener("click", playPreviousSongWithButton)
 clearListButton.addEventListener("click", clearPlaylist)
 // END OF FOOTER BUTTONS + CLEAR_PLAY_LIST_BUTTON -
