@@ -794,7 +794,7 @@ muteButton.addEventListener("click", muteUnmute)
 skipEndButton.addEventListener("click", playNextSongWithButton)
 playButton.addEventListener("click", playPause)
 document.addEventListener("keydown", function (e) {
-  if (e.key === " ") {
+  if (e.key === " " && (document.activeElement != document.querySelector(".input"))) {
     e.preventDefault()
     playPause()
   }
