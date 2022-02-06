@@ -2825,7 +2825,7 @@ const originalList =
       number: 403,
       artist: "Amon Amarth",
       title: "Father Of The Wolf",
-      link: "https://www.youtube.com/watch?v=5ZtrisP6Dmc",
+      link: "https://www.youtube.com/watch?v=ITHRTb49A1s",
     },
 
     {
@@ -5470,7 +5470,7 @@ const originalList =
       number: 780,
       artist: "SUM 41",
       title: "Motivation",
-      link: "https://www.youtube.com/watch?v=X-iBGSLkfCU",
+      link: "https://www.youtube.com/watch?v=-12hfLSlu9s",
     },
 
 

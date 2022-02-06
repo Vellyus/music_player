@@ -1410,7 +1410,7 @@ const listInUse = [
     number: 403,
     artist: "Amon Amarth",
     title: "Father Of The Wolf",
-    link: "https://www.youtube.com/watch?v=5ZtrisP6Dmc"
+    link: "https://www.youtube.com/watch?v=ITHRTb49A1s"
   },
 
   {
