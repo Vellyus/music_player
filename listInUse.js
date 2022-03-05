@@ -1515,7 +1515,7 @@ const listInUse = [
     number: 736,
     artist: "Sonic Syndicate",
     title: "Only Inhuman",
-    link: "https://www.youtube.com/watch?v=mTAC1HdoTIE"
+    link: "https://www.youtube.com/watch?v=2-BEARhFsXk"
   },
 
   {
