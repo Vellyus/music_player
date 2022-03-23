@@ -4831,7 +4831,7 @@ const listInUse = [
 
   {
     number: 523,
-    artist: "Karnivol",
+    artist: "Karnivool",
     title: "Sleeping Satellite",
     link: "https://www.youtube.com/watch?v=cZLliumYrQ8"
   },
