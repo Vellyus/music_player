@@ -5061,7 +5061,7 @@ const originalList =
       number: 720,
       artist: "Draft Punk",
       title: "Castor",
-      link: "https://www.youtube.com/watch?v=1Y7NhRRNEEE",
+      link: "https://www.youtube.com/watch?v=CycJDUMu7ws",
     },
 
     {
