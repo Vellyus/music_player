@@ -27,8 +27,11 @@ const colorLight = "#e0e7e9",
   colorBlue = "rgb(0, 106, 113)" // "#006a71"
 
 const now = new Date(),
-  thisYear = now.getFullYear(),
-  startingTime = new Date(`January 1, ${ thisYear } 00:00:00 GMT+100`)
+  thisYear = now.getFullYear()
+
+let startingTime = new Date(`January 1, ${ thisYear } 00:00:00 GMT+100`)
+
+if (now.toString().includes("GMT+0200")) startingTime = new Date(`January 1, ${ thisYear } 00:00:00 GMT+200`)
 
 /* Special Message Test */
 // const month = 1
