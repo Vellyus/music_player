@@ -129,9 +129,9 @@ iframe {
 }
 
 .clearListButton,
+.randomizeListButton,
 .addButton {
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin: 2em 2em;
   padding: .9em .8em;
   font-family: 'Gloria Hallelujah', cursive;
   font-style: italic;

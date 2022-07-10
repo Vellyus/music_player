@@ -737,7 +737,8 @@ const repeatButton = document.querySelector("#repeat"),
   playButton = document.querySelector("#playButton"),
   skipStartButton = document.querySelector("#skipStart"),
   musicNoteListButton = document.querySelector("#musicNoteList"),
-  clearListButton = document.querySelector(".clearListButton")
+  clearListButton = document.querySelector(".clearListButton"),
+  randomizeListButton = document.querySelector(".randomizeListButton")
 
 
 let listOpen = false
@@ -791,6 +792,88 @@ function clearPlaylist() {
   updatePlayList()
 }
 
+// Create a randomized Playlist
+
+function addSongsFromRandomizedList() {
+
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1))
+      var temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+    }
+    return array
+  }
+
+  let randomizedList = shuffleArray(originalList)
+  randomizedList.map(e => e.link = urlToID(e.link))
+
+  const list = randomizedList
+
+  for (let i = 0; i < list.length; i++) {
+    const video = new SortedVideo(randomizedList[i])
+    playList.push(video)
+
+    const newSongInQue = document.createElement('li')
+    newSongInQue.setAttribute("id", serialNr)
+    document.querySelector('.songsInQue').appendChild(newSongInQue)
+    newSongInQue.className = "songInQue"
+
+    const newSongData = document.createElement('div')
+    newSongInQue.appendChild(newSongData)
+    newSongData.className = "songData"
+
+    const songTitle = document.createElement("p")
+
+    songTitle.innerText = video.artist + " - " + video.title
+    newSongData.appendChild(songTitle)
+
+    const navButtons = document.createElement("div")
+    newSongInQue.appendChild(navButtons)
+    navButtons.setAttribute("class", "navButtons")
+
+    const newImgUp = document.createElement("img")
+
+    if (chk.checked === true) {
+      newImgUp.src = "assets/triangle-fill.svg"
+    }
+    else {
+      newImgUp.src = "assets/triangle-fill-light.svg"
+    }
+    newImgUp.setAttribute("class", "up")
+    navButtons.appendChild(newImgUp)
+
+    let newImgDown = document.createElement("img")
+
+    if (chk.checked === true) {
+      newImgDown.src = "assets/triangle-fill.svg"
+    }
+    else {
+      newImgDown.src = "assets/triangle-fill-light.svg"
+    }
+    newImgDown.setAttribute("class", "down")
+    newImgDown.style.transform = "rotate(180deg)"
+    navButtons.appendChild(newImgDown)
+
+    const newImgX = document.createElement("img")
+
+    if (chk.checked === true) {
+      newImgX.src = "assets/x.svg"
+    }
+    else {
+      newImgX.src = "assets/x-light.svg"
+    }
+    newImgX.setAttribute("class", "remove")
+    navButtons.appendChild(newImgX)
+
+    addEventListeners()
+    serialNr++
+  }
+
+  updateButtons()
+}
+
 
 repeatButton.addEventListener("click", repeatSong)
 muteButton.addEventListener("click", muteUnmute)
@@ -804,6 +887,7 @@ document.addEventListener("keydown", function (e) {
 })
 skipStartButton.addEventListener("click", playPreviousSongWithButton)
 clearListButton.addEventListener("click", clearPlaylist)
+randomizeListButton.addEventListener("click", addSongsFromRandomizedList)
 // END OF FOOTER BUTTONS + CLEAR_PLAY_LIST_BUTTON -
 
 
