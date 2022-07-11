@@ -516,6 +516,7 @@ body.light .footerInfo {
 }
 
 body.light .clearListButton,
+body.light .randomizeListButton,
 body.light .addButton {
   background-color: #eee;
   color: #006a71;
