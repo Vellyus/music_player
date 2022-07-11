@@ -149,6 +149,7 @@ iframe {
 }
 
 .clearListButton:hover,
+.randomizeListButton:hover,
 .addButton:hover {
   letter-spacing: 1px;
   box-shadow:
@@ -157,6 +158,7 @@ iframe {
 }
 
 .clearListButton:active,
+.randomizeListButton:active,
 .addButton:active {
   box-shadow:
     5px 5px 11px 2px rgba(255, 255, 255, 0.2),
@@ -166,6 +168,7 @@ iframe {
 }
 
 .clearListButton:focus,
+.randomizeListButton:focus,
 .addButton:focus {
   outline: none;
 }
@@ -528,6 +531,7 @@ body.light .addButton {
 }
 
 body.light .clearListButton:hover,
+body.light .randomizeListButton:hover,
 body.light .addButton:hover {
   box-shadow:
     10px 10px 11px 0 rgba(0, 0, 0, .8),
@@ -535,6 +539,7 @@ body.light .addButton:hover {
 }
 
 body.light .clearListButton:active,
+body.light .randomizeListButton:active,
 body.light .addButton:active {
   box-shadow:
     5px 5px 11px 2px rgba(255, 255, 255, 0.2),
