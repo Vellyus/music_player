@@ -2488,7 +2488,7 @@ const originalList =
     {
       number: 355,
       artist: "Hans Zimmer, Patrik Pietschmann",
-      title: "Davy Jones Theme",
+      title: "Davy Jones Theme (piano)",
       link: "https://www.youtube.com/watch?v=eGQUZ9FlUJ4",
     },
 
@@ -5472,8 +5472,162 @@ const originalList =
       title: "Motivation",
       link: "https://www.youtube.com/watch?v=-12hfLSlu9s",
     },
-
-
+    {
+      number: 781,
+      artist: "Blue Stahli",
+      title: "The Devil",
+      link: "https://www.youtube.com/watch?v=hj6pL1mJUIU",
+    },
+    {
+      number: 782,
+      artist: "Spineshank",
+      title: "Fallback",
+      link: "https://www.youtube.com/watch?v=elluMhStscs",
+    },
+    {
+      number: 783,
+      artist: "Spineshank",
+      title: "Forgotten",
+      link: "https://www.youtube.com/watch?v=8BQtB_cilV8",
+    },
+    {
+      number: 784,
+      artist: "Emphatic",
+      title: "Stronger",
+      link: "https://www.youtube.com/watch?v=wZRTuCJYZik",
+    },
+    {
+      number: 785,
+      artist: "Lacuna Coil",
+      title: "Intoxicated",
+      link: "https://www.youtube.com/watch?v=zXv_W63lIFQ",
+    },
+    {
+      number: 786,
+      artist: "Atreyu",
+      title: "Storm To Pass",
+      link: "https://www.youtube.com/watch?v=Dq6zRL8EXkY",
+    },
+    {
+      number: 787,
+      artist: "Atreyu",
+      title: "Right Side of the Bed",
+      link: "https://www.youtube.com/watch?v=JqtDJyWlRFQ",
+    },
+    {
+      number: 789,
+      artist: "Atreyu",
+      title: "Falling Down",
+      link: "https://www.youtube.com/watch?v=Nf256Pbo88A",
+    },
+    {
+      number: 790,
+      artist: "Atreyu",
+      title: "Lonely",
+      link: "https://www.youtube.com/watch?v=o_m07PmJmdA",
+    },
+    {
+      number: 791,
+      artist: "Atreyu",
+      title: "A Bitter Broken Memory",
+      link: "https://www.youtube.com/watch?v=5W4BKJGFLew",
+    },
+    {
+      number: 792,
+      artist: "Atreyu",
+      title: "Do You Know Who You Are?",
+      link: "https://www.youtube.com/watch?v=xkNp5b6m4u8",
+    },
+    {
+      number: 793,
+      artist: "Thirty Seconds to Mars",
+      title: "Hurricane (Nightcore)",
+      link: "https://www.youtube.com/watch?v=tmPB4oe65DE",
+    },
+    {
+      number: 794,
+      artist: "Thirty Seconds to Mars",
+      title: "Hurricane",
+      link: "https://www.youtube.com/watch?v=6cdBtxSQf2U",
+    },
+    {
+      number: 795,
+      artist: "Soul Extract",
+      title: "Project Terraform (Entropy Zero Remix)",
+      link: "https://www.youtube.com/watch?v=Ggl7nJPSrRE",
+    },
+    {
+      number: 796,
+      artist: "Mick Gordon",
+      title: "Hellwalker (Doom 2016)",
+      link: "https://www.youtube.com/watch?v=bI5l43cljBM",
+    },
+    {
+      number: 797,
+      artist: "Storm The Sky",
+      title: "Alive",
+      link: "https://www.youtube.com/watch?v=5PE3v4HiXoc",
+    },
+    {
+      number: 798,
+      artist: "Hans Zimmer",
+      title: "Davy Jones Theme",
+      link: "https://www.youtube.com/watch?v=n_LApFnTfP8",
+    },
+    {
+      number: 799,
+      artist: "DragonForce",
+      title: "Through The Fire And Flames",
+      link: "https://www.youtube.com/watch?v=rK_d5g3pBb8",
+    },
+    {
+      number: 800,
+      artist: "DragonForce",
+      title: "Seasons",
+      link: "https://www.youtube.com/watch?v=qVxeLyPUnIo",
+    },
+    {
+      number: 801,
+      artist: "DragonForce",
+      title: "Cry Thunder",
+      link: "https://www.youtube.com/watch?v=cU4GXgaCFTI",
+    },
+    {
+      number: 802,
+      artist: "Ghost",
+      title: "Watcher In The Sky",
+      link: "https://www.youtube.com/watch?v=0mGr5bMItQY",
+    },
+    {
+      number: 803,
+      artist: "Ghost",
+      title: "Spillways",
+      link: "https://www.youtube.com/watch?v=u9DV1eHQpcA",
+    },
+    {
+      number: 804,
+      artist: "Ghost",
+      title: "Griftwood",
+      link: "https://www.youtube.com/watch?v=d6WA06fNscc",
+    },
+    {
+      number: 805,
+      artist: "Ghost",
+      title: "Darkness At The Heart Of My Love",
+      link: "https://www.youtube.com/watch?v=tzXFZuB1wSQ",
+    },
+    {
+      number: 806,
+      artist: "Ghost",
+      title: "Respite On The Spitalfields",
+      link: "https://www.youtube.com/watch?v=JA21qOo2mWs",
+    },
+    {
+      number: 807,
+      artist: "Static-X",
+      title: "The Only",
+      link: "https://www.youtube.com/watch?v=vMCbJB4yNXo",
+    },
 
 
   ]
