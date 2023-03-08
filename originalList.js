@@ -1684,7 +1684,7 @@ const originalList =
       number: 240,
       artist: "Mastodon",
       title: "Blood And Thunder",
-      link: "https://www.youtube.com/watch?v=TsdIO8RHMTc",
+      link: "https://www.youtube.com/watch?v=v-Su1YXQYek",
     },
 
     {
@@ -5059,7 +5059,7 @@ const originalList =
 
     {
       number: 720,
-      artist: "Draft Punk",
+      artist: "Daft Punk",
       title: "Castor",
       link: "https://www.youtube.com/watch?v=CycJDUMu7ws",
     },
@@ -5648,27 +5648,57 @@ const originalList =
     },
     {
       number: 811,
-      artist: "",
-      title: "",
-      link: "",
+      artist: "Twenty One Pilots",
+      title: "Heathens",
+      link: "https://www.youtube.com/watch?v=UprcpdwuwCg",
     },
     {
       number: 812,
-      artist: "",
-      title: "",
-      link: "",
+      artist: "Ashes Remain",
+      title: "On My Own",
+      link: "https://www.youtube.com/watch?v=TyUQiNmNug0",
     },
     {
       number: 813,
-      artist: "",
-      title: "",
-      link: "",
+      artist: "Machinae Supremacy",
+      title: "Edge and Pearl",
+      link: "https://www.youtube.com/watch?v=1OpU-UtGLfU",
     },
     {
       number: 814,
-      artist: "",
-      title: "",
-      link: "",
+      artist: "Escape the Fate",
+      title: "Bad Blood",
+      link: "https://www.youtube.com/watch?v=2DuTIwW95-A",
+    },
+    {
+      number: 814,
+      artist: "Escape the Fate",
+      title: "Bad Blood",
+      link: "https://www.youtube.com/watch?v=2DuTIwW95-A",
+    },
+    {
+      number: 815,
+      artist: "Turnstile, Kristina Rybalchenko",
+      title: "Holiday (Drum Cover)",
+      link: "https://www.youtube.com/watch?v=unEfApcz4ow",
+    },
+    {
+      number: 816,
+      artist: "Sleeping With Sirens",
+      title: "If You Can't Hang",
+      link: "https://www.youtube.com/watch?v=_UwWYtLWEZg",
+    },
+    {
+      number: 817,
+      artist: "Sleeping With Sirens",
+      title: "Congratulations featuring Matty Mullins",
+      link: "https://www.youtube.com/watch?v=_eHPC2QmR10",
+    },
+    {
+      number: 818,
+      artist: "Daft Punk, Patrik Pietschmann",
+      title: "TRON: Legacy - Main Theme (piano)",
+      link: "https://www.youtube.com/watch?v=LIboeVN58nM",
     },
 
 
