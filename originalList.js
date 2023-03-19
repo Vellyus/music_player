@@ -5694,8 +5694,72 @@ const originalList =
       title: "TRON: Legacy - Main Theme (piano)",
       link: "https://www.youtube.com/watch?v=LIboeVN58nM",
     },
-
-
+    {
+      number: 819,
+      artist: "Clint Mansell",
+      title: "Dead Reckoning (Smokin’ Aces)",
+      link: "https://www.youtube.com/watch?v=y1WEt8pAmLU",
+    },
+    {
+      number: 820,
+      artist: "Slipknot",
+      title: "The Dying Song ",
+      link: "https://www.youtube.com/watch?v=INi3qP1oWlY",
+    },
+    {
+      number: 821,
+      artist: "Deep Glaze",
+      title: "Bloodlust",
+      link: "https://www.youtube.com/watch?v=SXjTLTGJO9M",
+    },
+    {
+      number: 822,
+      artist: "TX2",
+      title: "Step Over A Body",
+      link: "https://www.youtube.com/watch?v=Qi1fzLV6OH8",
+    },
+    {
+      number: 823,
+      artist: "TX2",
+      title: "Vampire By Rumor",
+      link: "https://www.youtube.com/watch?v=Gjs6TGz8DBg",
+    },
+    {
+      number: 824,
+      artist: "TX2",
+      title: "Trust No One",
+      link: "https://www.youtube.com/watch?v=w6QmxlV5ZNs",
+    },
+    {
+      number: 825,
+      artist: "Bear McCreary",
+      title: "Vane's Visions (Black Sails)",
+      link: "https://www.youtube.com/watch?v=dKjdjpRKs5c",
+    },
+    {
+      number: 826,
+      artist: "Imagine Dragons",
+      title: "Believer",
+      link: "https://www.youtube.com/watch?v=W0DM5lcj6mw",
+    },
+    {
+      number: 827,
+      artist: "Imagine Dragons x JID",
+      title: "Enemy",
+      link: "https://www.youtube.com/watch?v=hHB1Ikzfpmc",
+    },
+    {
+      number: 828,
+      artist: "Måneskin",
+      title: "I Wanna Be Your Slave",
+      link: "https://www.youtube.com/watch?v=M6ZZKNPrSPw",
+    },
+    {
+      number: 829,
+      artist: "League of Legends - Sting",
+      title: "What Could Have Been",
+      link: "https://www.youtube.com/watch?v=liPu1_aPH5k",
+    },
   ]
 
 const specialSongs = [
