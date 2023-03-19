@@ -5671,12 +5671,6 @@ const originalList =
       link: "https://www.youtube.com/watch?v=2DuTIwW95-A",
     },
     {
-      number: 814,
-      artist: "Escape the Fate",
-      title: "Bad Blood",
-      link: "https://www.youtube.com/watch?v=2DuTIwW95-A",
-    },
-    {
       number: 815,
       artist: "Turnstile, Kristina Rybalchenko",
       title: "Holiday (Drum Cover)",
