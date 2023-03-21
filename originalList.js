@@ -5862,6 +5862,12 @@ const originalList =
       title: "Hanging By A Thread",
       link: "https://www.youtube.com/watch?v=tEklg7nO0Ac&ab_channel=DesRocs",
     },
+    {
+      number: 847,
+      artist: "Papa Roach",
+      title: "Last Resort",
+      link: "https://www.youtube.com/watch?v=Hm7vnOC4hoY&ab_channel=tysmango",
+    },
 
   ]
 
