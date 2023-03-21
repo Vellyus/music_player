@@ -1355,7 +1355,7 @@ const originalList =
       number: 193,
       artist: "Rammstein",
       title: "Asche Zu Asche",
-      link: "https://www.youtube.com/watch?v=2DdcQxTHQHI",
+      link: "https://www.youtube.com/watch?v=_8C0Z8I-PuY&ab_channel=RammsteinOfficial",
     },
 
     {
@@ -1495,7 +1495,7 @@ const originalList =
       number: 213,
       artist: "Rammstein",
       title: "Moskau",
-      link: "https://www.youtube.com/watch?v=NT714sj011w",
+      link: "https://www.youtube.com/watch?v=H9qtQO5d8ko&ab_channel=RammsteinOfficial",
     },
 
     {
