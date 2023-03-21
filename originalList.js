@@ -5864,11 +5864,70 @@ const originalList =
     },
     {
       number: 847,
+      artist: "Gamma Ray",
+      title: "Empire of The Undead",
+      link: "https://www.youtube.com/watch?v=dJHQ6oVo1MU",
+    },
+    {
+      number: 848,
+      artist: "Gamma Ray",
+      title: "Master of Confusion",
+      link: "https://www.youtube.com/watch?v=8pmR43x-avk",
+    },
+    {
+      number: 849,
+      artist: "Gamma Ray",
+      title: "Death Or Glory",
+      link: "https://www.youtube.com/watch?v=RtjRIpFrTgw",
+    },
+    {
+      number: 850,
+      artist: "Gamma Ray",
+      title: "Lost Angels",
+      link: "https://www.youtube.com/watch?v=AhcbIrMc1j4",
+    },
+    {
+      number: 851,
+      artist: "Gamma Ray",
+      title: "The Spirit",
+      link: "https://www.youtube.com/watch?v=V4SPpJ5Hnpg",
+    },
+    {
+      number: 852,
+      artist: "Gamma Ray",
+      title: "Wings of Destiny",
+      link: "https://www.youtube.com/watch?v=ufj0dO9DDOQ",
+    },
+    {
+      number: 853,
+      artist: "Gamma Ray",
+      title: "Gamma Ray",
+      link: "https://www.youtube.com/watch?v=GFqe-gV1_s4",
+    },
+    {
+      number: 854,
+      artist: "Gamma Ray",
+      title: "Farewell",
+      link: "https://www.youtube.com/watch?v=QI4aXjyv8IM",
+    },
+    {
+      number: 855,
+      artist: "Gamma Ray",
+      title: "Time to Break Free",
+      link: "https://www.youtube.com/watch?v=BROClUpkvkc",
+    },
+    {
+      number: 856,
+      artist: "Gamma Ray",
+      title: "Insurrection",
+      link: "https://www.youtube.com/watch?v=BAZEeSf5GPc",
+    },
+    {
+      number: 857,
       artist: "Papa Roach",
       title: "Last Resort",
       link: "https://www.youtube.com/watch?v=Hm7vnOC4hoY&ab_channel=tysmango",
     },
-
   ]
 
 const specialSongs = [
