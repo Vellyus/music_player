@@ -1712,7 +1712,7 @@ const originalList =
       number: 244,
       artist: "Asking Alexandria",
       title: "The Death of Me",
-      link: "https://www.youtube.com/watch?v=Xl1lS6B9pMc",
+      link: "https://www.youtube.com/watch?v=NAmneJw4Qrk",
     },
 
     {
