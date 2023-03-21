@@ -5760,6 +5760,109 @@ const originalList =
       title: "What Could Have Been",
       link: "https://www.youtube.com/watch?v=liPu1_aPH5k",
     },
+    {
+      number: 830,
+      artist: "Three Days Grace",
+      title: "So Called Life",
+      link: "https://www.youtube.com/watch?v=7ViIny2YZH0&ab_channel=ThreeDaysGraceVEVO",
+    },
+    {
+      number: 831,
+      artist: "Three Days Grace",
+      title: "I Am The Weapon",
+      link: "https://www.youtube.com/watch?v=Jx0OGpzJs-Q&ab_channel=ThreeDaysGraceVEVO",
+    },
+    {
+      number: 832,
+      artist: "Three Days Grace",
+      title: "Neurotic ft. Lukas Rossi",
+      link: "https://www.youtube.com/watch?v=7e-k9oJn-kI&ab_channel=ThreeDaysGraceVEVO",
+    },
+    {
+      number: 833,
+      artist: "Three Days Grace",
+      title: "Lifetime",
+      link: "https://www.youtube.com/watch?v=Z1dfObpKpE4&ab_channel=3starz",
+    },
+    {
+      number: 834,
+      artist: "Three Days Grace",
+      title: "A Scar Is Born",
+      link: "https://www.youtube.com/watch?v=K-BZVKFOo-o&ab_channel=ThreeDaysGraceVEVO",
+    },
+    {
+      number: 835,
+      artist: "Three Days Grace",
+      title: "Souvenirs",
+      link: "https://www.youtube.com/watch?v=J5dyquROD30&ab_channel=ThreeDaysGraceVEVO",
+    },
+    {
+      number: 836,
+      artist: "Three Days Grace",
+      title: "No Tomorrow",
+      link: "https://www.youtube.com/watch?v=8S8kyKE3h6Q&ab_channel=ThreeDaysGraceVEVO",
+    },
+    {
+      number: 837,
+      artist: "Three Days Grace",
+      title: "Redemption",
+      link: "https://www.youtube.com/watch?v=BY_blQwvWBM&ab_channel=ThreeDaysGraceVEVO",
+    },
+    {
+      number: 838,
+      artist: "Three Days Grace",
+      title: "Champion",
+      link: "https://www.youtube.com/watch?v=g47Hpl2WRiU&ab_channel=ThreeDaysGraceVEVO",
+    },
+    {
+      number: 839,
+      artist: "Three Days Grace",
+      title: "Chain of Abuse",
+      link: "https://www.youtube.com/watch?v=k9Ls6le-OXg&ab_channel=ThreeDaysGraceVEVO",
+    },
+    {
+      number: 840,
+      artist: "Three Days Grace",
+      title: "Someone To Talk To ft. Apocalyptica",
+      link: "https://www.youtube.com/watch?v=BBGKEC1p284&ab_channel=ThreeDaysGraceVEVO",
+    },
+    {
+      number: 841,
+      artist: "Three Days Grace",
+      title: "Explosions",
+      link: "https://www.youtube.com/watch?v=LD5twszj4B8&ab_channel=ThreeDaysGraceVEVO",
+    },
+    {
+      number: 842,
+      artist: "Des Rocs",
+      title: "Ruby With The Sharpest Lies",
+      link: "https://www.youtube.com/watch?v=ML3E1X3VGbY&ab_channel=DesRocs",
+    },
+    {
+      number: 843,
+      artist: "Des Rocs",
+      title: "Imaginary Friends",
+      link: "https://www.youtube.com/watch?v=P_0BHxVr_PU&ab_channel=DesRocs",
+    },
+    {
+      number: 844,
+      artist: "Des Rocs",
+      title: "Let Me Live / Let Me Die",
+      link: "https://www.youtube.com/watch?v=Ozo8LyvS4fE&ab_channel=DesRocs",
+    },
+    {
+      number: 845,
+      artist: "Des Rocs",
+      title: "Why Why Why",
+      link: "https://www.youtube.com/watch?v=lHSt4xkRnCw&ab_channel=DesRocs",
+    },
+    {
+      number: 846,
+      artist: "Des Rocs",
+      title: "Hanging By A Thread",
+      link: "https://www.youtube.com/watch?v=tEklg7nO0Ac&ab_channel=DesRocs",
+    },
+
   ]
 
 const specialSongs = [
