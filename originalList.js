@@ -1712,7 +1712,7 @@ const originalList =
       number: 244,
       artist: "Asking Alexandria",
       title: "The Death of Me",
-      link: "https://www.youtube.com/watch?v=NAmneJw4Qrk",
+      link: "https://www.youtube.com/watch?v=Xl1lS6B9pMc",
     },
 
     {
@@ -5858,9 +5858,9 @@ const originalList =
     },
     {
       number: 846,
-      artist: "Des Rocs",
-      title: "Hanging By A Thread",
-      link: "https://www.youtube.com/watch?v=tEklg7nO0Ac&ab_channel=DesRocs",
+      artist: "Papa Roach",
+      title: "Last Resort",
+      link: "https://www.youtube.com/watch?v=Hm7vnOC4hoY&ab_channel=tysmango",
     },
     {
       number: 847,
@@ -5922,7 +5922,6 @@ const originalList =
       title: "Insurrection",
       link: "https://www.youtube.com/watch?v=BAZEeSf5GPc",
     },
-
   ]
 
 const specialSongs = [
@@ -5987,6 +5986,16 @@ const specialSongs = [
     month: 9,
     date: 31,
     message: "Happy Halloween!"
-  }
+  },
+
+  {
+    artist: "Des Rocs",
+    title: "Hanging By A Thread", // aug 21 song
+    link: "https://www.youtube.com/watch?v=tEklg7nO0Ac&ab_channel=DesRocs",
+    month: 7,
+    date: 21,
+    message: "We got together with my girlfriend on this day."
+  },
+
 
 ]
